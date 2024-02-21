@@ -53,6 +53,14 @@
         </td>
        </tr>
        <tr>
+        <th width=15% class="text-center">닉네임</th>
+        <td width=85% class="inline">
+          <input type=text ref=nickname size=15 class="input-sm" v-model="nickname"
+           name="nickname"
+          >
+        </td>
+       </tr>
+       <tr>
         <th width=15% class="text-center">이름</th>
         <td width=85% class="inline">
           <input type=text ref=userName size=15 class="input-sm" v-model="userName"
@@ -143,6 +151,7 @@
 				  birthday:'',
 				  userId:'',
 				  idOk:'',
+				  nickname:'',
 				  isReadOnly:false
 			  }
 	   },
@@ -150,7 +159,7 @@
 		   submitForm(e){
 				if(this.userId && this.userName && this.userPwd && this.sex
 				   && this.birthday && this.email && this.post && this.addr1
-				   && this.content && this.phone1 && this.phone2 && !this.idOk
+				   && this.content && this.phone1 && this.phone2 && this.nickname && !this.idOk
 				   && !this.pwdOk
 				) 
 				{

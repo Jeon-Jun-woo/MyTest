@@ -30,9 +30,9 @@ public interface MemberMapper {
 	public int memberIdCount(String userid);
 	// => ID중복체크
 	@Insert("INSERT INTO hhfinalMember(userid,username,userpwd,sex,birthday,email,post,"
-			+"addr1,addr2,phone,content) VALUES(#{userId},#{userName},"
+			+"addr1,addr2,phone,content,nickname) VALUES(#{userId},#{userName},"
 			+"#{userPwd},#{sex},#{birthday},#{email},#{post},"
-			+"#{addr1},#{addr2},#{phone},#{content})")
+			+"#{addr1},#{addr2},#{phone},#{content},#{nickname})")
 	public void memberInsert(MemberVO vo);
 	
 	@Insert("INSERT INTO hhfinalAuthority VALUES(#{userId},'ROLE_USER')")
