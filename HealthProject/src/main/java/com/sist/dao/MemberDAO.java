@@ -23,9 +23,9 @@ public class MemberDAO {
 	{
 		mapper.memberInsert(vo);
 	}
-	public void memberauthorityInsert(String userId)
+	public void memberAuthorityInsert(String userId)
 	{
-		mapper.memberauthorityInsert(userId);
+		mapper.memberAuthorityInsert(userId);
 	}
 	public MemberVO memberLogin(String userId,String userPwd)
 	{
@@ -48,5 +48,19 @@ public class MemberDAO {
 			}
 		}
 		return dbVO;
+	}
+	public MemberVO memberInfo(String userId)
+	{
+		MemberVO vo=mapper.memberInfo(userId);
+		return vo;
+	}
+	public MemberVO memberSessionData(String userId)
+	{
+		return mapper.memberSessionData(userId);
+	}
+	   
+	public void lastLoginUpdate(String userId)
+	{
+		mapper.lastLoginUpdate(userId);
 	}
 }

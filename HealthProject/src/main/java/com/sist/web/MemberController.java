@@ -31,12 +31,13 @@ public class MemberController {
 	@PostMapping("member/join_ok.do")
 	public String member_join_ok(MemberVO vo)
 	{
+		System.out.println("정상수행...");
 		System.out.println(encoder.encode("hong1234"));
 		vo.setPhone(vo.getPhone1()+"-"+vo.getPhone2());
 		String enPwd=encoder.encode(vo.getUserPwd()); //암호화
 		vo.setUserPwd(enPwd);
 		mService.memberInsert(vo);
-		mService.memberauthorityInsert(vo.getUserId()); //권한 집어넣기
+		mService.memberAuthorityInsert(vo.getUserId()); //권한 집어넣기
 		return "main";
 	}
 	
@@ -46,10 +47,10 @@ public class MemberController {
 		return "member/login";
 	}
 	
-	@GetMapping("member/logout.do")
+	/*@GetMapping("member/logout.do")
 	public String member_logout(HttpSession session)
 	{
 		session.invalidate();
 		return "redirect:../main/main.do";
-	}
+	}*/
 }

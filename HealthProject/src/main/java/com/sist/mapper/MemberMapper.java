@@ -20,6 +20,7 @@ package com.sist.mapper;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.sist.vo.MemberVO;
 
@@ -36,7 +37,7 @@ public interface MemberMapper {
 	public void memberInsert(MemberVO vo);
 	
 	@Insert("INSERT INTO hhfinalAuthority VALUES(#{userId},'ROLE_USER')")
-	public void memberauthorityInsert(String userId);
+	public void memberAuthorityInsert(String userId);
 	//2. 로그인
 	//1=>ID존재여부 확인
 	// memberIdCount() 재사용
@@ -47,6 +48,22 @@ public interface MemberMapper {
 	     +"AND hfm.userId=#{userId}")
 	public MemberVO memberLogin(String userId);
 	
+	@Select("SELECT hfm.userId,userName,userPwd,enabled,authority "
+			  +"FROM hhfinalMember hfm,hhfinalAuthority ha "
+			  +"WHERE hfm.userId=ha.userId "
+			  +"AND hfm.userId=#{userId}")
+	public MemberVO memberInfo(String userId);
+  
+    @Select("SELECT hfm.userId,userName,sex,email,phone,addr1,addr2,enabled,authority "
+		  +"FROM hhfinalMember hfm,hhfinalAuthority ha "
+		  +"WHERE hfm.userId=ha.userId "
+		  +"AND hfm.userId=#{userId}")
+    public MemberVO memberSessionData(String userId);
+  
+    @Update("UPDATE hhfinalMember SET "
+		  +"lastlogin=SYSDATE "
+		  +"WHERE userId=#{userId}")
+    public void lastLoginUpdate(String userId);
 }
 
 

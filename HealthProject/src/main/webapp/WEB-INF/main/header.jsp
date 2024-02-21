@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<sec:authorize access="isAuthenticated()">
+<sec:authentication property="principal" var="principal"/>
+</sec:authorize>
   <!-- Header Section Begin -->
     <header class="header-section">
         <!-- <div class="header-top">
@@ -61,22 +65,25 @@
                         </div> -->
                     </div>
                     <div class="col-lg-4 text-right col-md-4">
-                       <c:if test="${sessionScope.userId!=null }">
+                       <c:if test="${principal.username!=null }">
                         <ul class="inline">
-				          <li><i class="fa fa-phone"></i>${sessionScope.userName }(${sessionScope.authority=='ROLE_ADMIN'?'관리자':'일반사용자' })</li>
+				          <li><i class="fa fa-phone"></i>${principal.username }( 
+				           <sec:authorize access="hasRole('ROLE_ADMIN')">관리자</sec:authorize>
+         				   <sec:authorize access="hasRole('ROLE_USER')">일반사용자</sec:authorize>
+				          )</li>
 				          <li>님 로그인되었습니다</li>
 				        </ul>
 				       </c:if>
                         <ul class="nav-right">
                             <li class="heart-icon text-center">
-                              <c:if test="${sessionScope.userId==null }">
+                              <c:if test="${principal.username==null }">
                                 <a href="../member/login.do">
                                     <i class="icon_heart_alt"></i>
                                     <span>히</span>
                                 <h6>로그인</h6>
                                 </a>
                               </c:if>
-                              <c:if test="${sessionScope.userId!=null }">
+                              <c:if test="${principal.username!=null }">
                                 <a href="../member/logout.do">
                                     <i class="icon_heart_alt"></i>
                                     <span>히</span>

@@ -25,9 +25,9 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public void memberauthorityInsert(String userId) {
+	public void memberAuthorityInsert(String userId) {
 		// TODO Auto-generated method stub
-			mDao.memberauthorityInsert(userId);
+			mDao.memberAuthorityInsert(userId);
 	}
 
 	@Override
@@ -35,6 +35,25 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return mDao.memberLogin(userId, userPwd);
 	}
+
+	@Override
+	public MemberVO memberInfo(String userId) {
+		// TODO Auto-generated method stub
+		return mDao.memberInfo(userId);
+	}
+
+	@Override
+	public MemberVO memberSessionData(String userId) {
+		// TODO Auto-generated method stub
+		return mDao.memberSessionData(userId);
+	}
+
+	@Override
+	public void lastLoginUpdate(String userId) {
+		// TODO Auto-generated method stub
+		mDao.lastLoginUpdate(userId);
+	}
+	
 	
 	
 }

@@ -5,8 +5,27 @@
 
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://unpkg.com/vue@3"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#logBtn').click(function(){
+		let id=$('#id').val()
+		if(id.trim()==="")
+		{
+			$('#id').focus()
+			return
+		}
+		let pwd=$('#pwd').val()
+		if(pwd.trim()==="")
+		{
+			$('#pwd').focus()
+			return
+		}
+		
+		$('#frm').submit()
+	})
+})
+</script>
 </head>
 
 <body>
@@ -32,36 +51,37 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="login-form">
-                        <h2>Login</h2>
-                        <form action="#">
+                       <h2>Login</h2>
+                       <form method="POST" action="../member/login.do" id="frm">
                             <div class="group-input">
                                 <label for="username">ID</label>
-                                <input type=text name="id" class="input-sm" v-model="id">
+                                <input type=text name="userId" class="input-sm" id="id">
                             </div>
                             <div class="group-input">
                                 <label for="pass">Password</label>
-                                <input type=password name="pwd" class="input-sm" v-model="pwd">
+                                <input type=password name="userPwd" class="input-sm" id="pwd">
                             </div>
                             <div class="group-input gi-check">
                                 <div class="gi-more">
                                     <label for="save-pass">
-                                        아이디 저장
-                                        <input type="checkbox" id="save-pass" name="check" v-model="ck">
+                                        자동 로그인
+                                        <input type="checkbox" id="save-pass" name="remember-me">
                                         <span class="checkmark"></span>
                                     </label>
                                     <a href="#" class="forget-pass">비밀번호 찾기</a>
                                 </div>
                             </div>
                             <button type="submit" class="site-btn login-btn">몰라</button>
-                        </form>
+            
                         <div class="switch-login">
                             <table class="table">
                               <td colspan="2" class="text-center inline">
-				               <input type=button value="로그인" class="btn-danger btn-sm" @click="login()">
+				               <input type=button value="로그인" class="btn-danger btn-sm" id="logBtn">
 				               <input type=button value="취소" class="btn-info btn-sm" onclick="javascript:history.back()">
 				              </td>
                             </table>
                         </div>
+                       </form>
                     </div>
                 </div>
             </div>
@@ -102,7 +122,7 @@
         </div>
     </div>
     <!-- Partner Logo Section End -->
-    <script>
+    <!-- <script>
    let loginApp=Vue.createApp({
 	   data(){
 		   return{
@@ -157,6 +177,6 @@
 		   }
 	   }
    }).mount('#loginApp')
-  </script>
+  </script> -->
 </body>
 </html>
