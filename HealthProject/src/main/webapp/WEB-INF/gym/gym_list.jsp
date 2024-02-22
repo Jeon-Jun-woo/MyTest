@@ -31,8 +31,7 @@ a.link:hover,img.img_click:hover{
 	   				 	</a>
 	  				</div>
      			</div>
-     		<div style="height: 20px"></div>
-     		<div class="row">
+     			<div style="height: 20px"></div>
        			<div class="text-center">
          			<ul class="pagination">
            				<li v-if="startPage>1"><a class="link" @click="prev()">&laquo;</a></li>
@@ -40,9 +39,17 @@ a.link:hover,img.img_click:hover{
            				<li v-if="endPage<totalpage"><a class="link" @click="next()">&raquo;</a></li>
          			</ul>
        			</div>
-     		</div>
+			</div>
 		</div>
-	</div>
+		<div>
+			<h3>최근 방문 맛집</h3>
+	    	<span v-for="vo in cookie_list">
+	    		<a :href="'../gym/gym_list_detail.do?no='+vo.no">
+	    			<img :src="vo.poster" :title="vo.title" style="width: 100px; height: 100px; margin-left: 5px">
+	    		</a>
+	    	</span>
+		</div>
+		<div style="height: 20px"></div>
 	</div>
 	<script>
 	  let gymApp=Vue.createApp({
