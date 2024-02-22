@@ -67,6 +67,11 @@ $(function(){
                                         자동 로그인
                                         <input type="checkbox" id="save-pass" name="remember-me">
                                         <span class="checkmark"></span>
+                                        <table class="table">
+                                        	<tr>
+                                        		<td colspan="2" class="text-center" style="color: red">${message }</td>
+                                        	</tr>
+                                        </table>
                                     </label>
                                     <a href="#" class="forget-pass">비밀번호 찾기</a>
                                 </div>

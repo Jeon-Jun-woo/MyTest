@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +10,7 @@
 </head>
 <body>
 <sec:authorize access="isAuthenticated()">
-<sec:authentication property="principal" var="principal"/>
+	<sec:authentication property="principal" var="principal"/> <!-- 세션 -->
 </sec:authorize>
   <!-- Header Section Begin -->
     <header class="header-section">
@@ -67,9 +67,9 @@
                     <div class="col-lg-4 text-right col-md-4">
                        <c:if test="${principal.username!=null }">
                         <ul class="inline">
-				          <li><i class="fa fa-phone"></i>${principal.username }( 
-				           <sec:authorize access="hasRole('ROLE_ADMIN')">관리자</sec:authorize>
-         				   <sec:authorize access="hasRole('ROLE_USER')">일반사용자</sec:authorize>
+				          <li><i class="fa fa-phone"></i>${sessionScope.member.userName }( <!-- principal.username -->
+				            <sec:authorize access="hasRole('ROLE_ADMIN')">관리자</sec:authorize>
+        					<sec:authorize access="hasRole('ROLE_USER')">일반사용자</sec:authorize>
 				          )</li>
 				          <li>님 로그인되었습니다</li>
 				        </ul>
@@ -180,7 +180,12 @@
                         <li><a href="./shop.html">예약</a>
                         	<ul class="dropdown">
                                 <li><a href="#">회원권</a></li>
-                                <li><a href="#">스포트센터 예약</a></li>
+                                <li><a href="#">스포츠센터 예약</a></li>
+                                <li><a href="../gym/gym_list.do">헬스장 목록</a></li>
+                                <sec:authorize access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">
+                                	<li><a href="../gym/gym_find.do">헬스장 찾기</a></li>
+                                	<li><a href="../freeboard/list.do">자유게시판</a></li>
+                                </sec:authorize>
                             </ul>
                         </li>
                         <li><a href="./blog.html">대회출전권</a></li>
@@ -198,7 +203,7 @@
                                 <li><a href="#">인바디보건소 찾기</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">실시간채팅</a>
+                        <li><a href="../chat/chat.do">실시간채팅</a>
                             <ul class="dropdown">
                                 <li><a href="./blog-details.html">Blog Details</a></li>
                                 <li><a href="./shopping-cart.html">Shopping Cart</a></li>
