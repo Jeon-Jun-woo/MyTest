@@ -64,6 +64,11 @@ public interface MemberMapper {
 		  +"lastlogin=SYSDATE "
 		  +"WHERE userId=#{userId}")
     public void lastLoginUpdate(String userId);
+    
+    @Select("SELECT userId,userName,userPwd,sex,email,phone,addr1,addr2 "
+			  +"FROM hhfinalMember "
+			  +"WHERE userId=#{userId}")
+	public MemberVO memberSessionInfoData(String userId);
 }
 
 

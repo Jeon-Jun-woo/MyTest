@@ -53,6 +53,12 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		mDao.lastLoginUpdate(userId);
 	}
+
+	@Override
+	public MemberVO memberSessionInfoData(String userId) {
+		// TODO Auto-generated method stub
+		return mDao.memberSessionInfoData(userId);
+	}
 	
 	
 	

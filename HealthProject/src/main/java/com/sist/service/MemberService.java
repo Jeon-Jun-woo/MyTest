@@ -10,4 +10,5 @@ public interface MemberService {
 	public MemberVO memberInfo(String userId);
 	public MemberVO memberSessionData(String userId);
 	public void lastLoginUpdate(String userId);
+	public MemberVO memberSessionInfoData(String userId);
 }

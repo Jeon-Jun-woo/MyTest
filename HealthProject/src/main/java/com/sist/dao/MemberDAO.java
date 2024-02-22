@@ -63,4 +63,9 @@ public class MemberDAO {
 	{
 		mapper.lastLoginUpdate(userId);
 	}
+	
+	public MemberVO memberSessionInfoData(String userId)
+	{
+		return mapper.memberSessionInfoData(userId);
+	}
 }
