@@ -68,4 +68,20 @@ public class MemberDAO {
 	{
 		return mapper.memberSessionInfoData(userId);
 	}
+	
+	//선미 추가 부분 (관리자메뉴 - 회원목록)
+	public List<MemberVO> memberListData(Map map)
+	{
+		return mapper.memberListData(map);
+	}
+	
+	public int memberTotalData()
+	{
+		return mapper.memberTotalData();
+	}
+	
+	public MemberVO memberDetailData(String userid)
+	{
+		return mapper.memberDetailData(userid);
+	}
 }

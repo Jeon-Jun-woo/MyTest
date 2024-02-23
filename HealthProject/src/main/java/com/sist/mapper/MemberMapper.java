@@ -18,6 +18,9 @@ package com.sist.mapper;
  * 
  */
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -54,7 +57,7 @@ public interface MemberMapper {
 			  +"AND hfm.userId=#{userId}")
 	public MemberVO memberInfo(String userId);
   
-    @Select("SELECT hfm.userId,userName,sex,email,phone,addr1,addr2,enabled,authority "
+    @Select("SELECT hfm.userId,userName,nickname,sex,email,phone,addr1,addr2,enabled,authority "
 		  +"FROM hhfinalMember hfm,hhfinalAuthority ha "
 		  +"WHERE hfm.userId=ha.userId "
 		  +"AND hfm.userId=#{userId}")
@@ -69,6 +72,23 @@ public interface MemberMapper {
 			  +"FROM hhfinalMember "
 			  +"WHERE userId=#{userId}")
 	public MemberVO memberSessionInfoData(String userId);
+    
+   //선미 추가 부분 (관리자 메뉴) 회원목록
+    @Select("SELECT userId, username, sex, birthday, email, addr1, addr2, phone, TO_CHAR(regdate, 'YYYY-MM-DD HH24:MI:SS') as reg_dbday, somoimno, nickname, num "
+		    + "FROM (SELECT userId, username, sex, birthday, email, addr1, addr2, phone, regdate, somoimno, nickname, rownum as num "
+		    + "FROM (SELECT userId, username, sex, birthday, email, addr1, addr2, phone, regdate, somoimno, nickname "
+		    + "FROM hhfinalMember ORDER BY userid ASC)) "
+		    + "WHERE num BETWEEN #{start} AND #{end}")
+	public List<MemberVO> memberListData(Map map);
+	
+	@Select("SELECT COUNT(*) FROM hhfinalmember")
+	public int memberTotalData();
+	
+	@Select("SELECT userId,userName,userPwd,enabled,sex,birthday,email,post,addr1,addr2,phone,content,"
+		   +"TO_CHAR(regdate, 'YYYY-MM-DD HH24:MI:SS') as reg_dbday,TO_CHAR(modifydate, 'YYYY-MM-DD HH24:MI:SS') as mod_dbday,"
+		   +"TO_CHAR(lastLogin, 'YYYY-MM-DD HH24:MI:SS') as last_dbday,somoimno,somoimadmin,poster,nickname "
+		   +"FROM hhfinalmember WHERE userid=#{userid}")
+	public MemberVO memberDetailData(String userid);
 }
 
 

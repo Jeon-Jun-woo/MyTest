@@ -189,12 +189,12 @@
                             </ul>
                         </li>
                         <li><a href="./blog.html">대회출전권</a></li>
-                        <li><a href="#">소모임</a>
-                            <ul class="dropdown">
+                        <li><a href="../somoim/list.do">소모임</a>
+                            <!-- <ul class="dropdown">
                                 <li><a href="#">모임 참가</a></li>
                                 <li><a href="#">모임 톡방</a></li>
                                 <li><a href="#">커뮤니티</a></li>
-                            </ul>
+                            </ul> -->
                         </li>
                         <li><a href="./contact.html">커뮤니티</a>
                         	<ul class="dropdown">
@@ -213,6 +213,14 @@
                                 <li><a href="./login.html">Login</a></li>
                             </ul>
                         </li>
+                        <%-- <c:if test="${sessionScope.authority=='ROLE_ADMIN'}"> --%>
+                        <li><a href="#">관리자메뉴</a>
+                        	<ul class="dropdown">
+                                <li><a href="../admin/member.do">회원관리</a></li>
+                                <li><a href="./shopping-cart.html">게시판관리</a></li>
+                            </ul>
+                        </li>
+                        <%-- </c:if> --%>
                     </ul>
                 </nav>
                 <div id="mobile-menu-wrap"></div>

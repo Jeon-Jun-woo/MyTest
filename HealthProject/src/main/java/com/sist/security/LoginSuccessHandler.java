@@ -48,6 +48,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler{
 		info.setPhone(vo.getPhone());
 		info.setAddress(vo.getAddr1()+" "+vo.getAddr2());
 		info.setSex(vo.getSex());
+		info.setNickname(vo.getNickname());
 		session.setAttribute("member", info);
 		resultRedirectStrategy(request, response, authentication);
 		

@@ -14,6 +14,25 @@
   <definition name="notice/list" extends="main">
    <put-attribute name="content" value="/WEB-INF/notice/list.jsp"/>
   </definition> -->
+  <definition name="somoim_list" template="/WEB-INF/somoim/somoim_list.jsp">
+    <put-attribute name="header" value="/WEB-INF/main/header.jsp"/>
+    <put-attribute name="list_menu" value="/WEB-INF/somoim/list_menu.jsp"/>
+    <put-attribute name="list" value="/WEB-INF/somoim/list.jsp"/>
+    <put-attribute name="footer" value="/WEB-INF/main/footer.jsp"/>
+  </definition>
+  <definition name="somoim_detail" template="/WEB-INF/somoim/somoim_detail.jsp">
+    <put-attribute name="header" value="/WEB-INF/main/header.jsp"/>
+    <put-attribute name="detail_menu" value="/WEB-INF/somoim/detail_menu.jsp"/>
+    <put-attribute name="detail" value="/WEB-INF/somoim/detail.jsp"/>
+    <put-attribute name="footer" value="/WEB-INF/main/footer.jsp"/>
+  </definition>
+ <definition name="somoim/*" extends="somoim_detail">
+  	<put-attribute name="detail" value="/WEB-INF/somoim/{1}.jsp"/>
+  </definition>
+ <definition name="admin/*" extends="somoim_detail">
+    <put-attribute name="detail_menu" value="/WEB-INF/admin/admin_menu.jsp"/>
+  	<put-attribute name="detail" value="/WEB-INF/admin/{1}.jsp"/>
+  </definition>
   <definition name="*/*" extends="main"> <!--  앞은경로 뒤는 파일명 (메인상태를유지하면서 컨텐트만 바꾸겟다)--> 
     <put-attribute name="content" value="/WEB-INF/{1}/{2}.jsp"></put-attribute>
   </definition>

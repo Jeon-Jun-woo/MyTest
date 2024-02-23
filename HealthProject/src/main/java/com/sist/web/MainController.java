@@ -30,6 +30,7 @@ public class MainController {
 			session.setAttribute("address", vo.getAddr1() + " " + vo.getAddr2());
 			session.setAttribute("phone", vo.getPhone());
 			session.setAttribute("email", vo.getEmail());
+			session.setAttribute("nickName", vo.getNickname());
 		}
 		
 		return "main";

@@ -60,6 +60,24 @@ public class MemberServiceImpl implements MemberService {
 		return mDao.memberSessionInfoData(userId);
 	}
 	
+	//선미 추가 부분 (관리자 메뉴 - 회원목록)
+	@Override
+	public List<MemberVO> memberListData(Map map) {
+		// TODO Auto-generated method stub
+		return mDao.memberListData(map);
+	}
+
+	@Override
+	public int memberTotalData() {
+		// TODO Auto-generated method stub
+		return mDao.memberTotalData();
+	}
+
+	@Override
+	public MemberVO memberDetailData(String userid) {
+		// TODO Auto-generated method stub
+		return mDao.memberDetailData(userid);
+	}
 	
 	
 }
