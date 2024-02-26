@@ -38,7 +38,7 @@ public class NewsManager {
         requestHeaders.put("X-Naver-Client-Id", clientId);
         requestHeaders.put("X-Naver-Client-Secret", clientSecret);
         String responseBody = get(apiURL,requestHeaders);
-        System.out.println(responseBody);
+        //System.out.println(responseBody);
         
         List<NewsVO> list=new ArrayList<NewsVO>();
         try

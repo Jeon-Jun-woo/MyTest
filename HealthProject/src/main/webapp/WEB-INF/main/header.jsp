@@ -148,7 +148,7 @@
                             </li>
 							<li class="cart-price text-center">
                             	<i class="fa fa-user"></i>
-                            	<h6>고객센터</h6>
+                            	<a href="../mypage/jjim.do"><h6>마이페이지</h6></a>
                             </li>
                         </ul>
                     </div>

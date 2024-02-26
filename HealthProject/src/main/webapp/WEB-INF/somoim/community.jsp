@@ -110,7 +110,7 @@
   </div>
   </div>
   <script>
-  let replyApp=Vue.createApp({
+  let SomoimreplyApp=Vue.createApp({
 	  data(){
 		return {
 			scno:${scno},

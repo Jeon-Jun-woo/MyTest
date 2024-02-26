@@ -38,5 +38,13 @@ public interface SomoimService {
 	public int somoimjjimcheck(Map map);
 	public void somoimjjimInsertData(Map map);
 	public void somoimjjimDeleteData(Map map);
+	public void SomoimInsertData(SomoimVO vo);
+	public int SomoimTitleCheck(String title);
+	public int SomoimMakeCheck(String hostname); 
+	public void SomoimJoinData(Map map);
+	public int somoimjoincheck(Map map);
+	public void SomoimExitData(String userId);
+	public List<SomoimVO> somoimJjimListData(Map map);
+	public int SomoimJjimCount(String userId);
 	
 }

@@ -21,7 +21,7 @@
 </head>
 <body>
 
-    <div id="jjimApp" class="row" style="width: 600px;margin-left: 100px;">
+    <div class="row" style="width: 600px;margin-left: 100px;" id="jjimApp" >
         <table>
             <tr>
                 <td>
@@ -143,7 +143,7 @@
                     console.error(error);
                 });
             }
-        },
+        }
     }).mount('#jjimApp');
 </script>
 </body>

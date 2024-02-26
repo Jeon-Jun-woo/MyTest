@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://unpkg.com/vue@3"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <style type="text/css">
 /* WebKit (Chrome, Safari 등)과 Edge */
 ::-webkit-scrollbar {
@@ -33,7 +35,7 @@
 </style>
 </head>
 <body>
-                    <div class="blog-sidebar">
+                    <div class="blog-sidebar" id="togetherSomoimApp">
                         <div class="search-form">
                             <h4>Search</h4>
                             <form action="#">
@@ -52,9 +54,12 @@
                         </div>
                         <table>
 						<tr>
-							<td>
-								<p style="font-size: 15px; font-weight: bold;">가입 멤버<span>(${memberCount })</span></p>
-							</td>
+						    <td class="inline" style="display: flex; align-items: center;">
+						        <p style="font-size: 15px; font-weight: bold; margin-right: 10px;">가입 멤버<span>(${memberCount })</span></p>
+						        <input type=button v-if="!isJoin" value="모임가입하기" style="float: left;" class="btn-danger" @click="SomoimJoin()"></button>
+						        <input type=button v-else value="모임탈퇴하기" style="float: left;" class="btn-danger" @click="SomoimExit()"></button>
+						        
+						    </td>
 						</tr>
 						<tr>
 							<td>
@@ -104,6 +109,75 @@
                         	</a>
                         </div>
                     </div>
+                      <script>
+  let replyApp=Vue.createApp({
+	  data(){
+		return {
+			sno:${sno},
+			isJoin:false
+			}  
+	  },
+	  mounted(){
+		  this.checkJoinStatus();
+	  },
+	  methods:{
+		  checkJoinStatus() {
+              axios.get('../somoim/join_check_vue.do', {
+                  params: {
+                  	sno: this.sno
+                  }
+              }).then(response => {
+                  this.isJoin = response.data > 0;
+              }).catch(error => {
+                  console.error(error);
+              });
+          },
+		  // 추가
+		  SomoimJoin(){
+			  axios.post('../somoim/join_vue.do',null,{
+				  params:{
+					  sno:this.sno
+				  }
+			  }).then(response=>{
+				  console.log(response.data)
+                  if (response.data === 'yes') 
+                  {
+                  	alert("모임에 가입되었습니다")
+                      this.isLiked = true;
+                  	location.href = '../somoim/detail.do?sno='+this.sno;
+                  }
+                  else
+                  {
+                  	alert("오류::모임에 가입하지 못했습니다")
+                  }
+			}).catch(error => {
+                console.error(error);
+            });
+		  },
+		  SomoimExit(){
+			  axios.post('../somoim/exit_vue.do',null,{
+				  params:{
+					  
+				  }
+			  }).then(response=>{
+				  console.log(response.data)
+                  if (response.data === 'yes') 
+                  {
+                  	alert("모임에서 탈퇴하였습니다")
+                    this.isLiked = true;
+                  	location.href = '../somoim/detail.do?sno='+this.sno;
+                  }
+                  else
+                  {
+                  	alert("오류::모임에서 탈퇴하지 못했습니다")
+                  }
+			}).catch(error => {
+                console.error(error);
+            });
+		  }
+	  }
+  }).mount('#togetherSomoimApp')
+  </script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         var imageGallery = document.getElementById("imageGallery");

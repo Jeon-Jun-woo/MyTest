@@ -33,6 +33,10 @@
     <put-attribute name="detail_menu" value="/WEB-INF/admin/admin_menu.jsp"/>
   	<put-attribute name="detail" value="/WEB-INF/admin/{1}.jsp"/>
   </definition>
+  <definition name="mypage/*" extends="somoim_detail">
+    <put-attribute name="detail_menu" value="/WEB-INF/mypage/mypage_menu.jsp"/>
+  	<put-attribute name="detail" value="/WEB-INF/mypage/{1}.jsp"/>
+  </definition>
   <definition name="*/*" extends="main"> <!--  앞은경로 뒤는 파일명 (메인상태를유지하면서 컨텐트만 바꾸겟다)--> 
     <put-attribute name="content" value="/WEB-INF/{1}/{2}.jsp"></put-attribute>
   </definition>

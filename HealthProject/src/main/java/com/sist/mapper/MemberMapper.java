@@ -45,13 +45,13 @@ public interface MemberMapper {
 	//1=>ID존재여부 확인
 	// memberIdCount() 재사용
 	//2=> 비밀번호 검색
-	@Select("SELECT hfm.userId,userName,userPwd,enabled,authority "
+	@Select("SELECT hfm.userId,userName,nickname,userPwd,enabled,authority "
 	     +"FROM hhfinalMember hfm,hhfinalAuthority ha "
 	     +"WHERE hfm.userId=ha.userId "
 	     +"AND hfm.userId=#{userId}")
 	public MemberVO memberLogin(String userId);
 	
-	@Select("SELECT hfm.userId,userName,userPwd,enabled,authority "
+	@Select("SELECT hfm.userId,userName,nickname,userPwd,enabled,authority "
 			  +"FROM hhfinalMember hfm,hhfinalAuthority ha "
 			  +"WHERE hfm.userId=ha.userId "
 			  +"AND hfm.userId=#{userId}")
@@ -68,7 +68,7 @@ public interface MemberMapper {
 		  +"WHERE userId=#{userId}")
     public void lastLoginUpdate(String userId);
     
-    @Select("SELECT userId,userName,userPwd,sex,email,phone,addr1,addr2 "
+    @Select("SELECT userId,userName,nickname,userPwd,sex,email,phone,addr1,addr2 "
 			  +"FROM hhfinalMember "
 			  +"WHERE userId=#{userId}")
 	public MemberVO memberSessionInfoData(String userId);

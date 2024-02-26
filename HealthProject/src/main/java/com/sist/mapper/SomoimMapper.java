@@ -86,17 +86,35 @@ public interface SomoimMapper {
 	
 	//===================================================================
 	//상세보기
+	
+	//조회수증가
 	@Update("UPDATE somoim10 SET "
 	         +"hit=hit+1 "
 	         +"WHERE sno=#{sno}")
 	public void hitIncrement(int sno);
 	
+	// 상세정보
 	@Select("SELECT sno,typee,hit,jjim,hostname,hostposter,title,poster,inwon,content,loc,num "
 			+"FROM (SELECT sno,typee,hit,jjim,hostname,hostposter,title,poster,inwon,content,loc,rownum as num "
 			+"FROM (SELECT sno,typee,hit,jjim,hostname,hostposter,title,poster,inwon,content,loc "
 			+"FROM somoim10 ORDER BY sno ASC)) "
 			+"WHERE sno=#{sno}")
 	public SomoimVO SomoimDetailData(int sno);
+	
+	// 가입하기
+	@Update("UPDATE hhfinalMember "
+		   +"SET somoimno=#{sno}"
+		   +"WHERE userId=#{userId}")
+	public void SomoimJoinData(Map map);
+	
+	// 가입 되어있는지 확인
+	@Select("SELECT COUNT(*) FROM hhfinalMember WHERE userid=#{userId} AND somoimno=#{sno}")
+	public int somoimjoincheck(Map map);
+	
+	// 모임 탈퇴하기
+	@Update("UPDATE hhfinalMember SET somoimno=0"
+		   +"WHERE userId=#{userId}")
+	public void SomoimExitData(String userId);
 	
 	//찜 있는지 확인
 	@Select("SELECT COUNT(*) FROM somoimjjim WHERE userid=#{userId} AND sno=#{sno}")
@@ -138,7 +156,7 @@ public interface SomoimMapper {
 	 @Select("SELECT scno,somoimno,poster,num "
 	 		+"FROM (SELECT scno,somoimno,poster,rownum as num "
 	 		+"FROM (SELECT scno,somoimno,poster "
-	 		+"FROM somoim_community WHERE somoimno=#{somoimno} ORDER BY somoimno ASC)) "
+	 		+"FROM somoim_community WHERE somoimno=#{somoimno} ORDER BY regdate DESC)) "
 	 		+"WHERE num BETWEEN #{start} AND #{end}")
 	 public List<Somoim_communityVO> SomoimCommunityList(Map map);
 	 
@@ -182,6 +200,36 @@ public interface SomoimMapper {
 	// 삭제
 	@Delete("DELETE FROM somoim_communityReply WHERE rno=#{rno}")
 	public void SomoimCommunityReplyDelete(int rno);
-	  
-	 
+	
+	//=====================================================
+	// 소모임 추가하기
+	@Insert("INSERT INTO SOMOIM10 VALUES("
+		   +"smi10_sno_seq.nextval,#{typee},#{hostname},#{hostposter},#{title},#{poster},#{inwon},#{content},#{loc},0,0)")
+	public void SomoimInsertData(SomoimVO vo);
+	
+	
+	@Select("SELECT COUNT(*) FROM SOMOIM10 "
+			+"WHERE title=#{title}")
+	public int SomoimTitleCheck(String title);
+	
+	@Select("SELECT COUNT(*) FROM SOMOIM10 "
+			+"WHERE hostname=#{hostname}")
+	public int SomoimMakeCheck(String hostname);
+	
+	//==================================================================
+	
+	@Select("SELECT * "
+			+ "FROM (SELECT s.sno, s.typee, s.hit, s.jjim, s.hostname, s.title, s.poster, s.inwon, s.content, s.loc,"
+			+ "ROW_NUMBER() OVER (ORDER BY s.sno ASC) AS num "
+			+ "FROM somoim10 s "
+			+ "INNER JOIN somoimjjim j ON s.sno = j.sno "
+			+ "WHERE j.userId = #{userId}) "
+			+ "WHERE num BETWEEN #{start} AND #{end}")
+	public List<SomoimVO> somoimJjimListData(Map map);
+	
+	@Select("SELECT COUNT(*) FROM somoim10 "
+		   +"INNER JOIN somoimjjim ON somoim10.sno = somoimjjim.sno "
+		   +"WHERE somoimjjim.userId = #{userId}")
+	public int SomoimJjimCount(String userId);
+
 }

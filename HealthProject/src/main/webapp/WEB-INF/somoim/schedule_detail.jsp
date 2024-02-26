@@ -16,7 +16,7 @@
 </head>
 <body>
 
-            <div class="row" style="width: 600px;">
+            <div class="row" style="width: 600px;margin-left: 100px;">
             <table>
             	<tr>
             		<td>

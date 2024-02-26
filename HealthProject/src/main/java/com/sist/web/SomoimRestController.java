@@ -1,5 +1,6 @@
 package com.sist.web;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +17,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -80,6 +83,14 @@ public class SomoimRestController {
 	    
 	    return json;
 	}
+	@GetMapping(value="somoim/titlecheck_vue.do",produces = "text/plain;charset=UTF-8")
+	public String somoim_titlecheck(String title)
+	{
+		
+		int count=service.SomoimTitleCheck(title);
+		return String.valueOf(count);
+	}
+	
 	
 	
 	@GetMapping(value="somoim/cookie_vue.do",produces = "text/plain;charset=UTF-8")
@@ -162,8 +173,106 @@ public class SomoimRestController {
 		String json=mapper.writeValueAsString(map);
 		return json;
 	}
+
 	
+	@PostMapping(value="somoim/insert_ok.do", produces="text/plain;charset=UTF-8")
+	public String somoim_insert(SomoimVO vo, @RequestParam("file") MultipartFile file, HttpSession session, HttpServletRequest request) {
+	    String result = "";
+	    try {
+	        // 웹 애플리케이션 내의 업로드 폴더 경로 설정
+	        String uploadDirectory = request.getSession().getServletContext().getRealPath("/upload/");
+	        
+	        // 업로드 폴더가 존재하지 않으면 폴더 생성
+	        File uploadFolder = new File(uploadDirectory);
+	        if (!uploadFolder.exists()) {
+	            uploadFolder.mkdirs(); // 폴더 생성
+	        }
+	        
+	        // 업로드된 파일의 이름 가져오기
+	        String fileName = file.getOriginalFilename();
+	        
+	        // 파일을 지정된 경로에 저장
+	        File saveFile = new File(uploadDirectory, fileName);
+	        file.transferTo(saveFile);
+
+	        // 파일 경로명을 vo.poster에 설정 (URL 형태로 변경)
+	        String imageUrl = request.getContextPath() + "/upload/" + fileName;
+	        vo.setPoster(imageUrl);
+
+	        // 이하 로직은 유지
+	        String userId = (String) session.getAttribute("userId");
+	        MemberVO mvo = Mservice.memberDetailData(userId);
+	        vo.setHostposter(mvo.getPoster());
+	        service.SomoimInsertData(vo);
+
+	        result = "yes";
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        // 오류 처리
+	        result = "no";
+	    }
+	    return result;
+	}
+
 	
+	// 상세보기 =============================================================================
+	@GetMapping(value="somoim/join_check_vue.do", produces= "text/plain;charset=UTF-8")
+	public String somoim_join_check(int sno, HttpSession session) throws Exception 
+	{
+		
+		String userId=(String)session.getAttribute("userId");
+
+		Map map = new HashMap();
+        map.put("userId", userId);
+        map.put("sno", sno);
+        int jjimCount = service.somoimjoincheck(map);
+        
+	    // JSON으로 변경
+	    ObjectMapper mapper = new ObjectMapper();
+	    String json = mapper.writeValueAsString(jjimCount);
+	    return json;
+	    
+	}
+	
+	@PostMapping(value="somoim/join_vue.do", produces= "text/plain;charset=UTF-8")
+	public String somoim_join(int sno, HttpSession session)
+	{
+		String result="no";
+		try
+		{
+			String userId=(String)session.getAttribute("userId");
+			Map map=new HashMap();
+			map.put("userId", userId);
+			map.put("sno", sno);
+			service.SomoimJoinData(map);
+			result="yes";
+		}catch(Exception ex)
+		{
+			result="no";
+		}
+		
+		
+		return result;
+	}
+	@PostMapping(value="somoim/exit_vue.do", produces= "text/plain;charset=UTF-8")
+	public String somoim_exit(HttpSession session) throws Exception
+	{	
+		String result="no";
+		try 
+		{
+			String userId=(String)session.getAttribute("userId");
+	        service.SomoimExitData(userId);
+		    // 찜 삭제 로직을 구현하고 성공적으로 삭제된 경우 메시지를 반환
+	        result="yes";
+		}catch(Exception ex) 
+		{
+			result="no";
+		}
+	    
+        return result;
+	}
+	
+	//===================================
 	@GetMapping(value="somoim/jjim_check_vue.do", produces= "text/plain;charset=UTF-8")
 	public String somoim_jjim_check(int sno, HttpSession session) throws Exception 
 	{

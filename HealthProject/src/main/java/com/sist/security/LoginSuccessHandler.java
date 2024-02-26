@@ -43,7 +43,8 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler{
 		session.setAttribute("sex", vo.getSex());
 		session.setAttribute("address", vo.getAddr1()+" "+vo.getAddr2());
 		session.setAttribute("phone", vo.getPhone());
-		session.setAttribute("email", vo.getEmail());  //여기때매 세션스코프 사용 가능
+		session.setAttribute("email", vo.getEmail());  //여기때매 세션스코프 사용 가능\
+		session.setAttribute("nickName", vo.getNickname());
 		
 		response.sendRedirect("../main/main.do");
 		

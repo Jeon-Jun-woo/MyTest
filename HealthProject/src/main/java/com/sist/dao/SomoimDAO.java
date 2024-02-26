@@ -29,6 +29,15 @@ public class SomoimDAO {
 		return Smapper.somoimTotalPage();
 	}
 	
+	public int SomoimTitleCheck(String title)
+	{
+		return Smapper.SomoimTitleCheck(title);
+	}
+	
+	public int SomoimMakeCheck(String hostname)
+	{
+		return Smapper.SomoimMakeCheck(hostname);
+	}
 	
     public List<SomoimVO> somoimType1List(Map map)
     {
@@ -89,10 +98,26 @@ public class SomoimDAO {
 		Smapper.hitIncrement(sno);
 		return Smapper.SomoimDetailData(sno);
 	}
+	
+	// 가입되어있는지 확인
+	public int somoimjoincheck(Map map)
+	{
+		return Smapper.somoimjoincheck(map);
+	}
+	
+	public void SomoimExitData(String userId)
+	{
+		Smapper.SomoimExitData(userId);
+	}
 
 	public int somoimjjimcheck(Map map)
 	{
 		return Smapper.somoimjjimcheck(map);
+	}
+	
+	public void SomoimJoinData(Map map)
+	{
+		Smapper.SomoimJoinData(map);
 	}
 	
 	public void somoimjjimInsertData(Map map)
@@ -172,6 +197,20 @@ public class SomoimDAO {
 		 return Smapper.SomoimReplyPoster(writerid);
 	 }
 	 
+	 //소모임 추가
+	 public void SomoimInsertData(SomoimVO vo)
+	 {
+		  Smapper.SomoimInsertData(vo);
+	 }
+	 
+	 public List<SomoimVO> somoimJjimListData(Map map)
+	 {
+		 return Smapper.somoimJjimListData(map);
+	 }
+	 public int SomoimJjimCount(String userId)
+	 {
+		 return Smapper.SomoimJjimCount(userId);
+	 }
 	 
 	 
 }

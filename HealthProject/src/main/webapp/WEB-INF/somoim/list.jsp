@@ -21,6 +21,13 @@ a.alink:hover{
 <body>
 	<div class="list" id="listApp">
                 <div class="row">
+                		<div class="col-lg-12 text-right">
+	                		<a href="../somoim/insert.do">
+	                			<button class="button">소모임 만들기</button>
+	                		</a>
+                		</div>
+                		<br>
+                		<br>
                         <div class="col-lg-6 col-sm-6" v-for="vo in somoim_list">
                             <div class="blog-item">
                                 <div class="bi-pic">

@@ -187,6 +187,56 @@ public class SomoimServiceImpl implements SomoimService {
 		dao.somoimjjimDeleteData(map);
 	}
 
+	@Override
+	public void SomoimInsertData(SomoimVO vo) {
+		// TODO Auto-generated method stub
+		dao.SomoimInsertData(vo);
+	}
+
+	@Override
+	public int SomoimTitleCheck(String title) {
+		// TODO Auto-generated method stub
+		return dao.SomoimTitleCheck(title);
+	}
+
+	@Override
+	public int SomoimMakeCheck(String hostname) {
+		// TODO Auto-generated method stub
+		return dao.SomoimMakeCheck(hostname);
+	}
+
+	@Override
+	public void SomoimJoinData(Map map) {
+		// TODO Auto-generated method stub
+		dao.SomoimJoinData(map);
+	}
+
+	@Override
+	public int somoimjoincheck(Map map) {
+		// TODO Auto-generated method stub
+		return dao.somoimjoincheck(map);
+	}
+
+	@Override
+	public void SomoimExitData(String userId) {
+		// TODO Auto-generated method stub
+		dao.SomoimExitData(userId);
+	}
+
+	
+	@Override
+	public List<SomoimVO> somoimJjimListData(Map map) {
+		// TODO Auto-generated method stub
+		return dao.somoimJjimListData(map);
+	}
+
+	@Override
+	public int SomoimJjimCount(String userId) {
+		// TODO Auto-generated method stub
+		return dao.SomoimJjimCount(userId);
+	}
+
+	
 	
 
 	

@@ -1,14 +1,24 @@
 package com.sist.web;
 
 import org.apache.commons.collections.map.HashedMap;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
+import javax.inject.Qualifier;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,14 +26,23 @@ import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
 import com.sist.service.*;
+
 import com.sist.vo.*;
+
+import lombok.Value;
 
 
 @Controller
 public class SomoimController {
+
 	@Autowired
 	private SomoimService service;
 	
+	@Autowired
+	private MemberService mService;
+	
+	
+
 	@GetMapping("somoim/list.do")
 	public String somoim_list(String type,Model model)
 	{
@@ -32,8 +51,81 @@ public class SomoimController {
 			type="0";
 		}
 		model.addAttribute("type", type);
+		
+		    
+		
 		return "somoim_list";
 	}
+	
+	@GetMapping("somoim/insert.do")
+	public String somoim_insert(String type, Model model, HttpSession session) throws Exception {
+	    
+
+	    // 세션에서 회원 정보 가져오기
+	    String nickName = (String) session.getAttribute("nickName");
+	    model.addAttribute("nickName", nickName); 
+	    
+	    // 파일 업로드 후 이동할 페이지 리턴
+	    return "somoim/insert";
+	}
+
+
+//	@PostMapping("somoim/insert_ok.do")
+//    public String somoim_insert_ok(SomoimVO vo, HttpSession session,HttpServletRequest request)  
+//	{
+//		   String result="";
+//		   try
+//		   {
+//			   String path=request.getSession().getServletContext().getRealPath("/")+"upload\\";
+//			   path=path.replace("\\", File.separator);// 운영체제의 호환 
+//			   // Hosting => AWS(리눅스)
+//			   File dir=new File(path);
+//			   if(!dir.exists())
+//			   {
+//				   dir.mkdir();
+//			   }
+//			
+//			   MultipartFile list=vo.getVOfile();//임시 저장
+//			   if(list==null) // 업로드가 없는 상태
+//			   {
+//				   
+//				   vo.setPoster(" ");
+//			   }
+//			   else //업로드가 있는 상태 
+//			   {
+////				   String filename="";
+////				   String filesize="";
+//				   
+//					   String name=list.getOriginalFilename();
+//					   File file=new File(path+name);
+//					   list.transferTo(file);//  업로드
+//					   
+////					   filename+=name+",";// a.jpg,b.jpg,
+////					   filesize+=file.length()+",";
+//				   
+////				   filename=filename.substring(0,filename.lastIndexOf(","));
+////				   filesize=filesize.substring(0,filesize.lastIndexOf(","));
+//				
+//				   String fileloc=path+"/"+name;
+//				   vo.setPoster(fileloc);
+//				   
+//			   }
+//			   result="yes";
+//		   }catch(Exception ex)
+//		   {
+//			   result=ex.getMessage();   
+//		   }
+//
+//        // 기타 로직...
+//        String userId = (String) session.getAttribute("userId");
+//        MemberVO mvo = mService.memberDetailData(userId);
+//        vo.setHostposter(mvo.getPoster());
+//        service.SomoimInsertData(vo);
+//        return result;
+//    }
+
+	
+	
 	
 	@GetMapping("somoim/before_detail.do")
 	   public String somoim_before_detail(int sno,RedirectAttributes ra,
@@ -220,11 +312,7 @@ public class SomoimController {
 		String Userid=(String)session.getAttribute("Userid");
 		model.addAttribute("Userid", Userid);
 		model.addAttribute("scno", scno);
-		
-		
-		
-		
-		
+
 		return "somoim/community";
 	}
 }
