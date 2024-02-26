@@ -36,21 +36,16 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler{
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 			Authentication authentication) throws IOException, ServletException {
 		// TODO Auto-generated method stub
+		MemberVO vo=mService.memberSessionInfoData(authentication.getName());
 		HttpSession session=request.getSession();
+		session.setAttribute("userId", vo.getUserId());
+		session.setAttribute("userName", vo.getUserName());
+		session.setAttribute("sex", vo.getSex());
+		session.setAttribute("address", vo.getAddr1()+" "+vo.getAddr2());
+		session.setAttribute("phone", vo.getPhone());
+		session.setAttribute("email", vo.getEmail());  //여기때매 세션스코프 사용 가능
 		
-		mService.lastLoginUpdate(authentication.getName());
-		
-		MemberVO vo=mService.memberSessionData(authentication.getName());
-		SessionInfo info=new SessionInfo();
-		info.setUserId(vo.getUserId());
-		info.setUserName(vo.getUserName());
-		info.setEmail(vo.getEmail());
-		info.setPhone(vo.getPhone());
-		info.setAddress(vo.getAddr1()+" "+vo.getAddr2());
-		info.setSex(vo.getSex());
-		info.setNickname(vo.getNickname());
-		session.setAttribute("member", info);
-		resultRedirectStrategy(request, response, authentication);
+		response.sendRedirect("../main/main.do");
 		
 		// response.sendRedirect("../main/main.do")
 	}
