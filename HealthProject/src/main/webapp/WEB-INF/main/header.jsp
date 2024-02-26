@@ -172,9 +172,11 @@
                     <ul>
                         <li class="active"><a href="./index.html">운동/건강</a>
                         	<ul class="dropdown">
-                                <li><a href="#">운동별 소모 칼로리</a></li>
-                                <li><a href="#">음식 칼로리</a></li>
-                                <li><a href="#">칼로리 처방 받기</a></li>
+                        	    <li><a href="../training/training_list.do">부위별 운동</a></li>
+                                <li><a href="../exercise/exercise_list.do">운동별 소모 칼로리</a></li>
+                                <li><a href="../exercise/exercise_find.do">운동칼로리 찾기</a></li>
+                                <li><a href="../food/food_list.do">음식 칼로리</a></li>
+                                <li><a href="../food/food_find.do">음식칼로리 찾기</a></li>
                             </ul>
                         </li>
                         <li><a href="./shop.html">예약</a>
