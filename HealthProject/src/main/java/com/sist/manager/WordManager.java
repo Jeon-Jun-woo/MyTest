@@ -27,7 +27,7 @@ public class WordManager {
 	   // print result
 	   for( int i = 0; i < kl.size(); i++ ) {
 	   	Keyword kwrd = kl.get(i);
-	   	System.out.println(kwrd.getString() + "\t" + kwrd.getCnt());
+	   	//System.out.println(kwrd.getString() + "\t" + kwrd.getCnt());
 	   	if(kwrd.getString().length()>1 && kwrd.getCnt()>1)
 	   	{
 	   		WordVO vo=new WordVO();

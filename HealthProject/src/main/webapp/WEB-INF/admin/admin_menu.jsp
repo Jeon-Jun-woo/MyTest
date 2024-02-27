@@ -26,11 +26,10 @@
                                 <li><a href="#">회원관리</a></li>
                                 <li><a href="#">찜목록</a></li>
                                 <li><a href="#">게시판 관리</a></li>
-                                <li><a href="#">볼링/탁구/테니스</a></li>
                             </ul>
                         </div>
                       <script type="text/javascript">
-				      /* google.charts.load("current", {packages:["corechart"]});
+				       google.charts.load("current", {packages:["corechart"]});
 				      google.charts.setOnLoadCallback(drawChart);
 				      function drawChart() {
 				        var data = google.visualization.arrayToDataTable([
@@ -41,14 +40,14 @@
 				        ]);
 				
 				        var options = {
-				          title: '내용분석',
+				          title: '가입한 소모임 비율',
 				          is3D: true,
 				        };
 				
 				        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
 				        chart.draw(data, options);
-				      } */
-				      google.charts.load('current', {packages: ['corechart', 'bar']});
+				      } 
+				     /*  google.charts.load('current', {packages: ['corechart', 'bar']});
 				      google.charts.setOnLoadCallback(drawBasic);
 
 				      function drawBasic() {
@@ -60,7 +59,7 @@
 						          </c:forEach>
 						        ]);
 				            var options = {
-				              title: '가입한 소모임 분류',
+				              title: '',
 				              chartArea: {width: '50%'},
 				              hAxis: {
 				            	  title: '가입한 소모임 분류',
@@ -71,9 +70,10 @@
 				            var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
 
 				            chart.draw(data, options);
-				          }
+				          } */
     					</script>
-    				<div id="chart_div" style="width: 389px; height: 500px;margin-left: -70px;margin-top: -20px;"></div> 
+    				<!-- <div id="chart_div" style="width: 389px; height: 500px;margin-left: -109px;margin-top: -50px;"></div>  -->
+    				<div id="piechart_3d" style="width: 389px; height: 500px;margin-left: -75px;margin-top: -50px;"></div> 
                         <!-- <div class="blog-tags">
                             <h4>Product Tags</h4>
                             <div class="tag-item">

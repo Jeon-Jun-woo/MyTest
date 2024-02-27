@@ -29,6 +29,6 @@ public class MemberVO {
    
    //소모임용
    private int somoimno,somoimadmin;
-   private String poster,nickname;
+   private String poster,nickname,title,typee;
    
 }

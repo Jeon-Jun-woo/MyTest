@@ -23,33 +23,37 @@ a.alink:hover{
                             <h3>회원관리</h3>
                             	<tr>
                             		<td style="margin: 0px auto;">번호</td>
-                            		<td>이름</td>
-                            		<td>아이디</td>
+                            		<td class="text-center">이름</td>
+                            		<td class="text-center">아이디</td>
                             		
-                            		<td>닉네임</td>
-                            		<td>성별</td>
-                            		<td>연락처</td>
-                            		<td>마지막 로그인</td>
+                            		<td class="text-center">닉네임</td>
+                            		<td class="text-center">성별</td>
+                            		<td class="text-center">연락처</td>
+                            		<td class="text-center">마지막 로그인</td>
                             		<td>권한</td>
-                            		<td>회원상세보기</td>
+                            		<td></td>
+                            		<td style="margin-left: -40px;">회원상세보기</td>
                             	</tr>
 	                            	<tr v-for="(mvo,index) in member_list">
-	                            		<td>{{ index + 1 }}</td>
-	                            		<td>{{mvo.userName}}</td>
-	                            		<td>{{mvo.userId}}</td>
+	                            		<td class="text-center">{{ index + 1 }}</td>
+	                            		<td class="text-center">{{mvo.userName}}</td>
+	                            		<td class="text-center">{{mvo.userId}}</td>
 	                            		
-	                            		<td>{{mvo.nickname}}</td>
-	                            		<td>{{mvo.sex}}</td>
-	                            		<td>{{mvo.phone}}</td>
-	                            		<td>{{mvo.reg_dbday}}</td>
+	                            		<td class="text-center">{{mvo.nickname}}</td>
+	                            		<td class="text-center">{{mvo.sex}}</td>
+	                            		<td class="text-center">{{mvo.phone}}</td>
+	                            		<td class="text-center">{{mvo.reg_dbday}}</td>
 	                            		<td>
 										    <div style="display: flex; align-items: center;">
 										        <select class="input-sm" style="margin-right: 10px;" v-model="mvo.authority">
-    <option :selected="mvo.authority === 'ROLE_ADMIN' ? true : false" value="ROLE_ADMIN">ROLE_ADMIN</option>
-    <option :selected="mvo.authority === 'ROLE_USER' ? true : false" value="ROLE_USER">ROLE_USER</option>
-</select>
-<div class="btn-sm btn-success" style="width: 50px; height: 30px;" @click="applyAuthority(mvo.userId)">적용</div>
-										    </div>
+												    <option :selected="mvo.authority === 'ROLE_ADMIN' ? true : false" value="ROLE_ADMIN">ROLE_ADMIN</option>
+												    <option :selected="mvo.authority === 'ROLE_USER' ? true : false" value="ROLE_USER">ROLE_USER</option>
+												</select>
+											</div>
+										</td>
+										<td>	
+												<div class="btn-sm btn-success" style="width: 50px; height: 30px; margin-left: -65px;" @click="applyAuthorityChange(mvo.userId)">적용</div>
+										    
 										</td>
 	                            		<td>
 	                            				<div class="btn-sm btn-info" style="width: 80px;height: 30px;" @click="detail(mvo.userId)">상세보기</div>
@@ -80,7 +84,7 @@ a.alink:hover{
 	  template:`<h3 class="text-center">회원 상세보기</h3>
 	            <table class="table">
 		            <tr>
-		              <td width=30% class="text-center" rowspan="11">
+		              <td width=30% class="text-center" rowspan="12">
 		                <img :src="member_detail.poster" style="width:100%">
 		              </td>
 		              <td colspan="2">
@@ -126,6 +130,10 @@ a.alink:hover{
 		            <tr>
 		              <th width="20%">마지막 로그인</th>
 		              <td width="50%">{{member_detail.last_dbday}}</td>
+		            </tr>
+		            <tr>
+		              <th width="20%">가입한 소모임</th>
+		              <td width="50%">[{{member_detail.typee}}]&nbsp;{{member_detail.title}}</td>
 		            </tr>
 	            </table>
 	           `
@@ -222,7 +230,7 @@ a.alink:hover{
 		            }).dialog("open")
 		        })
 		    },
-		    applyAuthority(userId) {
+		    applyAuthorityChange(userId) {
 		        // 해당 userId를 가진 mvo를 찾아서 처리
 		        const mvo = this.member_list.find(item => item.userId === userId);
 		        if (!mvo) {
@@ -250,7 +258,7 @@ a.alink:hover{
 		            console.error(error);
 		        });
 		    }
-		},
+	  },
 	  components:{
 		  // 상세보기 => dialog
 		  'detail_dialog':detailComponent

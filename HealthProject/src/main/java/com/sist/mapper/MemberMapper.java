@@ -74,20 +74,32 @@ public interface MemberMapper {
 	public MemberVO memberSessionInfoData(String userId);
     
    //선미 추가 부분 (관리자 메뉴) 회원목록
-    @Select("SELECT userId, username, sex, birthday, email, addr1, addr2, phone, TO_CHAR(regdate, 'YYYY-MM-DD HH24:MI:SS') as reg_dbday, somoimno, nickname, num "
-		    + "FROM (SELECT userId, username, sex, birthday, email, addr1, addr2, phone, regdate, somoimno, nickname, rownum as num "
-		    + "FROM (SELECT userId, username, sex, birthday, email, addr1, addr2, phone, regdate, somoimno, nickname "
-		    + "FROM hhfinalMember ORDER BY userid ASC)) "
-		    + "WHERE num BETWEEN #{start} AND #{end}")
+    @Select("SELECT userId, username, sex, birthday, email, addr1, addr2, phone, reg_dbday, somoimno, nickname, authority, num "
+    		+ "FROM (SELECT m.userId, m.username, m.sex, m.birthday, m.email, m.addr1, m.addr2, m.phone, TO_CHAR(m.regdate, 'YYYY-MM-DD HH24:MI:SS') as reg_dbday, m.somoimno, m.nickname, authority, rownum AS num "
+    		+ "FROM (SELECT m.userId, m.username, m.sex, m.birthday, m.email, m.addr1, m.addr2, m.phone, m.regdate, m.somoimno, m.nickname "
+    		+ "FROM hhfinalMember m "
+    		+ "ORDER BY m.userId ASC) m "
+    		+ "INNER JOIN hhfinalAuthority a ON m.userId = a.userId) "
+    		+ "WHERE num BETWEEN #{start} AND #{end}")
 	public List<MemberVO> memberListData(Map map);
 	
 	@Select("SELECT COUNT(*) FROM hhfinalmember")
 	public int memberTotalData();
 	
-	@Select("SELECT userId,userName,userPwd,enabled,sex,birthday,email,post,addr1,addr2,phone,content,"
-		   +"TO_CHAR(regdate, 'YYYY-MM-DD HH24:MI:SS') as reg_dbday,TO_CHAR(modifydate, 'YYYY-MM-DD HH24:MI:SS') as mod_dbday,"
-		   +"TO_CHAR(lastLogin, 'YYYY-MM-DD HH24:MI:SS') as last_dbday,somoimno,somoimadmin,poster,nickname "
-		   +"FROM hhfinalmember WHERE userid=#{userid}")
+	/*
+	 * @Select("SELECT userId,userName,userPwd,enabled,sex,birthday,email,post,addr1,addr2,phone,content,"
+	 * +"TO_CHAR(regdate, 'YYYY-MM-DD HH24:MI:SS') as reg_dbday,TO_CHAR(modifydate, 'YYYY-MM-DD HH24:MI:SS') as mod_dbday,"
+	 * +"TO_CHAR(lastLogin, 'YYYY-MM-DD HH24:MI:SS') as last_dbday,somoimno,somoimadmin,poster,nickname "
+	 * +"FROM hhfinalmember WHERE userid=#{userid}") public MemberVO
+	 * memberDetailData(String userid);
+	 */
+	
+	@Select("SELECT h.userId,h.userName,h.userPwd,h.enabled,h.sex,h.birthday,h.email,post,addr1,addr2,phone,h.content, "
+			+ "TO_CHAR(regdate, 'YYYY-MM-DD HH24:MI:SS') as reg_dbday,TO_CHAR(modifydate, 'YYYY-MM-DD HH24:MI:SS') as mod_dbday, "
+			+ "TO_CHAR(lastLogin, 'YYYY-MM-DD HH24:MI:SS') as last_dbday,somoimno,somoimadmin,h.poster,nickname,s.title,s.typee "
+			+ "FROM hhfinalmember h "
+			+ "INNER JOIN somoim10 s ON h.somoimno = s.sno "
+			+ "WHERE userid=#{userid}")
 	public MemberVO memberDetailData(String userid);
 	
 	//회원 권한 확인
