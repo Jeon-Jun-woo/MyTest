@@ -157,7 +157,7 @@
         </div>
         <div class="nav-item">
             <div class="container">
-                <div class="nav-depart">
+               <!--  <div class="nav-depart">
                     <div class="depart-btn">
                         
                         <span>스토어</span>
@@ -167,52 +167,56 @@
 
                         </ul>
                     </div>
-                </div>
-                <nav class="nav-menu mobile-menu">
+                </div> -->
+               <nav class="nav-menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="./index.html">운동/건강</a>
+                        <li><a href="#">Health Info</a>
                         	<ul class="dropdown">
                         	    <li><a href="../training/training_list.do">부위별 운동</a></li>
                                 <li><a href="../exercise/exercise_list.do">운동별 소모 칼로리</a></li>
                                 <li><a href="../exercise/exercise_find.do">운동칼로리 찾기</a></li>
                                 <li><a href="../food/food_list.do">음식 칼로리</a></li>
                                 <li><a href="../food/food_find.do">음식칼로리 찾기</a></li>
+                                <li><a href="#">인바디보건소 찾기</a></li>
                             </ul>
                         </li>
-                        <li><a href="./shop.html">예약</a>
+                        <li><a href="#">Reservation</a>
                         	<ul class="dropdown">
                                 <li><a href="#">회원권</a></li>
                                 <li><a href="#">스포츠센터 예약</a></li>
                                 <li><a href="../gym/gym_list.do">헬스장 목록</a></li>
+                                <li><a href="#">요가/필라테스 목록</a></li>
                                 <sec:authorize access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">
                                 	<li><a href="../gym/gym_find.do">헬스장 찾기</a></li>
                                 	<li><a href="../freeboard/list.do">자유게시판</a></li>
                                 </sec:authorize>
                             </ul>
                         </li>
-                        <li><a href="./blog.html">대회출전권</a></li>
-                        <li><a href="../somoim/list.do">소모임</a>
+                        <li><a href="../somoim/list.do">Somoim</a>
                             <!-- <ul class="dropdown">
                                 <li><a href="#">모임 참가</a></li>
                                 <li><a href="#">모임 톡방</a></li>
                                 <li><a href="#">커뮤니티</a></li>
                             </ul> -->
-                        </li>
-                        <li><a href="./contact.html">커뮤니티</a>
+                            </li>
+                         <li><a href="#">STORE</a>
+                    	   <ul class="dropdown">
+                    		<li class="active"><a href="../wshop/wshop_list.do">우먼즈</a></li>
+                        	<li><a href="../mshop/mshop_list.do">맨즈</a></li>
+                         	<li><a href="#">영양제/보조제</a></li>
+                         </ul>
+                       </li>
+                        <li><a href="#">Community</a>
                         	<ul class="dropdown">
                                 <li><a href="#">공지사항</a></li>
                                 <li><a href="#">자유게시판</a></li>
-                                <li><a href="#">인바디보건소 찾기</a></li>
                             </ul>
+                        </li>
                         </li>
                         <li><a href="../chat/chat.do">실시간채팅</a>
                             <ul class="dropdown">
                                 <li><a href="./blog-details.html">Blog Details</a></li>
                                 <li><a href="./shopping-cart.html">Shopping Cart</a></li>
-                                <li><a href="./check-out.html">Checkout</a></li>
-                                <li><a href="./faq.html">Faq</a></li>
-                                <li><a href="./register.html">Register</a></li>
-                                <li><a href="./login.html">Login</a></li>
                             </ul>
                         </li>
                         <%-- <c:if test="${sessionScope.authority=='ROLE_ADMIN'}"> --%>
