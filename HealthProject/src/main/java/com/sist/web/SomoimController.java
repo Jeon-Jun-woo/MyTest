@@ -68,63 +68,6 @@ public class SomoimController {
 	    // 파일 업로드 후 이동할 페이지 리턴
 	    return "somoim/insert";
 	}
-
-
-//	@PostMapping("somoim/insert_ok.do")
-//    public String somoim_insert_ok(SomoimVO vo, HttpSession session,HttpServletRequest request)  
-//	{
-//		   String result="";
-//		   try
-//		   {
-//			   String path=request.getSession().getServletContext().getRealPath("/")+"upload\\";
-//			   path=path.replace("\\", File.separator);// 운영체제의 호환 
-//			   // Hosting => AWS(리눅스)
-//			   File dir=new File(path);
-//			   if(!dir.exists())
-//			   {
-//				   dir.mkdir();
-//			   }
-//			
-//			   MultipartFile list=vo.getVOfile();//임시 저장
-//			   if(list==null) // 업로드가 없는 상태
-//			   {
-//				   
-//				   vo.setPoster(" ");
-//			   }
-//			   else //업로드가 있는 상태 
-//			   {
-////				   String filename="";
-////				   String filesize="";
-//				   
-//					   String name=list.getOriginalFilename();
-//					   File file=new File(path+name);
-//					   list.transferTo(file);//  업로드
-//					   
-////					   filename+=name+",";// a.jpg,b.jpg,
-////					   filesize+=file.length()+",";
-//				   
-////				   filename=filename.substring(0,filename.lastIndexOf(","));
-////				   filesize=filesize.substring(0,filesize.lastIndexOf(","));
-//				
-//				   String fileloc=path+"/"+name;
-//				   vo.setPoster(fileloc);
-//				   
-//			   }
-//			   result="yes";
-//		   }catch(Exception ex)
-//		   {
-//			   result=ex.getMessage();   
-//		   }
-//
-//        // 기타 로직...
-//        String userId = (String) session.getAttribute("userId");
-//        MemberVO mvo = mService.memberDetailData(userId);
-//        vo.setHostposter(mvo.getPoster());
-//        service.SomoimInsertData(vo);
-//        return result;
-//    }
-
-	
 	
 	
 	@GetMapping("somoim/before_detail.do")
@@ -148,6 +91,10 @@ public class SomoimController {
 		model.addAttribute("vo", vo);
 		model.addAttribute("sno", sno); // "sno" 값을 Model에 추가
 		System.out.println("컨트롤 디테일 sno의 값:"+sno);
+		
+		String userId=(String)session.getAttribute("userId");
+		MemberVO mvo=mService.memberDetailData(userId);
+		model.addAttribute("somoimno", mvo.getSomoimno());
 		
 		if(page==null)
 			page="1";
@@ -177,25 +124,20 @@ public class SomoimController {
 		List<Somoim_communityVO> cList=service.SomoimCommunityList(map);
 		model.addAttribute("cList", cList);
 		
-		//찜하기
 		
-//		String Userid=(String)session.getAttribute("userId");
-//		
-//		Map map2=new HashMap();
-//		
-//		map2.put("Userid", Userid);
-//		map2.put("sno", sno);
-//		
-//		int jjimcheck=service.somoimjjimcheck(map2);
-//		model.addAttribute("map2",map2);
 		return "somoim_detail";
 	}
 	
 	@GetMapping("somoim/schedule_detail.do")
-	public String somoim_schedule_detail(String page,int sno,int ssdno,Model model)
+	public String somoim_schedule_detail(String page,int sno,int ssdno,Model model,HttpSession session)
 	{
-		SomoimVO lvo=service.SomoimDetailData(sno);
+		SomoimVO vo=service.SomoimDetailData(sno);
 		model.addAttribute("sno", sno);
+		model.addAttribute("vo", vo);
+		
+		String userId=(String)session.getAttribute("userId");
+		MemberVO mvo=mService.memberDetailData(userId);
+		model.addAttribute("somoimno", mvo.getSomoimno());
 		
 		if(page==null)
 			page="1";
@@ -215,8 +157,8 @@ public class SomoimController {
 		List<Somoim_scheduleVO> scheduleList=service.ScheduleListData(map);
 		model.addAttribute("scheduleList", scheduleList);
 		
-		Somoim_scheduleVO vo=service.ScheduleDetailData(ssdno);
-		model.addAttribute("vo",vo);
+		Somoim_scheduleVO svo=service.ScheduleDetailData(ssdno);
+		model.addAttribute("svo",svo);
 		
 		// 멤버
 		List<MemberVO> mList=service.ScheduleJoinMember(sno);
@@ -233,10 +175,15 @@ public class SomoimController {
 	}
 	
 	@GetMapping("somoim/chat.do")
-	public String somoim_chat(String page,int sno,Model model)
+	public String somoim_chat(String page,int sno,Model model,HttpSession session)
 	{
-		SomoimVO lvo=service.SomoimDetailData(sno);
+		SomoimVO vo=service.SomoimDetailData(sno);
 		model.addAttribute("sno", sno);
+		model.addAttribute("vo", vo);
+		
+		String userId=(String)session.getAttribute("userId");
+		MemberVO mvo=mService.memberDetailData(userId);
+		model.addAttribute("somoimno", mvo.getSomoimno());
 		
 		if(page==null)
 			page="1";
@@ -273,9 +220,13 @@ public class SomoimController {
 	public String somoim_community(String page, int sno, int scno,Model model,HttpSession session)
 	{
 		
-		SomoimVO lvo=service.SomoimDetailData(sno);
+		SomoimVO vo=service.SomoimDetailData(sno);
 		model.addAttribute("sno", sno);
+		model.addAttribute("vo", vo);
 		
+		String userId=(String)session.getAttribute("userId");
+		MemberVO mvo=mService.memberDetailData(userId);
+		model.addAttribute("somoimno", mvo.getSomoimno());
 		
 		if(page==null)
 			page="1";

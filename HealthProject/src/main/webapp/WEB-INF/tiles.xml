@@ -27,6 +27,7 @@
     <put-attribute name="footer" value="/WEB-INF/main/footer.jsp"/>
   </definition>
  <definition name="somoim/*" extends="somoim_detail">
+ 	<put-attribute name="detail_menu" value="/WEB-INF/somoim/detail_menu2.jsp"/>
   	<put-attribute name="detail" value="/WEB-INF/somoim/{1}.jsp"/>
   </definition>
  <definition name="admin/*" extends="somoim_detail">

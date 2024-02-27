@@ -31,6 +31,8 @@ public class MainController {
 			session.setAttribute("phone", vo.getPhone());
 			session.setAttribute("email", vo.getEmail());
 			session.setAttribute("nickName", vo.getNickname());
+			session.setAttribute("somoimno", vo.getSomoimno());
+			session.setAttribute("authority", vo.getAuthority());
 		}
 		
 		return "main";

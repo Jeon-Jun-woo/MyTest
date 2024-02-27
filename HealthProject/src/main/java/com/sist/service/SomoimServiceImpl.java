@@ -236,13 +236,11 @@ public class SomoimServiceImpl implements SomoimService {
 		return dao.SomoimJjimCount(userId);
 	}
 
-	
-	
+	@Override
+	public String somoimTypeeCheck(int somoimno) {
+		// TODO Auto-generated method stub
+		return dao.somoimTypeeCheck(somoimno);
+	}
 
-	
-
-	
-
-	
 
 }

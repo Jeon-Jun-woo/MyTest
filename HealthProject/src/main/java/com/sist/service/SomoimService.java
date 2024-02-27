@@ -46,5 +46,6 @@ public interface SomoimService {
 	public void SomoimExitData(String userId);
 	public List<SomoimVO> somoimJjimListData(Map map);
 	public int SomoimJjimCount(String userId);
+	public String somoimTypeeCheck(int somoimno);
 	
 }

@@ -21,7 +21,7 @@
             	<tr>
             		<td>
 			            <div class="bi-pic">
-			            	<img src="${vo.poster}" style="width:600px;height: 350px;">
+			            	<img src="${svo.poster}" style="width:600px;height: 350px;">
 			            </div>
 		            </td>
 	            </tr>
@@ -30,7 +30,7 @@
 			    </tr>
 			    <tr>
 			        <td>
-			            <span style="font-weight: bold; font-size: 25px;">${vo.title}</span>
+			            <span style="font-weight: bold; font-size: 25px;">${svo.title}</span>
 			        </td>
 			    </tr>
 			    <tr>
@@ -38,8 +38,8 @@
 			    </tr>
 	           	<tr>
 				    <td style="display: flex; align-items: center;">
-				        <img src="${vo.writerimage}" style="border-radius: 50%; height: 50px; width: 50px; margin-right: 10px;">
-				        <span style="display: inline-block;">작성자 <span style="font-weight: bold;">${vo.writer}</span></span>
+				        <img src="${svo.writerimage}" style="border-radius: 50%; height: 50px; width: 50px; margin-right: 10px;">
+				        <span style="display: inline-block;">작성자 <span style="font-weight: bold;">${svo.writer}</span></span>
 				        <a href="../somoim/list.do" style="margin-left: auto;">
 				            <button class="btn-sm btn-info">목록</button>
 				        </a>
@@ -51,7 +51,7 @@
 	            <tr>
 		            <td>
 			            <div class="content">
-			                                <c:set var="lines" value="${fn:split(vo.content, '
+			                                <c:set var="lines" value="${fn:split(svo.content, '
 			')}" />
 											<c:forEach items="${lines}" var="line">
 											    <p>${line}</p>

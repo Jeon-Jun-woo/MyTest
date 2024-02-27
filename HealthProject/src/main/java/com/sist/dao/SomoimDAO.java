@@ -211,6 +211,10 @@ public class SomoimDAO {
 	 {
 		 return Smapper.SomoimJjimCount(userId);
 	 }
+	 public String somoimTypeeCheck(int somoimno)
+	 {
+		 return Smapper.somoimTypeeCheck(somoimno);
+	 }
 	 
 	 
 }

@@ -72,4 +72,24 @@ public class AdminRestController {
 		String json=mapper.writeValueAsString(mvo);
 		return json;
 	}
+	
+	@GetMapping(value="admin/authoritychange_vue.do",produces= "text/plain;charset=UTF-8")
+	public String admin_authoritychange(String userId, String changeMSG) throws Exception
+	{
+		String result="NO";
+		try {
+			Map map=new HashedMap();
+			map.put("userId", userId);
+			map.put("authority", changeMSG);
+			mService.memberAuthorityChange(map);
+			result="YES";
+			System.out.println("넘어온 권한 : "+changeMSG);
+		}catch(Exception ex)
+		{
+			result=ex.getMessage();
+		}
+		
+		return result; 
+		
+	}
 }

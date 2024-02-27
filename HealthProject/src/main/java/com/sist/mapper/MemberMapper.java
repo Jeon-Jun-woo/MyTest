@@ -45,19 +45,19 @@ public interface MemberMapper {
 	//1=>ID존재여부 확인
 	// memberIdCount() 재사용
 	//2=> 비밀번호 검색
-	@Select("SELECT hfm.userId,userName,nickname,userPwd,enabled,authority "
+	@Select("SELECT hfm.userId,userName,nickname,somoimno,userPwd,enabled,authority "
 	     +"FROM hhfinalMember hfm,hhfinalAuthority ha "
 	     +"WHERE hfm.userId=ha.userId "
 	     +"AND hfm.userId=#{userId}")
 	public MemberVO memberLogin(String userId);
 	
-	@Select("SELECT hfm.userId,userName,nickname,userPwd,enabled,authority "
+	@Select("SELECT hfm.userId,userName,nickname,somoimno,userPwd,enabled,authority "
 			  +"FROM hhfinalMember hfm,hhfinalAuthority ha "
 			  +"WHERE hfm.userId=ha.userId "
 			  +"AND hfm.userId=#{userId}")
 	public MemberVO memberInfo(String userId);
   
-    @Select("SELECT hfm.userId,userName,nickname,sex,email,phone,addr1,addr2,enabled,authority "
+    @Select("SELECT hfm.userId,userName,nickname,somoimno,sex,email,phone,addr1,addr2,enabled,authority "
 		  +"FROM hhfinalMember hfm,hhfinalAuthority ha "
 		  +"WHERE hfm.userId=ha.userId "
 		  +"AND hfm.userId=#{userId}")
@@ -89,6 +89,18 @@ public interface MemberMapper {
 		   +"TO_CHAR(lastLogin, 'YYYY-MM-DD HH24:MI:SS') as last_dbday,somoimno,somoimadmin,poster,nickname "
 		   +"FROM hhfinalmember WHERE userid=#{userid}")
 	public MemberVO memberDetailData(String userid);
+	
+	//회원 권한 확인
+	@Select("SELECT authority hhfinalAuthority WHERE userid=#{userId}")
+	public String memberAuthoritycheck(String userId);
+	
+	@Update("UPDATE hhfinalAuthority SET "
+			+"authority=#{authority} "
+		   +"WHERE userId=#{userId}")
+	public void memberAuthorityChange(Map map);
+	
+	@Select("SELECT * FROM hhfinalmember")
+	public List<MemberVO> AllmemberInfo();
 }
 
 

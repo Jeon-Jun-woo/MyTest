@@ -84,4 +84,18 @@ public class MemberDAO {
 	{
 		return mapper.memberDetailData(userid);
 	}
+	public String memberAuthoritycheck(String userId)
+	{
+		return mapper.memberAuthoritycheck(userId);
+	}
+	
+	public void memberAuthorityChange(Map map)
+	{
+		mapper.memberAuthorityChange(map);
+	}
+	
+	public List<MemberVO> AllmemberInfo()
+	{
+		return mapper.AllmemberInfo();
+	}
 }

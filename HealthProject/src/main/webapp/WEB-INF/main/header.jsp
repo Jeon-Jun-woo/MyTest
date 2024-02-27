@@ -67,25 +67,27 @@
                     <div class="col-lg-4 text-right col-md-4">
                        <c:if test="${principal.username!=null }">
                         <ul class="inline">
-				          <li><i class="fa fa-phone"></i>${sessionScope.member.userName }( <!-- principal.username -->
+				          <li style="display: inline;"><i class="fa fa-user-circle"></i>&nbsp;${principal.username }( <!--  -->
 				            <sec:authorize access="hasRole('ROLE_ADMIN')">관리자</sec:authorize>
         					<sec:authorize access="hasRole('ROLE_USER')">일반사용자</sec:authorize>
 				          )</li>
-				          <li>님 로그인되었습니다</li>
+				          <li style="display: inline;">님 로그인되었습니다</li>
 				        </ul>
 				       </c:if>
                         <ul class="nav-right">
                             <li class="heart-icon text-center">
                               <c:if test="${principal.username==null }">
                                 <a href="../member/login.do">
-                                    <i class="icon_heart_alt"></i>
+                                    <!-- <i class="icon_heart_alt"></i> -->
+                                    <i class="fa fa-sign-in"></i>
                                     <span>히</span>
                                 <h6>로그인</h6>
                                 </a>
                               </c:if>
                               <c:if test="${principal.username!=null }">
                                 <a href="../member/logout.do">
-                                    <i class="icon_heart_alt"></i>
+                                    <!-- <i class="icon_heart_alt"></i> -->
+                                    <i class="fa fa-sign-out"></i>
                                     <span>히</span>
                                 <h6>로그아웃</h6>
                                 </a>
@@ -219,14 +221,14 @@
                                 <li><a href="./shopping-cart.html">Shopping Cart</a></li>
                             </ul>
                         </li>
-                        <%-- <c:if test="${sessionScope.authority=='ROLE_ADMIN'}"> --%>
+                         <%-- <c:if test="${session.authority=='ROLE_ADMIN'}"> --%>
                         <li><a href="#">관리자메뉴</a>
                         	<ul class="dropdown">
                                 <li><a href="../admin/member.do">회원관리</a></li>
                                 <li><a href="./shopping-cart.html">게시판관리</a></li>
                             </ul>
                         </li>
-                        <%-- </c:if> --%>
+                        <%-- </c:if>  --%>
                     </ul>
                 </nav>
                 <div id="mobile-menu-wrap"></div>

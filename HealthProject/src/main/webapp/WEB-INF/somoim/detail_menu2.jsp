@@ -55,7 +55,9 @@
 </head>
 <body>
                     <div class="blog-sidebar" id="togetherSomoimApp">
-                        
+                        <div class="bi-pic">
+	                        <a href="../somoim/detail.do?sno=${vo.sno }"><img src="${vo.poster}" style="width:255px;height: 128px;"></a>
+	                    </div>
                         <div class="blog-catagory">
                             <h4>Categories</h4>
                             <ul>

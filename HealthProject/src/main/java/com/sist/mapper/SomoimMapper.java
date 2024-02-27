@@ -231,5 +231,8 @@ public interface SomoimMapper {
 		   +"INNER JOIN somoimjjim ON somoim10.sno = somoimjjim.sno "
 		   +"WHERE somoimjjim.userId = #{userId}")
 	public int SomoimJjimCount(String userId);
+	
+	@Select("SELECT typee FROM somoim10 WHERE sno=#{somoimno}")
+	public String somoimTypeeCheck(int somoimno);
 
 }

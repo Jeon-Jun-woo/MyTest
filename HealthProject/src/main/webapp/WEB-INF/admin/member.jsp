@@ -30,9 +30,10 @@ a.alink:hover{
                             		<td>성별</td>
                             		<td>연락처</td>
                             		<td>마지막 로그인</td>
+                            		<td>권한</td>
                             		<td>회원상세보기</td>
                             	</tr>
-	                            	<tr v-for="(mvo,index) in member_list" @click="detail(mvo.userId)">
+	                            	<tr v-for="(mvo,index) in member_list">
 	                            		<td>{{ index + 1 }}</td>
 	                            		<td>{{mvo.userName}}</td>
 	                            		<td>{{mvo.userId}}</td>
@@ -41,6 +42,15 @@ a.alink:hover{
 	                            		<td>{{mvo.sex}}</td>
 	                            		<td>{{mvo.phone}}</td>
 	                            		<td>{{mvo.reg_dbday}}</td>
+	                            		<td>
+										    <div style="display: flex; align-items: center;">
+										        <select class="input-sm" style="margin-right: 10px;" v-model="mvo.authority">
+    <option :selected="mvo.authority === 'ROLE_ADMIN' ? true : false" value="ROLE_ADMIN">ROLE_ADMIN</option>
+    <option :selected="mvo.authority === 'ROLE_USER' ? true : false" value="ROLE_USER">ROLE_USER</option>
+</select>
+<div class="btn-sm btn-success" style="width: 50px; height: 30px;" @click="applyAuthority(mvo.userId)">적용</div>
+										    </div>
+										</td>
 	                            		<td>
 	                            				<div class="btn-sm btn-info" style="width: 80px;height: 30px;" @click="detail(mvo.userId)">상세보기</div>
 	                            		</td>
@@ -131,94 +141,116 @@ a.alink:hover{
 			startpage:0,
 			endpage:0,
 			isShow:false,
-			userid:''
+			userid:'',
+			changeMSG:''
+			
 		}  
 	  },
 	  mounted(){
 		  this.dataRecv()
+		  console.log('Vue 인스턴스가 마운트되었습니다.');
 	  },
 	  updated(){
 		  
 	  },
-	  methods:{
-		  dataRecv(){
-			  axios.get('../admin/member_vue.do',{
-				  params:{
-					  page:this.curpage
-				  }
-			  }).then(response=>{
-				  console.log(response)
-				  this.member_list=response.data
-			  })
-			  
-			  axios.get('../admin/page_vue.do',{
-				  params:{
-					  page:this.curpage
-				  }
-			  }).then(response=>{
-				  console.log(response.data)
-				  this.page_list=response.data
-				  
-				  this.curpage=response.data.curpage
-				  this.totalpage=response.data.totalpage
-				  this.startpage=response.data.startpage
-				  this.endpage=response.data.endpage
-			  })
-		  },
-		  range(start,end){
-			  let arr=[]
-			  let leng=end-start
-			  for(let i=0;i<=leng;i++)
-			  {
-				  arr[i]=start
-				  start++;
-			  }
-			  return arr
-		  },
-		  prev(){
-			  this.curpage=this.startpage-1
-			  this.dataRecv()
-		  },
-		  next(){
-			  this.curpage=this.endpage+1
-			  this.dataRecv()
-		  },
-		  pageChange(page){
-			  this.curpage=page
-			  this.dataRecv()
-		  },
-		  find(){
-			  this.curpage=1
-			  this.dataRecv()
-		  },
-		  detail(userid){
-			  this.isShow=true
-			  // .do?fno=1
-			  /*
-			      axios.get() => 요청  
-			      then() => 응답(결과)
-			      catch() => 처리과정에서 오류 발생시 
-			  */
-			  axios.get('../admin/detail_vue.do',{
-				  params:{
-					  userid:userid
-				  }
-			  }).then(response=>{
-				  console.log(response.data)
-				  this.member_detail=response.data
-				  
-				  $('#dialog').dialog({
-					  autoOpen:false,
-					  modal:true,
-					  width:700,
-					  height:600
-				  }).dialog("open")
-			  })/* .catch(error=>{
-				  console.log(error.response) 
-			  }) */
-			  
-		  }
-	  },
+	  methods: {
+		    dataRecv() {
+		        axios.get('../admin/member_vue.do', {
+		            params: {
+		                page: this.curpage
+		            }
+		        }).then(response => {
+		            console.log(response)
+		            this.member_list = response.data
+		        })
+
+		        axios.get('../admin/page_vue.do', {
+		            params: {
+		                page: this.curpage
+		            }
+		        }).then(response => {
+		            console.log(response.data)
+		            this.page_list = response.data
+
+		            this.curpage = response.data.curpage
+		            this.totalpage = response.data.totalpage
+		            this.startpage = response.data.startpage
+		            this.endpage = response.data.endpage
+		        })
+		    },
+		    range(start, end) {
+		        let arr = []
+		        let leng = end - start
+		        for (let i = 0; i <= leng; i++) {
+		            arr[i] = start
+		            start++;
+		        }
+		        return arr
+		    },
+		    prev() {
+		        this.curpage = this.startpage - 1
+		        this.dataRecv()
+		    },
+		    next() {
+		        this.curpage = this.endpage + 1
+		        this.dataRecv()
+		    },
+		    pageChange(page) {
+		        this.curpage = page
+		        this.dataRecv()
+		    },
+		    find() {
+		        this.curpage = 1
+		        this.dataRecv()
+		    },
+		    detail(userid) {
+		        this.isShow = true
+
+		        axios.get('../admin/detail_vue.do', {
+		            params: {
+		                userid: userid
+		            }
+		        }).then(response => {
+		            console.log(response.data)
+		            this.member_detail = response.data
+
+		            $('#dialog').dialog({
+		                autoOpen: false,
+		                modal: true,
+		                width: 700,
+		                height: 600
+		            }).dialog("open")
+		        })
+		    },
+		    applyAuthority(userId) {
+		        // 해당 userId를 가진 mvo를 찾아서 처리
+		        const mvo = this.member_list.find(item => item.userId === userId);
+		        if (!mvo) {
+		            console.error('해당 userId에 대한 mvo를 찾을 수 없습니다.');
+		            return;
+		        }
+
+		        const selectedAuthority = mvo.authority;
+		        console.log('선택된 권한 값:', selectedAuthority);
+		        axios.get('../admin/authoritychange_vue.do', {
+		            params: {
+		                userId: userId,
+		                changeMSG: selectedAuthority
+		            }
+		        }).then(response => {
+		            console.log(response.data);
+		            if (response.data === 'YES') {
+		                alert("해당 회원 권한이 변경되었습니다");
+		                location.href = '../admin/member.do';
+		            } else {
+		                alert("오류::해당 회원 권한이 변경되지 못했습니다");
+		                location.href = '../admin/member.do';
+		            }
+		        }).catch(error => {
+		            console.error(error);
+		        });
+		    }
+		},
 	  components:{
 		  // 상세보기 => dialog
 		  'detail_dialog':detailComponent

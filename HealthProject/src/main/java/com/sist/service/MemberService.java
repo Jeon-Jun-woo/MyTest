@@ -18,4 +18,7 @@ public interface MemberService {
 	public List<MemberVO> memberListData(Map map);
 	public int memberTotalData();
 	public MemberVO memberDetailData(String userid);
+	public String memberAuthoritycheck(String userId);
+	public void memberAuthorityChange(Map map);
+	public List<MemberVO> AllmemberInfo();
 }

@@ -35,6 +35,9 @@ public class MemberRestController {
 		  session.setAttribute("authority", vo.getAuthority());
 		  session.setAttribute("userName", vo.getUserName());
 		  session.setAttribute("nickName", vo.getNickname());
+		  session.setAttribute("nickName", vo.getNickname());
+		  session.setAttribute("somoimno", vo.getSomoimno());
+		  session.setAttribute("authority", vo.getAuthority());
 		  if(ck==true)
 		  {
 			  Cookie cookie=new Cookie("userId", vo.getUserId());

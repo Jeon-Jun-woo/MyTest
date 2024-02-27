@@ -39,7 +39,7 @@
 							    </a>
 							</div>
                         </div> -->
-                        <div class="blog-tags">
+                        <!-- <div class="blog-tags">
                             <h4>Product Tags</h4>
                             <div class="tag-item">
                                 <a href="#">클라이밍</a>
@@ -50,7 +50,7 @@
                                 <a href="#">헬스</a>
                                 <a href="#">야구</a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 <script>
 let SomoimApp=Vue.createApp({

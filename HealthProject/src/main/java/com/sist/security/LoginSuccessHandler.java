@@ -45,6 +45,8 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler{
 		session.setAttribute("phone", vo.getPhone());
 		session.setAttribute("email", vo.getEmail());  //여기때매 세션스코프 사용 가능\
 		session.setAttribute("nickName", vo.getNickname());
+		session.setAttribute("somoimno", vo.getSomoimno());
+		session.setAttribute("authority", vo.getAuthority());
 		
 		response.sendRedirect("../main/main.do");
 		

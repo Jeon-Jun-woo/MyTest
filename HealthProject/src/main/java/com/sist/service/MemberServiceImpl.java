@@ -79,5 +79,23 @@ public class MemberServiceImpl implements MemberService {
 		return mDao.memberDetailData(userid);
 	}
 	
+	@Override
+	public String memberAuthoritycheck(String userId) {
+		// TODO Auto-generated method stub
+		return mDao.memberAuthoritycheck(userId);
+	}
+
+	@Override
+	public void memberAuthorityChange(Map map) {
+		// TODO Auto-generated method stub
+		mDao.memberAuthorityChange(map);
+	}
+
+	@Override
+	public List<MemberVO> AllmemberInfo() {
+		// TODO Auto-generated method stub
+		return mDao.AllmemberInfo();
+	}
+	
 	
 }
