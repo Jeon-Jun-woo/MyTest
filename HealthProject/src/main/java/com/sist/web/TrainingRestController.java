@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
 import com.sist.service.*;
+import com.sist.vo.TrainReplyVO;
 import com.sist.vo.TrainingVO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sist.dao.*;
@@ -14,6 +15,10 @@ import com.sist.dao.*;
 public class TrainingRestController {
 	@Autowired
 	private TrainingService tService;
+	
+	@Autowired
+	private TrainingReplyService trService;
+	
 	
 	@GetMapping(value = "training_list_vue.do",produces = "text/plain;charset=UTF-8")
 	public String training_list(int page) throws Exception
@@ -51,10 +56,14 @@ public class TrainingRestController {
 	   public String train_detail(int tno) throws Exception
 	   {
 		   TrainingVO vo=tService.trainDetailData(tno);//{} => []
-		   
+		   List<TrainReplyVO> list=trService.replyListData(tno);
+	    	
+	    	Map map=new HashMap();
+	    	map.put("detail_data", vo);
+	    	map.put("reply_list", list);
 		   // JSON 만드는 라이브러리 => jackson
 		   ObjectMapper mapper=new ObjectMapper();
-		   String json=mapper.writeValueAsString(vo);
+		   String json=mapper.writeValueAsString(map);
 		   return json;
 	   }
 	

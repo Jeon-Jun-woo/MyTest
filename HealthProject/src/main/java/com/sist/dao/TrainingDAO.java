@@ -23,12 +23,14 @@ public class TrainingDAO {
 	    TrainingVO vo = mapper.trainDetailData(tno);
 	    
 	    // vo 객체가 null인지 확인
-	    if (vo != null) {
-	        // 이미지 링크를 수정하여 |로 구분되게 변경
-	        String img = vo.getImg().replace("^", "|");
+	    if (vo != null && vo.getImg() != null) {
+	        // 이미지 URL들을 ^로 분할하여 배열로 만듭니다.
+	        String[] imgUrls = vo.getImg().split("\\^");
 	        
-	        // vo 객체에 수정된 이미지 링크를 설정
-	        vo.setImg(img);
+	        // 각 이미지 URL을 출력합니다.
+	        for (String imgUrl : imgUrls) {
+	            System.out.println(imgUrl);
+	        }
 	    }
 	    
 	    return vo;
