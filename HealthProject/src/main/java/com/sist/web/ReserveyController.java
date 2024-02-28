@@ -17,16 +17,16 @@ public class ReserveyController {
 		return "goods/goods_reserve";
 	}
 	
-	@GetMapping("mypage_y/mypage.do")
+	@GetMapping("newmypage_y/mypage.do")
 	public String mypage_main()
 	{
-		return "mypage/mypage_main";
+		return "newmypage/mypage_main";
 	}
 	
 	@GetMapping("adminpage_y/admin.do")
 	public String adminpage_main()
 	{
-		return "adminpage/admin_main";
+		return "newadminpage/admin_main";
 	}
 	
 	

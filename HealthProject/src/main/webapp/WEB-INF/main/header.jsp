@@ -200,8 +200,8 @@
                             <li><a href="#">마이페이지</a>
 	                        	<ul class="dropdown">
 	                                <li><a href="../member/update.do">회원정보수정</a></li>
-	                                <li><a href="../mypage/reserve_list.do">예약목록</a></li>
-	                                <li><a href="../mypage/jjim_list.do">찜목록목록</a></li>
+	                                <li><a href="../newmypage_y/mypage.do">약국예약목록</a></li>
+	                                <li><a href="../mypage/jjim_list.do">찜목록</a></li>
 	                                <li><a href="#">장바구니/구매</a></li>   
 	                            </ul>
 	                        </li>  	
@@ -211,7 +211,9 @@
                             <li><a href="#">관리자페이지</a>
 	                        	<ul class="dropdown">
 	                                <li><a href="../admin/member.do">회원관리</a></li>
+	                                <li><a href="../adminpage_y/admin.do">약국예약현황</a></li>
 	                                <li><a href="./shopping-cart.html">게시판관리</a></li>
+	                                
 	                            </ul>
 	                        </li>  	
                         </sec:authorize> 

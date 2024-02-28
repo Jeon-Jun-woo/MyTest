@@ -30,4 +30,6 @@ public class MypageController {
 	{
 		return "mypage/reserve_list";
 	}
+	
+	
 }
