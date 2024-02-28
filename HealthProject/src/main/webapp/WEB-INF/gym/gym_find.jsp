@@ -19,7 +19,7 @@ a.link:hover,img.img_click:hover{
 	<div class="container" id="findApp">
 		<div class="banner-section spad">
 			<div class="container-fluid">
-				<h2 class="sectiontitle">헬스장 목록</h2>
+				<h2 class="sectiontitle">헬스장 찾기</h2>
 				<header class="heading inline">
 					<input type=text ref="fd" size=20 class="input-sm" v-model="fd" @keyup.enter="find()">
 					<input type=button value="검색" class="btn-sm btn-primary" @click="find()">

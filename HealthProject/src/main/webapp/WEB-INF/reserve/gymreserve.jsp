@@ -44,28 +44,28 @@
            						<h3 class="text-center">헬스장 정보</h3>
            						<tr>
              						<td class="text-center inline">
-               							<input type="button" class="btn-xs btn-success" value="도봉구" @click="gymSelect('도봉구')">&nbsp;
-               							<input type="button" class="btn-xs btn-info" value="중랑구" @click="gymSelect('중랑구')">&nbsp;
-               							<input type="button" class="btn-xs btn-warning" value="강북구" @click="gymSelect('강북구')">&nbsp;
-               							<input type="button" class="btn-xs btn-danger" value="강서구" @click="gymSelect('강서구')">&nbsp;
-               							<input type="button" class="btn-xs btn-success" value="노원구" @click="gymSelect('노원구')">&nbsp;
-               							<input type="button" class="btn-xs btn-info" value="영등포구" @click="gymSelect('영등포구')">&nbsp;
-               							<input type="button" class="btn-xs btn-warning" value="금천구" @click="gymSelect('금천구')">&nbsp;
-               							<input type="button" class="btn-xs btn-danger" value="마포구" @click="gymSelect('마포구')">&nbsp;
-               							<input type="button" class="btn-xs btn-success" value="서초구" @click="gymSelect('서초구')">&nbsp;
-               							<input type="button" class="btn-xs btn-info" value="은평구" @click="gymSelect('은평구')">&nbsp;
-               							<input type="button" class="btn-xs btn-warning" value="동대문구" @click="gymSelect('동대문구')">&nbsp;
-               							<input type="button" class="btn-xs btn-danger" value="강동구" @click="gymSelect('강동구')">&nbsp;
-               							<input type="button" class="btn-xs btn-success" value="광진구" @click="gymSelect('광진구')">&nbsp;
-               							<input type="button" class="btn-xs btn-info" value="구로구" @click="gymSelect('구로구')">&nbsp;
-               							<input type="button" class="btn-xs btn-warning" value="중구" @click="gymSelect('중구')">&nbsp;
-               							<input type="button" class="btn-xs btn-danger" value="강남구" @click="gymSelect('강남구')">&nbsp;
-               							<input type="button" class="btn-xs btn-success" value="관악구" @click="gymSelect('관악구')">&nbsp;
-               							<input type="button" class="btn-xs btn-info" value="동작구" @click="gymSelect('동작구')">&nbsp;
-               							<input type="button" class="btn-xs btn-warning" value="성동구" @click="gymSelect('성동구')">&nbsp;
-               							<input type="button" class="btn-xs btn-danger" value="성북구" @click="gymSelect('성북구')">&nbsp;
-               							<input type="button" class="btn-xs btn-success" value="용산구" @click="gymSelect('용산구')">&nbsp;
-               							<input type="button" class="btn-xs btn-info" value="양천구" @click="gymSelect('양천구')">
+               							<input type="button" class="btn-xs btn-default" value="도봉구" @click="gymSelect('도봉구')">&nbsp;
+               							<input type="button" class="btn-xs btn-default" value="중랑구" @click="gymSelect('중랑구')">&nbsp;
+               							<input type="button" class="btn-xs btn-default" value="강북구" @click="gymSelect('강북구')">&nbsp;
+               							<input type="button" class="btn-xs btn-default" value="강서구" @click="gymSelect('강서구')">&nbsp;
+               							<input type="button" class="btn-xs btn-default" value="노원구" @click="gymSelect('노원구')">&nbsp;
+               							<input type="button" class="btn-xs btn-default" value="영등포구" @click="gymSelect('영등포구')">&nbsp;
+               							<input type="button" class="btn-xs btn-default" value="금천구" @click="gymSelect('금천구')">&nbsp;
+               							<input type="button" class="btn-xs btn-default" value="마포구" @click="gymSelect('마포구')">&nbsp;
+               							<input type="button" class="btn-xs btn-default" value="서초구" @click="gymSelect('서초구')">&nbsp;
+               							<input type="button" class="btn-xs btn-default" value="은평구" @click="gymSelect('은평구')">&nbsp;
+               							<input type="button" class="btn-xs btn-default" value="동대문구" @click="gymSelect('동대문구')">&nbsp;
+               							<input type="button" class="btn-xs btn-default" value="강동구" @click="gymSelect('강동구')">&nbsp;
+               							<input type="button" class="btn-xs btn-default" value="광진구" @click="gymSelect('광진구')">&nbsp;
+               							<input type="button" class="btn-xs btn-default" value="구로구" @click="gymSelect('구로구')">&nbsp;
+               							<input type="button" class="btn-xs btn-default" value="중구" @click="gymSelect('중구')">&nbsp;
+               							<input type="button" class="btn-xs btn-default" value="강남구" @click="gymSelect('강남구')">&nbsp;
+               							<input type="button" class="btn-xs btn-default" value="관악구" @click="gymSelect('관악구')">&nbsp;
+               							<input type="button" class="btn-xs btn-default" value="동작구" @click="gymSelect('동작구')">&nbsp;
+               							<input type="button" class="btn-xs btn-default" value="성동구" @click="gymSelect('성동구')">&nbsp;
+               							<input type="button" class="btn-xs btn-default" value="성북구" @click="gymSelect('성북구')">&nbsp;
+               							<input type="button" class="btn-xs btn-default" value="용산구" @click="gymSelect('용산구')">&nbsp;
+               							<input type="button" class="btn-xs btn-default" value="양천구" @click="gymSelect('양천구')">
              						</td>
            						</tr>
          					</table>
