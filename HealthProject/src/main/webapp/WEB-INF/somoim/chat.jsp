@@ -93,14 +93,14 @@ $(function(){
 </script>
 </head>
 <body>
-		<h1 class="text-center">실시간 채팅(WebSocket)</h1>
+		<h1 class="text-center">실시간 채팅</h1>
 		<div class="cchat">
 			<table class="table">
 				<tr>
 					<td>
 						<input type="text" class="input-sm" id="name" value="${nickName }" size=15 readonly>
-						<input type="button" class="btn-sm btn-danger" id="startBtn" value="입장">
-						<input type="button" class="btn-sm btn-primary" id="endBtn" value="퇴장">
+						<input type="button" class="btn-sm" style="background-color: #333;color: white;" id="startBtn" value="입장">
+						<input type="button" class="btn-sm" style="background-color: white;color: #333;" id="endBtn" value="퇴장">
 					</td>
 				</tr>
 				<tr>
@@ -112,8 +112,8 @@ $(function(){
 				</tr>
 				<tr>
 					<td>
-						<input type="text" id="sendMsg" size=80 class="input-sm">
-						<input type="button" id="sendBtn" value="전송" class="btn-sm btn-success">
+						<input type="text" id="sendMsg" size=96 class="input-sm">
+						<input type="button" id="sendBtn" value="전송" class="btn-sm" style="background-color: #333;color: white;" >
 					</td>
 				</tr>
 			</table>

@@ -111,19 +111,19 @@
                                
                             </li>
                             </sec:authorize>
-                            <sec:authorize access="hasRole('ROLE_USER')">
+                           <%--  <sec:authorize access="hasRole('ROLE_USER')">
 							 <li class="cart-price text-center">
                             	<i class="fa fa-user"></i>
                             	<a href="../mypage/jjim.do"><h6>마이페이지</h6></a>
                             </li>  
-                            </sec:authorize>
+                            </sec:authorize> --%>
                             
-                             <sec:authorize access="hasRole('ROLE_ADMIN')">
+                             <%-- <sec:authorize access="hasRole('ROLE_ADMIN')">
 							 <li class="cart-price text-center">
                             	<i class="fa fa-user"></i>
                             	<a href="../admin/member.do"><h6>관리자페이지</h6></a>
                             </li>  
-                            </sec:authorize>
+                            </sec:authorize> --%>
                         </ul>
                     </div>
                 </div>
