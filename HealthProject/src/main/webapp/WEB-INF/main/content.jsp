@@ -73,7 +73,7 @@
     <h3>이쁜옷과 영양제</h3>
  	</div>
     <!-- Man Banner Section Begin -->
-    <section class="man-banner spad">
+    <!--<section class="man-banner spad">
         <div class="container-fluid">
             <div class="row" id="ngoodsApp">
                 <div class="col-lg-8">
@@ -120,7 +120,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- Man Banner Section End -->
      <!-- Women Banner Section Begin -->
     <section class="women-banner spad">
