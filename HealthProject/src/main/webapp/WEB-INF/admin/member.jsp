@@ -18,48 +18,42 @@ a.alink:hover{
 <body>
 	<div class="list" id="AdminApp">
                 <div class="row">
-                        <div class="col-lg-6 col-sm-6">
-                            <table class="member_manager" style="border: 1px;padding: 1px;width: 1000px;">
-                            <h3>회원관리</h3>
-                            	<tr>
-                            		<td style="margin: 0px auto;">번호</td>
-                            		<td class="text-center">이름</td>
-                            		<td class="text-center">아이디</td>
-                            		
-                            		<td class="text-center">닉네임</td>
-                            		<td class="text-center">성별</td>
-                            		<td class="text-center">연락처</td>
-                            		<td class="text-center">마지막 로그인</td>
-                            		<td>권한</td>
-                            		<td></td>
-                            		<td style="margin-left: -40px;">회원상세보기</td>
-                            	</tr>
-	                            	<tr v-for="(mvo,index) in member_list">
-	                            		<td class="text-center">{{ index + 1 }}</td>
-	                            		<td class="text-center">{{mvo.userName}}</td>
-	                            		<td class="text-center">{{mvo.userId}}</td>
-	                            		
-	                            		<td class="text-center">{{mvo.nickname}}</td>
-	                            		<td class="text-center">{{mvo.sex}}</td>
-	                            		<td class="text-center">{{mvo.phone}}</td>
-	                            		<td class="text-center">{{mvo.reg_dbday}}</td>
-	                            		<td>
-										    <div style="display: flex; align-items: center;">
-										        <select class="input-sm" style="margin-right: 10px;" v-model="mvo.authority">
-												    <option :selected="mvo.authority === 'ROLE_ADMIN' ? true : false" value="ROLE_ADMIN">ROLE_ADMIN</option>
-												    <option :selected="mvo.authority === 'ROLE_USER' ? true : false" value="ROLE_USER">ROLE_USER</option>
-												</select>
-											</div>
-										</td>
-										<td>	
-												<div class="btn-sm btn-success" style="width: 50px; height: 30px; margin-left: -65px;" @click="applyAuthorityChange(mvo.userId)">적용</div>
-										    
-										</td>
-	                            		<td>
-	                            				<div class="btn-sm btn-info text-center" style="width: 80px;height: 30px;" @click="detail(mvo.userId)">상세보기</div>
-	                            		</td>
-	                            	</tr>
-                            </table>
+                        <div class="member_manager_table" style="margin-left: -10px;">
+                            <table class="member_manager" style="border-collapse: collapse; width: 970px;">
+							    <h3 style="text-align: left;font-weight: bold;">회원관리</h3>
+							    <tr>
+							        <th class="text-center" style="border: 1px solid black; padding: 8px;">번호</th>
+							        <th class="text-center" style="border: 1px solid black; padding: 8px;">이름</th>
+							        <th class="text-center" style="border: 1px solid black; padding: 8px;">아이디</th>
+							        <th class="text-center" style="border: 1px solid black; padding: 8px;">닉네임</th>
+							        <th class="text-center" style="border: 1px solid black; padding: 8px;">성별</th>
+							        <th class="text-center" style="border: 1px solid black; padding: 8px;">연락처</th>
+							        <th class="text-center" style="border: 1px solid black; padding: 8px;">마지막 로그인</th>
+							        <th class="text-center" colspan="2" style="border: 1px solid black; padding: 8px;">권한</th>
+							        <th class="text-center" style="border: 1px solid black; padding: 8px;">회원상세보기</th>
+							    </tr>
+							    <tr v-for="(mvo,index) in member_list">
+							        <td style="border: 1px solid black; padding: 8px;" class="text-center">{{ index + 1 }}</td>
+							        <td style="border: 1px solid black; padding: 8px;" class="text-center">{{mvo.userName}}</td>
+							        <td style="border: 1px solid black; padding: 8px;" class="text-center">{{mvo.userId}}</td>
+							        <td style="border: 1px solid black; padding: 8px;" class="text-center">{{mvo.nickname}}</td>
+							        <td style="border: 1px solid black; padding: 8px;" class="text-center">{{mvo.sex}}</td>
+							        <td style="border: 1px solid black; padding: 8px;" class="text-center">{{mvo.phone}}</td>
+							        <td style="border: 1px solid black; padding: 8px;" class="text-center">{{mvo.reg_dbday}}</td>
+							        <td style="border: 1px solid black; padding: 8px;">
+							            <select class="input-sm" v-model="mvo.authority" style="width: 100%;">
+							                <option :selected="mvo.authority === 'ROLE_ADMIN' ? true : false" value="ROLE_ADMIN">ROLE_ADMIN</option>
+							                <option :selected="mvo.authority === 'ROLE_USER' ? true : false" value="ROLE_USER">ROLE_USER</option>
+							            </select>
+							        </td>
+							        <td style="border: 1px solid black; padding: 8px;">
+							            <div class="btn-sm btn-success" style="width: 100%; text-align: center;" @click="applyAuthorityChange(mvo.userId)">적용</div>
+							        </td>
+							        <td style="border: 1px solid black; padding: 8px;">
+							            <div class="btn-sm btn-info text-center" style="width: 100%;" @click="detail(mvo.userId)">상세보기</div>
+							        </td>
+							    </tr>
+							</table>
                         </div>
                     </div>
                     

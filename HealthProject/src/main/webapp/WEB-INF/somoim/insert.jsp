@@ -36,7 +36,7 @@
 						 <input type="file" id="gdsImg" name="file" />
 						 <div class="select_img"><img src="" /></div>
 						 
-						 <%=request.getRealPath("/") %>
+						 <%-- <%=request.getRealPath("/") %> --%>
 						</div>
 				        
 				    </td>

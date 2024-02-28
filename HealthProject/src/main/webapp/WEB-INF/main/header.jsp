@@ -67,7 +67,7 @@
                     <div class="col-lg-4 text-right col-md-4">
                        <c:if test="${principal.username!=null }">
                         <ul class="inline">
-				          <li style="display: inline;"><i class="fa fa-user-circle"></i>&nbsp;${principal.username }( <!--  -->
+				          <li style="display: inline;"><i class="fa fa-user-circle"></i>&nbsp;${principal.username }&nbsp;( <!--  -->
 				            <sec:authorize access="hasRole('ROLE_ADMIN')">관리자</sec:authorize>
         					<sec:authorize access="hasRole('ROLE_USER')">일반사용자</sec:authorize>
 				          )</li>

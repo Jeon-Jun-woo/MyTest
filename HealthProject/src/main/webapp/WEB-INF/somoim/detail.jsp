@@ -55,7 +55,7 @@
             <tr>
                 <td style="display: flex; align-items: center;">
                     <img src="${vo.hostposter}" style="border-radius: 50%; height: 50px; width: 50px; margin-right: 10px;">
-                    <span style="display: inline-block;">호스트 <span style="font-weight: bold;">${vo.hostname}</span></span>
+                    <span style="display: inline-block;">모임장&nbsp; <span style="font-weight: bold;">${vo.hostname}</span></span>
                     <button v-if="!isLiked" @click="like" class="ml-4 flex items-center justify-center heart-button">
                 <i class="fas fa-heart" style="color: gray; font-size: 24px;"></i>
                 <span class="sr-only">찜</span>

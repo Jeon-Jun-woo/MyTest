@@ -18,30 +18,27 @@ a.alink:hover{
 <body>
 	<div class="list" id="SomoimJjimApp">
                 <div class="row">
-                        <div class="col-lg-6 col-sm-6">
-                            <table class="member_manager" style="border: 1px;padding: 1px;width: 1000px;">
-                            <h3>찜 관리</h3>
-                            &nbsp;
-                            	<tr>
-                            		<td style="margin: 0px auto;">번호</td>
-                            		<td>카테고리</td>
-                            		<td>&nbsp;&nbsp;</td>
-                            		<td>모임 이름</td>
-                            		<td>호스트</td>
-                            		<td>가입멤버</td>
-                            		
-                            	</tr>
-	                            	<tr v-for="(sjvo,index) in somoimJjim_list">
-	                            		<td>{{ index + 1 }}</td>
-	                            		<td>{{sjvo.typee}}</td>
-	                            		<td><a :href="'../somoim/before_detail.do?sno='+sjvo.sno"><img :src="sjvo.poster" style="height: 120px; width: 120px;"></a></td>
-	                            		
-	                            		<td><a :href="'../somoim/before_detail.do?sno='+sjvo.sno">{{sjvo.title}}</a></td>
-	                            		<td>{{sjvo.hostname}}</td>
-	                            		<td>{{sjvo.inwon}}</td>
-	                            		
-	                            	</tr>
-                            </table>
+                        <div class="somoimjjimtable" style="margin-left: -100px;">
+                            <table class="member_manager" style="border-collapse: collapse; width: 960px;">
+							    <h3 style="text-align:left;font-weight: bold;">찜 관리</h3>
+							    <tr>
+							        <th style="border-bottom: 1px solid black; padding: 8px; ">번호</th>
+							        <th style="border-bottom: 1px solid black; padding: 8px;">카테고리</th>
+							        <th style="border-bottom: 1px solid black; padding: 8px;"></th>
+							        <th style="border-bottom: 1px solid black; padding: 8px;">모임 이름</th>
+							        <th style="border-bottom: 1px solid black; padding: 8px;">호스트</th>
+							        <th style="border-bottom: 1px solid black; padding: 8px;">가입멤버</th>
+							    </tr>
+							    <tr v-for="(sjvo,index) in somoimJjim_list">
+							        <td style="border-bottom: 1px solid black; padding: 8px;">{{ index + 1 }}</td>
+							        <td style="border-bottom: 1px solid black; padding: 8px;">{{sjvo.typee}}</td>
+							        <td style="border-bottom: 1px solid black; padding: 8px;"><a :href="'../somoim/before_detail.do?sno='+sjvo.sno"><img :src="sjvo.poster" style="height: 120px; width: 120px;"></a></td>
+							        <td style="border-bottom: 1px solid black; padding: 8px;"><a :href="'../somoim/before_detail.do?sno='+sjvo.sno">{{sjvo.title}}</a></td>
+							        <td style="border-bottom: 1px solid black; padding: 8px;">{{sjvo.hostname}}</td>
+							        <td style="border-bottom: 1px solid black; padding: 8px;">{{sjvo.inwon}}</td>
+							    </tr>
+							</table>
+                            
                         </div>
                     </div>
                     

@@ -55,6 +55,7 @@
                                 <a href="#">야구</a>
                             </div>
                         </div>
+                        <div style="height: 20px;"></div>
                     </div>
 <script>
 let SomoimApp=Vue.createApp({
