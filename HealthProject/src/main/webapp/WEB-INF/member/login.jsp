@@ -82,9 +82,9 @@ $(function(){
             
                         <div class="switch-login">
                             <table class="table">
-                              <td colspan="2" class="text-center inline">
-				               <input type=button value="로그인" class="btn-danger btn-sm" @click="login()">
-				               <input type=button value="취소" class="btn-info btn-sm" onclick="javascript:history.back()">
+                              <td colspan="2" class="text-center inline" @click="login()">
+				               <!--<input type=button value="로그인" class="btn-danger btn-sm" @click="login()">-->
+				               <input type=button value="취소" class="btn-danger btn-sm" onclick="javascript:history.back()">
 				              </td>
                             </table>
                         </div>
