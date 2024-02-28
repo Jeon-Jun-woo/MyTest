@@ -201,7 +201,7 @@
 	                        	<ul class="dropdown">
 	                                <li><a href="../member/update.do">회원정보수정</a></li>
 	                                <li><a href="../newmypage_y/mypage.do">약국예약목록</a></li>
-	                                <li><a href="../mypage/jjim_list.do">찜목록</a></li>
+	                                <li><a href="../mypage/jjim.do">찜목록</a></li>
 	                                <li><a href="#">장바구니/구매</a></li>   
 	                            </ul>
 	                        </li>  	
