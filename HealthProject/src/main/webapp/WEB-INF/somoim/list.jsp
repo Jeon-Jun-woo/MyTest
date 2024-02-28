@@ -35,14 +35,11 @@ a.alink:hover{
                                 </div>
                                 <div class="bi-text">
                                 <!-- +'&hostname='+vo.hostname -->
-                                    <a :href="'../somoim/before_detail.do?sno='+vo.sno">
-                                        <h4>{{vo.title}}</h4>
-                                        
-                                    </a>
-                                    <p><span></span></p>
+                                	<p>{{vo.typee}}<span></span></p>
+                                    <a :href="'../somoim/before_detail.do?sno='+vo.sno"><h4>{{vo.title}}</h4></a>
                                     <p>
                                     <img :src="vo.hostposter" style="border-radius: 50%; height: 50px; width: 50px; margin-right: 10px;">
-                                    {{vo.typee}} <span>{{vo.hostname}}</span>
+                                     <span>{{vo.hostname}}</span>
                                     </p>
                                 </div>
                             </div>
