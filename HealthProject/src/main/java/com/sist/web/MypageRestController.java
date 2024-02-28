@@ -8,10 +8,13 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sist.service.MemberService;
 import com.sist.service.SomoimService;
+import com.sist.vo.MemberVO;
 import com.sist.vo.SomoimVO;
 
 @RestController
@@ -19,6 +22,9 @@ public class MypageRestController {
 	
 	@Autowired
 	private SomoimService sService;
+	
+	@Autowired
+	private MemberService mService;
 	
 	@GetMapping(value = "mypage/somoimJjim_vue.do",produces = "text/plain;charset=UTF-8")
 	public String mypage_somoimJjim(String page,HttpSession session) throws Exception
@@ -65,5 +71,27 @@ public class MypageRestController {
 		ObjectMapper mapper=new ObjectMapper();
 		String json=mapper.writeValueAsString(map);
 		return json;
+	}
+	
+	@GetMapping(value = "member/update_vue.do", produces = "text/plain;charset=UTF-8")
+	public String member_update(String userId) throws Exception
+	{
+		MemberVO vo=mService.memberUpdateData(userId);
+		ObjectMapper mapper=new ObjectMapper();
+		String json=mapper.writeValueAsString(vo);
+		
+		return json;
+	}
+	@PostMapping(value="member/update_ok_vue.do",produces = "text/plain;charset=UTF-8")
+	public String member_update_ok(MemberVO vo)
+	{
+		String result=mService.memberUpdate(vo);
+		return result;
+	}
+	@GetMapping(value="delete_vue.do",produces = "text/plain;charset=UTF-8")
+	public String member_delete(String userId)
+	{
+		String result=mService.memberDelete(userId);
+		return result;
 	}
 }

@@ -1,8 +1,9 @@
 package com.sist.service;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.*;
+
 import com.sist.vo.*;
 import com.sist.dao.*;
 @Service
@@ -11,10 +12,36 @@ public class NgoodsServiceImpl implements NgoodsService{
 	private NgoodsDAO gDao;
 
 	@Override
-	public List<NgoodsVO> goodsMainData() {
+	public List<NgoodsVO> goodsListData(Map map) {
 		// TODO Auto-generated method stub
-		return gDao.goodsMainData();
+		return gDao.goodsListData(map);
 	}
+
+	@Override
+	public int goodsListCount(Map map) {
+		// TODO Auto-generated method stub
+		return gDao.goodsListCount(map);
+	}
+
+	@Override
+	public NgoodsVO goodsDetailData(int gno) {
+		// TODO Auto-generated method stub
+		return gDao.goodsDetailData(gno);
+	}
+
+	@Override
+	public List<NgoodsVO> goodsTypeListData(Map map) {
+		// TODO Auto-generated method stub
+		return gDao.goodsTypeListData(map);
+	}
+
+	@Override
+	public int goodsTypeListCount(Map map) {
+		// TODO Auto-generated method stub
+		return gDao.goodsTypeListCount(map);
+	}
+
+	
 	
 	
 }

@@ -69,6 +69,29 @@ public class MemberDAO {
 		return mapper.memberSessionInfoData(userId);
 	}
 	
+	public MemberVO memberUpdateData(String userId)
+	{
+		return mapper.memberUpdateData(userId);
+	}
+	
+	public String memberUpdate(MemberVO vo)
+	{
+		String result="yes";
+		mapper.memberUpdate(vo);
+		System.out.println(result);
+		
+		 return result;
+	}
+
+	public String memberDelete(String userId)
+	{
+		String result="yes";
+		mapper.memberDelete(userId);
+		return result;
+	}
+	
+	
+	
 	//선미 추가 부분 (관리자메뉴 - 회원목록)
 	public List<MemberVO> memberListData(Map map)
 	{

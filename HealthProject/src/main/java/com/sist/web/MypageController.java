@@ -11,4 +11,23 @@ public class MypageController {
 
 		return "mypage/somoim_jjim";
 	}
+	
+	@GetMapping("member/update.do")
+    public String member_update()
+    {
+    	return "member/update";
+    }
+	
+	@GetMapping("mypage/mypage_menu.do")
+	public String mypage_menu()
+	{
+		return "mypage_menu";
+	}
+	
+	
+	@GetMapping("mypage/reserve_list.do")
+	public String mypage_reserve()
+	{
+		return "mypage/reserve_list";
+	}
 }

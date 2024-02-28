@@ -21,6 +21,7 @@ package com.sist.mapper;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -72,6 +73,31 @@ public interface MemberMapper {
 			  +"FROM hhfinalMember "
 			  +"WHERE userId=#{userId}")
 	public MemberVO memberSessionInfoData(String userId);
+    
+    
+    //회원 정보 수정 삭제
+    @Update("UPDATE hhfinalMember SET "
+    		  +"userName=#{userName},sex=#{sex},birthday=#{birthday},email=#{email},post=#{post},addr1=#{addr1},"
+    		  +"addr2=#{addr2},content=#{content} "
+    		  +"WHERE userId=#{userId}")
+    public void memberUpdate(MemberVO vo);
+       // 삭제 
+    @Select("SELECT userPwd FROM hhfinalMember "
+    		  +"WHERE userId=#{userId}")
+    public String memberGetPassword(String userId);
+      
+      
+    @Select("SELECT userId,userName,userPwd,sex,birthday,email,post,"
+      		+ "addr1,addr2,content "
+      		+ "FROM hhfinalMember "
+      		+ "WHERE userId=#{userId}")
+    public MemberVO memberUpdateData(String userId);
+      
+    @Delete("DELETE FROM hhfinalMember "
+    		  +"WHERE userId=#{userId}")
+    public void memberDelete(String userId);
+    
+    
     
    //선미 추가 부분 (관리자 메뉴) 회원목록
     @Select("SELECT userId, username, sex, birthday, email, addr1, addr2, phone, reg_dbday, somoimno, nickname, authority, num "

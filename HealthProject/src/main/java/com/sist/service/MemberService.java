@@ -14,6 +14,9 @@ public interface MemberService {
 	public MemberVO memberSessionData(String userId);
 	public void lastLoginUpdate(String userId);
 	public MemberVO memberSessionInfoData(String userId);
+	public MemberVO memberUpdateData(String userId);
+	public String memberUpdate(MemberVO vo);
+	public String memberDelete(String userId);
 	//선미추가부분
 	public List<MemberVO> memberListData(Map map);
 	public int memberTotalData();
