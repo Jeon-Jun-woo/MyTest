@@ -56,7 +56,7 @@ a.alink:hover{
 										    
 										</td>
 	                            		<td>
-	                            				<div class="btn-sm btn-info" style="width: 80px;height: 30px;" @click="detail(mvo.userId)">상세보기</div>
+	                            				<div class="btn-sm btn-info text-center" style="width: 80px;height: 30px;" @click="detail(mvo.userId)">상세보기</div>
 	                            		</td>
 	                            	</tr>
                             </table>

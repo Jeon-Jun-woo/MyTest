@@ -65,7 +65,7 @@
                 <span class="sr-only">찜</span>
             </button>
                     <a href="../somoim/list.do" style="margin-left: auto;">
-                        <button class="btn-sm btn-info">목록</button>
+                        <button class="btn-sm" style="background-color: #333;color: white;">목록</button>
                     </a>
                 </td>
             </tr>

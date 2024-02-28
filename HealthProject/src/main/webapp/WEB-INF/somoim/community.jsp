@@ -35,7 +35,7 @@
                 <img src="${cvo.writerposter}" style="border-radius: 50%; height: 50px; width: 50px; margin-right: 10px;">
                 <span style="display: inline-block;">작성자 <span style="font-weight: bold;">${cvo.writer}</span></span>
                 <a href="../somoim/list.do" style="margin-left: auto;">
-                    <button class="btn-sm btn-info">목록</button>
+                    <button class="btn-sm" style="background-color: #333;color: white;">목록</button>
                 </a>
             </td>
         </tr>
@@ -67,7 +67,7 @@
     </table>
 </div>
 <div class="container" id="SomoimreplyApp">
-   <div class="row" style="width: 600px;margin-left: 64px;">
+   <div class="row" style="width: 600px;margin-left: 90px;">
      <table class="table">
        <tr>
         <td>
@@ -76,8 +76,8 @@
             <td class="text-left"><img :src="vo.writerposter" style="border-radius: 50%; height: 50px; width: 50px; margin-right: 10px;">{{vo.nickname}}({{vo.dbday}})</td>
             <td class="text-right">
               <span v-if="vo.id===sessionId">
-                <input type=button value="수정" class="btn-xs btn-success updates" style="margin-left: 3px" :id="'up'+vo.rno" @click="replyUpdateForm(vo.rno)">
-                <input type=button value="삭제" class="btn-xs btn-info" @click="replyDelete(vo.rno)">
+                <input type=button value="수정" class="btn-xs btn-default updates" style="margin-left: 3px" :id="'up'+vo.rno" @click="replyUpdateForm(vo.rno)">
+                <input type=button value="삭제" class="btn-xs btn-default" @click="replyDelete(vo.rno)">
               </span>
             </td>
            </tr>
@@ -89,8 +89,8 @@
            
            <tr :id="'u'+vo.rno" class="ups" style="display:none">
             <td colspan="2">
-             <textarea rows="5" cols="90" style="float: left" :id="'msg'+vo.rno">{{vo.msg}}</textarea>
-             <input type=button value="댓글수정" style="float: left;height: 96px" class="btn-danger" @click="replyUpdate(vo.rno)">
+             <textarea rows="5" cols="65" style="float: left; margin-right: 10px;" :id="'msg'+vo.rno">{{vo.msg}}</textarea>
+             <input type=button value="댓글수정" style="float: left;height: 100px" class="btn-default" @click="replyUpdate(vo.rno)">
            </td>
           </tr>
            
@@ -101,8 +101,8 @@
      <table class="table" v-show="sessionId!=''">
        <tr>
          <td class="text-left">
-          <textarea rows="5" cols="70" style="float: left" v-model="msg" ref="msg"></textarea>
-          <input type=button value="댓글쓰기" style="float: left;height: 96px" class="btn-danger" @click="replyInsert()">
+          <textarea rows="5" cols="67" style="float: left; margin-right: 10px;" v-model="msg" ref="msg"></textarea>
+		  <input type="button" value="댓글쓰기" style="float: left; height: 100px; background-color: #333; color: white;"  @click="replyInsert()">
          </td>
        </tr>
      </table>

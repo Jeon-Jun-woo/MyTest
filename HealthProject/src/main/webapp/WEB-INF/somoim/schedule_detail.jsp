@@ -41,7 +41,7 @@
 				        <img src="${svo.writerimage}" style="border-radius: 50%; height: 50px; width: 50px; margin-right: 10px;">
 				        <span style="display: inline-block;">작성자 <span style="font-weight: bold;">${svo.writer}</span></span>
 				        <a href="../somoim/list.do" style="margin-left: auto;">
-				            <button class="btn-sm btn-info">목록</button>
+				           <button class="btn-sm" style="background-color: #333;color: white;">목록</button>
 				        </a>
 				    </td>
 				</tr>

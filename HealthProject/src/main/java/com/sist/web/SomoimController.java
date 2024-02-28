@@ -90,10 +90,12 @@ public class SomoimController {
 		SomoimVO vo=service.SomoimDetailData(sno);
 		model.addAttribute("vo", vo);
 		model.addAttribute("sno", sno); // "sno" 값을 Model에 추가
-		System.out.println("컨트롤 디테일 sno의 값:"+sno);
+		//System.out.println("컨트롤 디테일 sno의 값:"+sno);
 		
 		String userId=(String)session.getAttribute("userId");
-		MemberVO mvo=mService.memberDetailData(userId);
+		//System.out.println("설마 userId가 null..?:"+userId);
+		MemberVO mvo=mService.memberInfo(userId);
+		//System.out.println("mvo가 왜 null값이야:"+mvo);
 		model.addAttribute("somoimno", mvo.getSomoimno());
 		
 		if(page==null)
@@ -185,6 +187,9 @@ public class SomoimController {
 		MemberVO mvo=mService.memberDetailData(userId);
 		model.addAttribute("somoimno", mvo.getSomoimno());
 		
+		String nickName=(String)session.getAttribute("nickName");
+		model.addAttribute("nickName", nickName);
+		System.out.println("닉네임이 들어오나:"+nickName);
 		if(page==null)
 			page="1";
 		int curpage=Integer.parseInt(page);

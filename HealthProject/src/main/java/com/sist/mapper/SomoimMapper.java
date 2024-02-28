@@ -22,9 +22,9 @@ public interface SomoimMapper {
 	
 	//===================================================================
 	// 목록
-	@Select("SELECT sno,typee,hit,jjim,hostname,title,poster,inwon,content,loc,num "
-			+"FROM (SELECT sno,typee,hit,jjim,hostname,title,poster,inwon,content,loc,rownum as num "
-			+"FROM (SELECT sno,typee,hit,jjim,hostname,title,poster,inwon,content,loc "
+	@Select("SELECT sno,typee,hit,jjim,hostname,hostposter,title,poster,inwon,content,loc,num "
+			+"FROM (SELECT sno,typee,hit,jjim,hostname,hostposter,title,poster,inwon,content,loc,rownum as num "
+			+"FROM (SELECT sno,typee,hit,jjim,hostname,hostposter,title,poster,inwon,content,loc "
 			+"FROM somoim10 ORDER BY sno ASC)) "
 			+"WHERE num BETWEEN #{start} AND #{end}")
 	public List<SomoimVO> somoimListData(Map map);
@@ -33,9 +33,9 @@ public interface SomoimMapper {
 	public int somoimTotalPage();
 
 	
-	@Select("SELECT sno,typee,hit,jjim,hostname,title,poster,inwon,content,loc,num "
-		   +"FROM (SELECT sno,typee,hit,jjim,hostname,title,poster,inwon,content,loc,rownum as num "
-	       +"FROM (SELECT sno,typee,hit,jjim,hostname,title,poster,inwon,content,loc "
+	@Select("SELECT sno,typee,hit,jjim,hostname,hostposter,title,poster,inwon,content,loc,num "
+		   +"FROM (SELECT sno,typee,hit,jjim,hostname,hostposter,title,poster,inwon,content,loc,rownum as num "
+	       +"FROM (SELECT sno,typee,hit,jjim,hostname,hostposter,title,poster,inwon,content,loc "
 		   +"FROM somoim10 WHERE typee='축구' OR typee='야구' OR typee='풋살' OR typee='스포츠관람' ORDER BY sno ASC)) "
 		   +"WHERE num BETWEEN #{start} AND #{end}")
 	public List<SomoimVO> somoimType1List(Map map);
@@ -44,9 +44,9 @@ public interface SomoimMapper {
 	public int somoimType1TotalPage();
 	
 	
-	@Select("SELECT sno,typee,hit,jjim,hostname,title,poster,inwon,content,loc,num "
-		   +"FROM (SELECT sno,typee,hit,jjim,hostname,title,poster,inwon,content,loc,rownum as num "
-		   +"FROM (SELECT sno,typee,hit,jjim,hostname,title,poster,inwon,content,loc "
+	@Select("SELECT sno,typee,hit,jjim,hostname,hostposter,title,poster,inwon,content,loc,num "
+		   +"FROM (SELECT sno,typee,hit,jjim,hostname,hostposter,title,poster,inwon,content,loc,rownum as num "
+		   +"FROM (SELECT sno,typee,hit,jjim,hostname,hostposter,title,poster,inwon,content,loc "
 		   +"FROM somoim10 WHERE typee='클라이밍' OR typee='등산' OR typee='러닝' OR typee='요가' ORDER BY sno ASC))"
 	       +"WHERE num BETWEEN #{start} AND #{end}")
 	public List<SomoimVO> somoimType2List(Map map);
@@ -54,9 +54,9 @@ public interface SomoimMapper {
 	@Select("SELECT CEIL(COUNT(*)/10.0) FROM somoim10 WHERE typee='클라이밍' OR typee='등산' OR typee='러닝' OR typee='요가'")
 	public int somoimType2TotalPage();
 	
-	@Select("SELECT sno,typee,hit,jjim,hostname,title,poster,inwon,content,loc,num "
-		   +"FROM (SELECT sno,typee,hit,jjim,hostname,title,poster,inwon,content,loc,rownum as num "
-	       +"FROM (SELECT sno,typee,hit,jjim,hostname,title,poster,inwon,content,loc "
+	@Select("SELECT sno,typee,hit,jjim,hostname,hostposter,title,poster,inwon,content,loc,num "
+		   +"FROM (SELECT sno,typee,hit,jjim,hostname,hostposter,title,poster,inwon,content,loc,rownum as num "
+	       +"FROM (SELECT sno,typee,hit,jjim,hostname,hostposter,title,poster,inwon,content,loc "
 	       +"FROM somoim10 WHERE typee='스키' OR typee='보드' OR typee='스케이트보드' ORDER BY sno ASC))"
 		   +"WHERE num BETWEEN #{start} AND #{end}")
 	public List<SomoimVO> somoimType3List(Map map);
@@ -64,9 +64,9 @@ public interface SomoimMapper {
 	@Select("SELECT CEIL(COUNT(*)/10.0) FROM somoim10 WHERE typee='스키' OR typee='보드' OR typee='스케이트보드'")
 	public int somoimType3TotalPage();
 	
-	@Select("SELECT sno,typee,hit,jjim,hostname,title,poster,inwon,content,loc,num "
-		   +"FROM (SELECT sno,typee,hit,jjim,hostname,title,poster,inwon,content,loc,rownum as num "
-		   +"FROM (SELECT sno,typee,hit,jjim,hostname,title,poster,inwon,content,loc "
+	@Select("SELECT sno,typee,hit,jjim,hostname,hostposter,title,poster,inwon,content,loc,num "
+		   +"FROM (SELECT sno,typee,hit,jjim,hostname,hostposter,title,poster,inwon,content,loc,rownum as num "
+		   +"FROM (SELECT sno,typee,hit,jjim,hostname,hostposter,title,poster,inwon,content,loc "
 		   +"FROM somoim10 WHERE typee='서핑' OR typee='수영' ORDER BY sno ASC))"
 		   +"WHERE num BETWEEN #{start} AND #{end}")
 	public List<SomoimVO> somoimType4List(Map map);
@@ -74,9 +74,9 @@ public interface SomoimMapper {
 	@Select("SELECT CEIL(COUNT(*)/10.0) FROM somoim10 WHERE typee='서핑' OR typee='수영'")
 	public int somoimType4TotalPage();
 	
-	@Select("SELECT sno,typee,hit,jjim,hostname,title,poster,inwon,content,loc,num "
-		   +"FROM (SELECT sno,typee,hit,jjim,hostname,title,poster,inwon,content,loc,rownum as num "
-		   +"FROM (SELECT sno,typee,hit,jjim,hostname,title,poster,inwon,content,loc "
+	@Select("SELECT sno,typee,hit,jjim,hostname,hostposter,title,poster,inwon,content,loc,num "
+		   +"FROM (SELECT sno,typee,hit,jjim,hostname,hostposter,title,poster,inwon,content,loc,rownum as num "
+		   +"FROM (SELECT sno,typee,hit,jjim,hostname,hostposter,title,poster,inwon,content,loc "
 		   +"FROM somoim10 WHERE typee='볼링' OR typee='탁구' OR typee='테니스' ORDER BY sno ASC))"
 		   +"WHERE num BETWEEN #{start} AND #{end}")
 	public List<SomoimVO> somoimType5List(Map map);

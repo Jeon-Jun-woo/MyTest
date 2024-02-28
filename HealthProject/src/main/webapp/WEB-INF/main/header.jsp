@@ -80,7 +80,7 @@
                                 <a href="../member/login.do">
                                     <!-- <i class="icon_heart_alt"></i> -->
                                     <i class="fa fa-sign-in"></i>
-                                    <span>히</span>
+                                    
                                 <h6>로그인</h6>
                                 </a>
                               </c:if>
@@ -88,7 +88,7 @@
                                 <a href="../member/logout.do">
                                     <!-- <i class="icon_heart_alt"></i> -->
                                     <i class="fa fa-sign-out"></i>
-                                    <span>히</span>
+                                    
                                 <h6>로그아웃</h6>
                                 </a>
                               </c:if>
@@ -97,7 +97,7 @@
                             <li class="cart-icon text-center">
                                 <a href="../member/join.do">
                                     <i class="icon_bag_alt"></i>
-                                    <span>히</span>
+                                    
                                 <h6>회원가입</h6>
                                 </a>
                             </li>
@@ -150,11 +150,20 @@
                                     </div>
                                 </div>
                             </li>
+                            </sec:authorize>
+                            <sec:authorize access="hasRole('ROLE_USER')">
 							 <li class="cart-price text-center">
                             	<i class="fa fa-user"></i>
                             	<a href="../mypage/jjim.do"><h6>마이페이지</h6></a>
                             </li>  
-                          </sec:authorize>
+                            </sec:authorize>
+                            
+                             <sec:authorize access="hasRole('ROLE_ADMIN')">
+							 <li class="cart-price text-center">
+                            	<i class="fa fa-user"></i>
+                            	<a href="../admin/member.do"><h6>관리자페이지</h6></a>
+                            </li>  
+                            </sec:authorize>
                         </ul>
                     </div>
                 </div>
@@ -227,7 +236,7 @@
                         </li>
                          <%-- <c:if test="${session.authority=='ROLE_ADMIN'}"> --%>
                         
-                        <sec:authorize access="hasRole('ROLE_USER')">
+                      <%--   <sec:authorize access="hasRole('ROLE_USER')">
                             <li><a href="#">마이페이지</a>
 	                        	<ul class="dropdown">
 	                                <li><a href="#">회원정보수정</a></li>
@@ -237,15 +246,16 @@
 	                                <li><a href="#">장바구니/구매</a></li>   
 	                            </ul>
 	                        </li>  	
-                        </sec:authorize>
-                        <sec:authorize access="hasRole('ROLE_ADMIN')">
+                        </sec:authorize> --%>
+                        
+                        <%-- <sec:authorize access="hasRole('ROLE_ADMIN')">
                             <li><a href="#">관리자페이지</a>
 	                        	<ul class="dropdown">
 	                                <li><a href="../admin/member.do">회원관리</a></li>
 	                                <li><a href="./shopping-cart.html">게시판관리</a></li>
 	                            </ul>
 	                        </li>  	
-                        </sec:authorize>
+                        </sec:authorize> --%>
                         
                         <%-- </c:if>  --%>
                     </ul>

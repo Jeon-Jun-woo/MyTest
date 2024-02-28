@@ -13,18 +13,17 @@
 </head>
 <body>
                     <div class="blog-sidebar" id="ListMenu">
-                        <div class="search-form">
+                        <!-- <div class="search-form">
                             <h4>Search</h4>
                             <form action="#">
                                 <input type="text" placeholder="Search . . .  ">
                                 <button type="submit"><i class="fa fa-search"></i></button>
                             </form>
-                        </div>
+                        </div> -->
                         <div class="blog-catagory">
                             <h4>Categories</h4>
                             <ul>
-                                <li><a href="#">회원관리</a></li>
-                                <li><a href="#">찜목록</a></li>
+                                <li><a href="../admin/member.do">회원관리</a></li>
                                 <li><a href="#">게시판 관리</a></li>
                             </ul>
                         </div>

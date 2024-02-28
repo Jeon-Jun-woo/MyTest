@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style type="text/css">
-.row{
+.cchat{
 	margin: 0px auto;
 	width: 700px;
 }
@@ -94,11 +94,11 @@ $(function(){
 </head>
 <body>
 		<h1 class="text-center">실시간 채팅(WebSocket)</h1>
-		<div class="row">
+		<div class="cchat">
 			<table class="table">
 				<tr>
 					<td>
-						<input type="text" class="input-sm" id="name" size=15>
+						<input type="text" class="input-sm" id="name" value="${nickName }" size=15 readonly>
 						<input type="button" class="btn-sm btn-danger" id="startBtn" value="입장">
 						<input type="button" class="btn-sm btn-primary" id="endBtn" value="퇴장">
 					</td>

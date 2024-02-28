@@ -23,7 +23,7 @@ a.alink:hover{
                 <div class="row">
                 		<div class="col-lg-12 text-right">
 	                		<a href="../somoim/insert.do">
-	                			<button class="button">소모임 만들기</button>
+	                			<button class="button" style="background-color: #333; color: white;">소모임 만들기</button>
 	                		</a>
                 		</div>
                 		<br>
@@ -40,7 +40,10 @@ a.alink:hover{
                                         
                                     </a>
                                     <p><span></span></p>
-                                    <p>{{vo.typee}} <span>{{vo.hostname}}</span></p>
+                                    <p>
+                                    <img :src="vo.hostposter" style="border-radius: 50%; height: 50px; width: 50px; margin-right: 10px;">
+                                    {{vo.typee}} <span>{{vo.hostname}}</span>
+                                    </p>
                                 </div>
                             </div>
                         </div>

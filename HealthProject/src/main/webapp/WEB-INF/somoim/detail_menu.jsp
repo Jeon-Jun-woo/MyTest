@@ -71,8 +71,8 @@
 						<tr>
 						    <td class="inline" style="display: flex; align-items: center;">
 						        <p style="font-size: 15px; font-weight: bold; margin-right: 10px;">가입 멤버<span>(${memberCount })</span></p>
-						        <input type=button v-if="!isJoin" value="모임가입하기" style="float: left;" class="btn-danger" @click="SomoimJoin()"></button>
-						        <input type=button v-else value="모임탈퇴하기" style="float: left;" class="btn-danger" @click="SomoimExit()"></button>
+						        <input type=button v-if="!isJoin" value="모임가입하기" style="float: left;margin-left: 5px; margin-bottom: 7px;background-color: #333;color: white;" @click="SomoimJoin()"></button>
+						        <input type=button v-else value="모임탈퇴하기" style="float: left;margin-left: 5px;margin-bottom: 7px;background-color: #333;color: white;" @click="SomoimExit()"></button>
 						        
 						    </td>
 						</tr>
@@ -127,7 +127,7 @@
                         <div style="height: 20px;"></div>
                         <div class="chat">
                         	<a href="../somoim/chat.do?sno=${sno }">
-                        		<button class="button" style="font-weight:700;margin-bottom: 28px;width:100%;height: 50px;border-radius: 10px;">모임 채팅하기</button>
+                        		<button class="button" style="font-weight:700;margin-bottom: 28px;width:100%;height: 50px;border-radius: 10px;background-color: #333;color: white;">모임 채팅하기</button>
                         	</a>
                         </div>
                     </div>
