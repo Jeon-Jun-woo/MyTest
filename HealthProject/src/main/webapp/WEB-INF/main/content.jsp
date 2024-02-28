@@ -5,8 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="https://unpkg.com/vue@3"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<style type="text/css">
+a.link:hover,img.img_click:hover{
+  cursor: pointer;
+}
+</style>
 </head>
 <body>
   <!-- Hero Section Begin -->
@@ -16,10 +19,9 @@
                 <div class="container">
                     <div class="row">
                     </div>
-
                 </div>
             </div>
-            <div class="single-hero-items set-bg" data-setbg="../img/mainposter1.jpg">
+            <div class="single-hero-items set-bg" data-setbg="../img/run.jpg">
                 <div class="container">
                     <div class="row">
                     </div>
@@ -51,7 +53,7 @@
                     <div class="single-banner">
                         <img src="../img/photo2.jpg" alt="요가/필라테스">
                         <div class="inner-text">
-                            <a href="#"><h4>YOGA/Pilates</h4></a>
+                            <a href="../reserve/reserve_main.do"><h4>YOGA/Pilates</h4></a>
                         </div>
                     </div>
                 </div>
@@ -67,175 +69,7 @@
         </div> 
   </div>
     <!--  바로가기 종료 -->
-    <br><br><br><br><br>
-    <div class="section-title text-center">
-    <h2><strong>SHOP</strong></h2>
-    <h3>이쁜옷과 영양제</h3>
- 	</div>
-    <!-- Man Banner Section Begin -->
-    <!--<section class="man-banner spad">
-        <div class="container-fluid">
-            <div class="row" id="ngoodsApp">
-                <div class="col-lg-8">
-                    <div class="filter-control">
-                        <ul>
-                            <li class="active">💊MD's PICK💊</li>
-                        </ul>
-                    </div>
-                    <div class="product-slider owl-carousel" >
-                        <div v-for="vo in goods_list" class="product-item">
-                            <div class="pi-pic">
-                                <img :src="vo.poster" style="height:200px;">
-                                <div class="sale">Sale</div>
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Coat</div>
-                                <a href="#">
-                                    <h5>Pure Pineapple</h5>
-                                </a>
-                                <div class="product-price">
-                                    $14.00
-                                    <span>$35.00</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        
-                        
-                    </div>
-                </div>
-                <div class="col-lg-3 offset-lg-1">
-                    <div class="product-large set-bg m-large" data-setbg="../img/pills1.jpg">
-                        <h2>Pills</h2>
-                        <a href="#">More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!-- Man Banner Section End -->
-     <!-- Women Banner Section Begin -->
-    <section class="women-banner spad">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="product-large set-bg" data-setbg="../img/products/women-large.jpg">
-                        <h2>SportsWear</h2>
-                        <a href="#">More</a>
-                    </div>
-                </div>
-                <div class="col-lg-8 offset-lg-1">
-                    <div class="filter-control">
-                        <ul>
-                            <li class="active">🤍MD's Pick🤍</li>
-                        </ul>
-                    </div>
-                    <div class="product-slider owl-carousel">
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="../img/products/women-1.jpg" alt="">
-                                <div class="sale">Sale</div>
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="#">cart</a></li>
-                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Coat</div>
-                                <a href="#">
-                                    <h5>Pure Pineapple</h5>
-                                </a>
-                                <div class="product-price">
-                                    $14.00
-                                    <span>$35.00</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="../img/products/women-2.jpg" alt="">
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Shoes</div>
-                                <a href="#">
-                                    <h5>Guangzhou sweater</h5>
-                                </a>
-                                <div class="product-price">
-                                    $13.00
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="../img/products/women-3.jpg" alt="">
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Towel</div>
-                                <a href="#">
-                                    <h5>Pure Pineapple</h5>
-                                </a>
-                                <div class="product-price">
-                                    $34.00
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="../img/products/women-4.jpg" alt="">
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Towel</div>
-                                <a href="#">
-                                    <h5>Converse Shoes</h5>
-                                </a>
-                                <div class="product-price">
-                                    $34.00
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-           
-           
-        </div>
-    </section>
+    
     <!-- MBTI별 나에게 맞는 운동 -->
     <br><br><br><br><br>
   	<div class="section-title text-center">
@@ -249,82 +83,82 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="single-banner">
-                    <a href="#"><img src="../img/INTJ.png" alt="1"></a>
+                    <a href="http://localhost:8080/web/board/detail.do?no=37"><img src="../img/INTJ.png" alt="1"></a>
                 </div>
             </div>
             <div class="col-lg-3">
                 <div class="single-banner">
-                   <a href="#"><img src="../img/INTP.png" alt="2"></a>
+                   <a href="http://localhost:8080/web/board/detail.do?no=41"><img src="../img/INTP.png" alt="2"></a>
                 </div>
             </div>
             <div class="col-lg-3">
                 <div class="single-banner">
-                    <a href="#"><img src="../img/ENTJ.png" alt="3"></a>
+                    <a href="http://localhost:8080/web/board/detail.do?no=45"><img src="../img/ENTJ.png" alt="3"></a>
                 </div>
             </div>
             <div class="col-lg-3">
                 <div class="single-banner">
-                   <a href="#"><img src="../img/ENTP.png" alt="4"></a>
+                   <a href="http://localhost:8080/web/board/detail.do?no=49"><img src="../img/ENTP.png" alt="4"></a>
                 </div>
             </div>
             <div class="col-lg-3">
                 <div class="single-banner">
-                    <a href="#"><img src="../img/INFJ.png" alt="5"></a>
+                    <a href="http://localhost:8080/web/board/detail.do?no=36"><img src="../img/INFJ.png" alt="5"></a>
                 </div>
             </div>
             <div class="col-lg-3">
                 <div class="single-banner">
-                   <a href="#"><img src="../img/INFP.png" alt="6"></a>
+                   <a href="http://localhost:8080/web/board/detail.do?no=40"><img src="../img/INFP.png" alt="6"></a>
                 </div>
             </div>
             <div class="col-lg-3">
                 <div class="single-banner">
-                    <a href="#"><img src="../img/ENFJ.png" alt="7"></a>
+                    <a href="http://localhost:8080/web/board/detail.do?no=44"><img src="../img/ENFJ.png" alt="7"></a>
                 </div>
             </div>
             <div class="col-lg-3">
                 <div class="single-banner">
-                    <a href="#"><img src="../img/ENFP.png" alt="8"></a>
+                    <a href="http://localhost:8080/web/board/detail.do?no=48"><img src="../img/ENFP.png" alt="8"></a>
                     </div>
                 </div>
                     <div class="col-lg-3">
                 <div class="single-banner">
-                    <a href="#"><img src="../img/ISTJ.png" alt="9"></a>
+                    <a href="http://localhost:8080/web/board/detail.do?no=34"><img src="../img/ISTJ.png" alt="9"></a>
                 </div>
             </div>
             <div class="col-lg-3">
                 <div class="single-banner">
-                    <a href="#"><img src="../img/ISFJ.png" alt="10"></a>
+                    <a href="http://localhost:8080/web/board/detail.do?no=35"><img src="../img/ISFJ.png" alt="10"></a>
                 </div>
             </div>
             <div class="col-lg-3">
                 <div class="single-banner">
-                    <a href="#"><img src="../img/ESTJ.png" alt="11"></a>
+                    <a href="http://localhost:8080/web/board/detail.do?no=42"><img src="../img/ESTJ.png" alt="11"></a>
                 </div>
             </div>
             <div class="col-lg-3">
                 <div class="single-banner">
-                    <a href="#"><img src="../img/ESFJ.png" alt="12"></a>
+                    <a href="http://localhost:8080/web/board/detail.do?no=43"><img src="../img/ESFJ.png" alt="12"></a>
                 </div>
             </div>
             <div class="col-lg-3">
                 <div class="single-banner">
-                    <a href="#"><img src="../img/ISTP.png" alt="13"></a>
+                    <a href="http://localhost:8080/web/board/detail.do?no=38"><img src="../img/ISTP.png" alt="13"></a>
                 </div>
             </div>
             <div class="col-lg-3">
                 <div class="single-banner">
-                    <a href="#"><img src="../img/ISFP.png" alt="14"></a>
+                    <a href="http://localhost:8080/web/board/detail.do?no=39"><img src="../img/ISFP.png" alt="14"></a>
                 </div>
             </div>
             <div class="col-lg-3">
                 <div class="single-banner">
-                    <a href="#"><img src="../img/ESTP.png" alt="15"></a>
+                    <a href="http://localhost:8080/web/board/detail.do?no=46"><img src="../img/ESTP.png" alt="15"></a>
                 </div>
             </div>
             <div class="col-lg-3">
                 <div class="single-banner">
-                    <a href="#"><img src="../img/ESFP.png" alt="16"></a>
+                    <a href="http://localhost:8080/web/board/detail.do?no=47"><img src="../img/ESFP.png" alt="16"></a>
                 </div>
             </div>
         </div>
@@ -333,7 +167,6 @@
 
     <!-- MBTI별 운동 추천 종료 -->
     
-   
 
     <!-- 소모임 페이지 연결 -->
     <section class="latest-blog spad">
@@ -349,64 +182,64 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="single-latest-blog">
-                        <img src="../img/latest-1.jpg" alt="">
+                        <img src="../img/somoim2.png" alt="서핑">
                         <div class="latest-text">
                             <div class="tag-list">
                                 <div class="tag-item">
                                     <i class="fa fa-calendar-o"></i>
-                                    May 4,2019
+                                    Aug 17,2022
                                 </div>
                                 <div class="tag-item">
                                     <i class="fa fa-comment-o"></i>
-                                    5
+                                    8
                                 </div>
                             </div>
-                            <a href="#">
-                                <h4>The Best Street Style From London Fashion Week</h4>
+                            <a href="http://localhost:8080/web/somoim/detail.do?sno=79">
+                                <h4>액티비티와 콩표면 즐거울수밖에💭</h4>
                             </a>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                            <p>계절스포츠나 사계절활동을 같이하며 함께 즐거움을 찾아요💓</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="single-latest-blog">
-                        <img src="../img/latest-2.jpg" alt="">
+                        <img src="../img/somoim1.png" alt="플래시클라이밍">
                         <div class="latest-text">
                             <div class="tag-list">
                                 <div class="tag-item">
                                     <i class="fa fa-calendar-o"></i>
-                                    May 4,2019
+                                    Nov 27,2023
                                 </div>
                                 <div class="tag-item">
                                     <i class="fa fa-comment-o"></i>
                                     5
                                 </div>
                             </div>
-                            <a href="#">
-                                <h4>Vogue's Ultimate Guide To Autumn/Winter 2019 Shoes</h4>
+                            <a href="http://localhost:8080/web/somoim/detail.do?sno=10">
+                                <h4>플래시 클라이밍💭</h4>
                             </a>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                            <p>플래시 크루는 신생 크루로 현재 서울숲클라이밍 종로 외 4지점에서 서울숲 위주로 운동을 하고 있습니다.</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="single-latest-blog">
-                        <img src="../img/latest-3.jpg" alt="">
+                        <img src="../img/somoim3.png" alt="스튜디오">
                         <div class="latest-text">
                             <div class="tag-list">
                                 <div class="tag-item">
                                     <i class="fa fa-calendar-o"></i>
-                                    May 4,2019
+                                    Feb 28,2024
                                 </div>
                                 <div class="tag-item">
                                     <i class="fa fa-comment-o"></i>
-                                    5
+                                    3
                                 </div>
                             </div>
-                            <a href="#">
-                                <h4>How To Brighten Your Wardrobe With A Dash Of Lime</h4>
+                            <a href="http://localhost:8080/web/somoim/detail.do?sno=1">
+                                <h4>솔스티스피티스튜디오💭</h4>
                             </a>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                            <p>오프라인에서 같이 운동모임도 하고 온라인에서 헬스&요가 운동정보, 운동인증, 식단 등을 공유하기 위해 클럽을 OPEN했습니다 :) </p>
                         </div>
                     </div>
                 </div>
@@ -414,24 +247,5 @@
             
     </section>
     <!-- Latest Blog Section End -->
-    <script>
-    let gApp=Vue.createApp({
-    	 data(){
-    		 return{
-    			 goods_list:[]
-    		 }
-    	 },
-    	 mounted(){
-    		 axios.get('../main/mian.do')
-    		 .then(response=>{
-    			 console.log(response.date)
-    		 	 this.goods_list=response.data
-    		 })
-    	 },
-    	 methods:{
-    		 
-    	 }
-    }).mount('#ngoodsApp')
-    </script>
 </body>
 </html>

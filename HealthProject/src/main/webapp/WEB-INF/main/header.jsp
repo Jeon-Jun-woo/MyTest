@@ -157,26 +157,21 @@
                         <li><a href="#">Reservation</a>
                         	<ul class="dropdown">
                                 <li><a href="../gym/gym_list.do">헬스장 목록</a></li>
-                                <li><a href="#">요가/필라테스 목록</a></li>
-                                <li><a href="../gym/gym_find.do">헬스장 찾기</a></li>
+                                <li><a href="../yp/yp_list.do">요가/필라테스 목록</a></li>
+                                <li><a href="../gym/gym_find.do">내 주변 헬스장</a></li>
+                                <li><a href="../yp/yp_find.do">내 주변 요가/필라테스</a></li>
                                 <sec:authorize access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">
                                 	<li><a href="../reserve/gymreserve.do">헬스장 상담 예약</a></li>
+                               	    <li><a href="../reserve/reserve_main.do">요가/필라테스 상담 예약</a></li>
                                 </sec:authorize>
                             </ul>
                         </li>
                         <li><a href="#">STORE</a>
                     	   <ul class="dropdown">
                     	   <li><a href="../goods/goods_list.do">영양제/보조제</a></li>
-                    		<li><a href="../wshop/wshop_list.do">우먼즈</a></li>
-                        	<li><a href="../mshop/mshop_list.do">맨즈</a></li>
                          </ul>
                        </li>
                         <li><a href="../somoim/list.do">Somoim</a>
-                            <!-- <ul class="dropdown">
-                                <li><a href="#">모임 참가</a></li>
-                                <li><a href="#">모임 톡방</a></li>
-                                <li><a href="#">커뮤니티</a></li>
-                            </ul> -->
                             </li>
                          
                         <li><a href="#">Community</a>
@@ -188,10 +183,6 @@
                         </li>
                        <sec:authorize access="hasAnyRole('ROLE_USER','ROLE_ADMIN')">
                         <li><a href="../chat/chat.do">실시간채팅</a>
-                            <ul class="dropdown">
-                                <li><a href="./blog-details.html">Blog Details</a></li>
-                                <li><a href="./shopping-cart.html">Shopping Cart</a></li>
-                            </ul>
                         </li>
                        </sec:authorize>
                          <%-- <c:if test="${session.authority=='ROLE_ADMIN'}"> --%>
