@@ -196,13 +196,11 @@
                         </li>
                         <li><a href="#">Reservation</a>
                         	<ul class="dropdown">
-                                <li><a href="#">회원권</a></li>
-                                <li><a href="#">스포츠센터 예약</a></li>
                                 <li><a href="../gym/gym_list.do">헬스장 목록</a></li>
                                 <li><a href="#">요가/필라테스 목록</a></li>
+                                <li><a href="../gym/gym_find.do">헬스장 찾기</a></li>
                                 <sec:authorize access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">
-                                	<li><a href="../gym/gym_find.do">헬스장 찾기</a></li>
-                                	<li><a href="../freeboard/list.do">자유게시판</a></li>
+                                	<li><a href="../reserve/gymreserve.do">헬스장 상담 예약</a></li>
                                 </sec:authorize>
                             </ul>
                         </li>
@@ -224,7 +222,7 @@
                         <li><a href="#">Community</a>
                         	<ul class="dropdown">
                                 <li><a href="#">공지사항</a></li>
-                                <li><a href="#">자유게시판</a></li>
+                                <li><a href="../board/list.do">자유게시판</a></li>
                             </ul>
                         </li>
                         </li>

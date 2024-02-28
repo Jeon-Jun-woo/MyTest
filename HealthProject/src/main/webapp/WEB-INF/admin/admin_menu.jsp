@@ -24,7 +24,7 @@
                             <h4>Categories</h4>
                             <ul>
                                 <li><a href="../admin/member.do">회원관리</a></li>
-                                <li><a href="#">게시판 관리</a></li>
+                                <li><a href="../admin/admin.do">예약목록</a></li>
                             </ul>
                         </div>
                       <script type="text/javascript">

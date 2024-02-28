@@ -16,44 +16,40 @@ a.link:hover,img.img_click:hover{
 </style>
 </head>
 <body>
-   <div class="container" id="findApp">
-      <div class="banner-section spad">
-           <div class="container-fluid">
-              <h2 class="sectiontitle">헬스장 목록</h2>
-                <header class="heading inline">
-                  <input type=text ref="fd" size=20 class="input-sm" v-model="fd" @keyup.enter="find()">
-                  <input type=button value="검색" class="btn-sm btn-primary" @click="find()">
-                </header>
-                <div class="row">
-                   <div class="col-md-3" v-for="(vo, index) in gym_list">
-                      <a href="#">
-                         <div class="thumbnail">
-                            <img :src="vo.poster" style="width: 100%" @click="detail(vo.no)">
-                            <div class="caption">
-                               <p style="font-size: 8px">{{vo.title}}</p>
-                            </div>
-                         </div>
-                      </a>
-                   </div>
+	<div class="container" id="findApp">
+		<div class="banner-section spad">
+			<div class="container-fluid">
+				<h2 class="sectiontitle">헬스장 목록</h2>
+				<header class="heading inline">
+					<input type=text ref="fd" size=20 class="input-sm" v-model="fd" @keyup.enter="find()">
+					<input type=button value="검색" class="btn-sm btn-primary" @click="find()">
+				</header>
+				<div class="row">
+					<div class="col-md-3" v-for="(vo, index) in gym_list">
+						<a href="#">
+							<div class="thumbnail">
+								<img :src="vo.poster" style="width: 100%" @click="detail(vo.no)">
+								<div class="caption">
+									<p style="font-size: 8px">{{vo.title}}</p>
+                            	</div>
+                         	</div>
+                        </a>
+                    </div>
                 </div>
-             </div>
-          <!-- <ul class="nospace clear">
-            <li v-for="(vo,index) in gym_list" :class="index%4==0?'one_quarter first':'one_quarter'"><img class="img_click" :src="vo.poster" :title="vo.title" @click="detail(vo.no)"></li>
-          </ul> -->
-
-
-      <ul class="pagination">
-        <li v-if="startPage>1"><a class="link" @click="prev()">&laquo; Previous</a></li>
-        <li v-for="i in range(startPage,endPage)" :class="i===curpage?'active':''"><a class="link" @click="pageChange(i)">{{i}}</a></li>
-        <li v-if="endPage<totalpage"><a class="link" @click="next()">Next &raquo;</a></li>
-      </ul>
-      <div id="dialog" title="맛집 상세 보기" v-show="isShow">
-        <detail_dialog  v-bind:gym_detail="gym_detail"></detail_dialog>
-      </div>
-     </div>
-    <div class="clear"></div>
-  </main>
-</div>
+                <div style="height: 20px"></div>
+       			<div class="text-center">
+       				<ul class="pagination">
+       					<li v-if="startPage>1"><a class="link" @click="prev()">&laquo; Previous</a></li>
+				        <li v-for="i in range(startPage,endPage)" :class="i===curpage?'active':''"><a class="link" @click="pageChange(i)">{{i}}</a></li>
+				        <li v-if="endPage<totalpage"><a class="link" @click="next()">Next &raquo;</a></li>
+				    </ul>
+       			</div>
+            </div>
+      		<div id="dialog" title="헬스장 상세 보기" v-show="isShow">
+        		<detail_dialog  v-bind:gym_detail="gym_detail"></detail_dialog>
+      		</div>
+     	</div>
+	</div>
 <%--
    class A
    {
@@ -97,7 +93,7 @@ a.link:hover,img.img_click:hover{
      data(){
       return {
          gym_list:[],
-         fd:'마포',
+         fd:'강남',
          gym_detail:{},
          page_list:{},
          no:1,

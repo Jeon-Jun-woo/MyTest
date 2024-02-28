@@ -7,11 +7,17 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <script src="https://unpkg.com/vue@3"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <style type="text/css">
 a.link:hover,img.img_click:hover{
   cursor: pointer;
+}
+.heart-button {
+        background-color: transparent;
+        border: none;
+        padding: 0;
 }
 </style>
 </head>
@@ -52,8 +58,14 @@ a.link:hover,img.img_click:hover{
 	            	</tr>
 	            	<tr>
 	              		<td colspan="3" class="text-right inline">
-	                		<input type="button" class="btn-xs btn-success" value="찜하기">&nbsp;
-	                		<input type="button" class="btn-xs btn-info" value="예약">&nbsp;
+	                		<button v-if="!isLiked" @click="like" class="ml-4 flex items-center justify-center heart-button">
+				                <i class="fas fa-heart" style="color: gray; font-size: 24px;"></i>
+				                <span class="sr-only">찜</span>
+				            </button>
+				            <button v-else @click="unlike" class="ml-4 flex items-center justify-center heart-button">
+				                <i class="fas fa-heart" style="color: red; font-size: 24px;"></i>
+				                <span class="sr-only">찜</span>
+				            </button>
 	                		<input type="button" class="btn-xs btn-warning" value="목록" @click="goback()">
 	              		</td>
 	            	</tr>
@@ -65,6 +77,7 @@ a.link:hover,img.img_click:hover{
     	</div>
     	<div style="height: 20px"></div>
     	<table class="table">
+    		<h3>댓글 쓰기</h3>
      		<tr>
       			<td>
         			<table class="table" v-for="rvo in reply_list">
@@ -111,14 +124,18 @@ a.link:hover,img.img_click:hover{
 				  reply_list:[],
 				  sessionId:'${principal.username}', // 추가
 				  msg:'', // 추가
-				  u:0 // 추가
+				  u:0, // 추가,
+	              isLiked: false, // 찜하기 상태를 나타내는 변수,
+	              jjimno:${no}
 			  }
 		  },
 		  mounted(){
+			  this.checkJjimStatus();
 			  axios.get('../gym/gym_detail_vue.do',{
 				  params:{
 					  no:this.no
 				  }
+			  
 			  }).then(response=>{
 				  console.log(response.data)
 				  this.gym_detail=response.data.detail_data // .detail_data를 추가함
@@ -133,8 +150,61 @@ a.link:hover,img.img_click:hover{
 					  this.addScript()
 				  }
 			  })
+			  
 		  },
 		  methods:{
+			  checkJjimStatus() {
+	                axios.get('../gym_jjim_count_vue.do', {
+	                    params: {
+	                    	no: this.jjimno
+	                    }
+	                }).then(response => {
+	                    this.isLiked = response.data > 0;
+	                }).catch(error => {
+	                    console.error(error);
+	                });
+	            },
+	            like() {
+	                console.log('인서트의 no:', ${no}); // sno 값 출력
+	                axios.post('../gym_jjim_insert_vue.do',null, {
+	                	params:{
+	                		no: this.jjimno
+	                	}
+	                }).then(response => {
+	                	console.log(response.data)
+	                    if (response.data === 'yes') 
+	                    {
+	                    	alert("찜 목록에 추가되었습니다")
+	                        this.isLiked = true;
+	                    }
+	                    else
+	                    {
+	                    	alert("오류::찜 목록에 추가되지 못하였습니다")
+	                    }
+	                }).catch(error => {
+	                    console.error(error);
+	                });
+	            },
+	            unlike() {
+	                console.log('삭제하는 no:', ${no}); // sno 값 출력
+	                axios.post('../gym_jjim_delete_vue.do',null, {
+	                	params:{
+	                		no: this.jjimno
+	                	}
+	                }).then(response => {
+	                    if (response.data === 'yes') 
+	                    {
+	                    	alert("찜 목록에서 삭제되었습니다")
+	                        this.isLiked = false;
+	                    }
+	                    else
+	                    {
+	                    	alert("오류::찜 목록에서 삭제되지 못했습니다")
+	                    }
+	                }).catch(error => {
+	                    console.error(error);
+	                });
+	            },
 			  replyUpdate(no){
 				  
 		      	  let msg=$('#u_msg'+no).val()

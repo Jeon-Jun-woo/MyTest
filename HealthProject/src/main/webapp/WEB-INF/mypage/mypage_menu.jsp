@@ -22,7 +22,8 @@
                             <h4>Categories</h4>
                             <ul>
                                 <li><a href="#">회원관리</a></li>
-                                <li><a href="#">찜목록</a></li>
+                                <li><a href="../mypage/jjim.do">찜목록</a></li>
+                                <li><a href="../mypage/mypage.do">예약목록</a></li>
                             </ul>
                         </div>
                        <!--  <div class="recent-post">
