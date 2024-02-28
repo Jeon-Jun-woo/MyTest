@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://unpkg.com/vue@3"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
   <!-- Hero Section Begin -->
@@ -65,105 +67,62 @@
         </div> 
   </div>
     <!--  바로가기 종료 -->
-    
-    <!-- MBTI별 나에게 맞는 운동 -->
     <br><br><br><br><br>
-  	<div class="section-title text-center">
-    <h2><strong>MBTI별 나에게 맞는 운동</strong></h2>
-    <h3>✔이미지의 흰색 부분을 눌러주시면 페이지가 이동됩니다✔<br>
-    	  재미로만 즐겨주세요!</h3>
- `	</div>
-    
-   <div class="banner-section spad">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="single-banner">
-                    <a href="#"><img src="../img/INTJ.png" alt="1"></a>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="single-banner">
-                   <a href="#"><img src="../img/INTP.png" alt="2"></a>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="single-banner">
-                    <a href="#"><img src="../img/ENTJ.png" alt="3"></a>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="single-banner">
-                   <a href="#"><img src="../img/ENTP.png" alt="4"></a>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="single-banner">
-                    <a href="#"><img src="../img/INFJ.png" alt="5"></a>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="single-banner">
-                   <a href="#"><img src="../img/INFP.png" alt="6"></a>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="single-banner">
-                    <a href="#"><img src="../img/ENFJ.png" alt="7"></a>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="single-banner">
-                    <a href="#"><img src="../img/ENFP.png" alt="8"></a>
+    <div class="section-title text-center">
+    <h2><strong>SHOP</strong></h2>
+    <h3>이쁜옷과 영양제</h3>
+ 	</div>
+    <!-- Man Banner Section Begin -->
+    <section class="man-banner spad">
+        <div class="container-fluid">
+            <div class="row" id="ngoodsApp">
+                <div class="col-lg-8">
+                    <div class="filter-control">
+                        <ul>
+                            <li class="active">💊MD's PICK💊</li>
+                        </ul>
+                    </div>
+                    <div class="product-slider owl-carousel" >
+                        <div v-for="vo in goods_list" class="product-item">
+                            <div class="pi-pic">
+                                <img :src="vo.poster" style="height:200px;">
+                                <div class="sale">Sale</div>
+                                <div class="icon">
+                                    <i class="icon_heart_alt"></i>
+                                </div>
+                                <ul>
+                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="pi-text">
+                                <div class="catagory-name">Coat</div>
+                                <a href="#">
+                                    <h5>Pure Pineapple</h5>
+                                </a>
+                                <div class="product-price">
+                                    $14.00
+                                    <span>$35.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
                     </div>
                 </div>
-                    <div class="col-lg-3">
-                <div class="single-banner">
-                    <a href="#"><img src="../img/ISTJ.png" alt="9"></a>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="single-banner">
-                    <a href="#"><img src="../img/ISFJ.png" alt="10"></a>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="single-banner">
-                    <a href="#"><img src="../img/ESTJ.png" alt="11"></a>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="single-banner">
-                    <a href="#"><img src="../img/ESFJ.png" alt="12"></a>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="single-banner">
-                    <a href="#"><img src="../img/ISTP.png" alt="13"></a>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="single-banner">
-                    <a href="#"><img src="../img/ISFP.png" alt="14"></a>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="single-banner">
-                    <a href="#"><img src="../img/ESTP.png" alt="15"></a>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="single-banner">
-                    <a href="#"><img src="../img/ESFP.png" alt="16"></a>
+                <div class="col-lg-3 offset-lg-1">
+                    <div class="product-large set-bg m-large" data-setbg="../img/pills1.jpg">
+                        <h2>Pills</h2>
+                        <a href="#">More</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div> 
-
-    <!-- MBTI별 운동 추천 종료 -->
-    
-    <!-- Women Banner Section Begin -->
+    </section>
+    <!-- Man Banner Section End -->
+     <!-- Women Banner Section Begin -->
     <section class="women-banner spad">
         <div class="container-fluid">
             <div class="row">
@@ -277,120 +236,104 @@
            
         </div>
     </section>
-
-    <!-- Man Banner Section Begin -->
-    <section class="man-banner spad">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="filter-control">
-                        <ul>
-                            <li class="active">💊MD's PICK💊</li>
-                        </ul>
-                    </div>
-                    <div class="product-slider owl-carousel">
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="../img/products/man-1.jpg" alt="">
-                                <div class="sale">Sale</div>
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Coat</div>
-                                <a href="#">
-                                    <h5>Pure Pineapple</h5>
-                                </a>
-                                <div class="product-price">
-                                    $14.00
-                                    <span>$35.00</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="../img/products/man-2.jpg" alt="">
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Shoes</div>
-                                <a href="#">
-                                    <h5>Guangzhou sweater</h5>
-                                </a>
-                                <div class="product-price">
-                                    $13.00
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="../img/products/man-3.jpg" alt="">
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Towel</div>
-                                <a href="#">
-                                    <h5>Pure Pineapple</h5>
-                                </a>
-                                <div class="product-price">
-                                    $34.00
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="../img/products/man-4.jpg" alt="">
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="#">+ Quick View</a></li>
-                                    <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">Towel</div>
-                                <a href="#">
-                                    <h5>Converse Shoes</h5>
-                                </a>
-                                <div class="product-price">
-                                    $34.00
-                                </div>
-                            </div>
-                        </div>
+    <!-- MBTI별 나에게 맞는 운동 -->
+    <br><br><br><br><br>
+  	<div class="section-title text-center">
+    <h2><strong>MBTI별 나에게 맞는 운동</strong></h2>
+    <h3>✔이미지의 흰색 부분을 눌러주시면 페이지가 이동됩니다✔<br>
+    	  재미로만 즐겨주세요!</h3>
+ `	</div>
+    
+   <div class="banner-section spad">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="single-banner">
+                    <a href="#"><img src="../img/INTJ.png" alt="1"></a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="single-banner">
+                   <a href="#"><img src="../img/INTP.png" alt="2"></a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="single-banner">
+                    <a href="#"><img src="../img/ENTJ.png" alt="3"></a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="single-banner">
+                   <a href="#"><img src="../img/ENTP.png" alt="4"></a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="single-banner">
+                    <a href="#"><img src="../img/INFJ.png" alt="5"></a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="single-banner">
+                   <a href="#"><img src="../img/INFP.png" alt="6"></a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="single-banner">
+                    <a href="#"><img src="../img/ENFJ.png" alt="7"></a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="single-banner">
+                    <a href="#"><img src="../img/ENFP.png" alt="8"></a>
                     </div>
                 </div>
-                <div class="col-lg-3 offset-lg-1">
-                    <div class="product-large set-bg m-large" data-setbg="../img/pills1.jpg">
-                        <h2>Pills</h2>
-                        <a href="#">More</a>
-                    </div>
+                    <div class="col-lg-3">
+                <div class="single-banner">
+                    <a href="#"><img src="../img/ISTJ.png" alt="9"></a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="single-banner">
+                    <a href="#"><img src="../img/ISFJ.png" alt="10"></a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="single-banner">
+                    <a href="#"><img src="../img/ESTJ.png" alt="11"></a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="single-banner">
+                    <a href="#"><img src="../img/ESFJ.png" alt="12"></a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="single-banner">
+                    <a href="#"><img src="../img/ISTP.png" alt="13"></a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="single-banner">
+                    <a href="#"><img src="../img/ISFP.png" alt="14"></a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="single-banner">
+                    <a href="#"><img src="../img/ESTP.png" alt="15"></a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="single-banner">
+                    <a href="#"><img src="../img/ESFP.png" alt="16"></a>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Man Banner Section End -->
+    </div>
+</div> 
+
+    <!-- MBTI별 운동 추천 종료 -->
+    
+   
 
     <!-- 소모임 페이지 연결 -->
     <section class="latest-blog spad">
@@ -471,5 +414,24 @@
             
     </section>
     <!-- Latest Blog Section End -->
+    <script>
+    let gApp=Vue.createApp({
+    	 data(){
+    		 return{
+    			 goods_list:[]
+    		 }
+    	 },
+    	 mounted(){
+    		 axios.get('../main/mian.do')
+    		 .then(response=>{
+    			 console.log(response.date)
+    		 	 this.goods_list=response.data
+    		 })
+    	 },
+    	 methods:{
+    		 
+    	 }
+    }).mount('#ngoodsApp')
+    </script>
 </body>
 </html>

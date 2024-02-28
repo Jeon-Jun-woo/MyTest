@@ -194,6 +194,13 @@
                                 </sec:authorize>
                             </ul>
                         </li>
+                        <li><a href="#">STORE</a>
+                    	   <ul class="dropdown">
+                    	   <li><a href="#">영양제/보조제</a></li>
+                    		<li class="active"><a href="../wshop/wshop_list.do">우먼즈</a></li>
+                        	<li><a href="../mshop/mshop_list.do">맨즈</a></li>
+                         </ul>
+                       </li>
                         <li><a href="../somoim/list.do">Somoim</a>
                             <!-- <ul class="dropdown">
                                 <li><a href="#">모임 참가</a></li>
@@ -201,13 +208,7 @@
                                 <li><a href="#">커뮤니티</a></li>
                             </ul> -->
                             </li>
-                         <li><a href="#">STORE</a>
-                    	   <ul class="dropdown">
-                    		<li class="active"><a href="../wshop/wshop_list.do">우먼즈</a></li>
-                        	<li><a href="../mshop/mshop_list.do">맨즈</a></li>
-                         	<li><a href="#">영양제/보조제</a></li>
-                         </ul>
-                       </li>
+                         
                         <li><a href="#">Community</a>
                         	<ul class="dropdown">
                                 <li><a href="#">공지사항</a></li>
