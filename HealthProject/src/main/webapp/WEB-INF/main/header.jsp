@@ -93,6 +93,7 @@
                                 </a>
                               </c:if>
                             </li>   	
+                           <c:if test="${principal.username==null }">
                             <li class="cart-icon text-center">
                                 <a href="../member/join.do">
                                     <i class="icon_bag_alt"></i>
@@ -100,7 +101,8 @@
                                 <h6>회원가입</h6>
                                 </a>
                             </li>
-                            
+                           </c:if>
+                          <sec:authorize access="hasRole('ROLE_USER')">
                             <li class="cart-icon text-center">
                                 <a href="#">
                                     <i class="icon_bag_alt"></i>
@@ -148,10 +150,11 @@
                                     </div>
                                 </div>
                             </li>
-							<li class="cart-price text-center">
+							 <li class="cart-price text-center">
                             	<i class="fa fa-user"></i>
                             	<a href="../mypage/jjim.do"><h6>마이페이지</h6></a>
-                            </li>
+                            </li>  
+                          </sec:authorize>
                         </ul>
                     </div>
                 </div>
@@ -223,12 +226,27 @@
                             </ul>
                         </li>
                          <%-- <c:if test="${session.authority=='ROLE_ADMIN'}"> --%>
-                        <li><a href="#">관리자메뉴</a>
-                        	<ul class="dropdown">
-                                <li><a href="../admin/member.do">회원관리</a></li>
-                                <li><a href="./shopping-cart.html">게시판관리</a></li>
-                            </ul>
-                        </li>
+                        
+                        <sec:authorize access="hasRole('ROLE_USER')">
+                            <li><a href="#">마이페이지</a>
+	                        	<ul class="dropdown">
+	                                <li><a href="#">회원정보수정</a></li>
+	                                <li><a href="#">예약목록</a></li>
+	                                <li><a href="#">리뷰작성목록</a></li>
+	                                <li><a href="#">찜목록목록</a></li>
+	                                <li><a href="#">장바구니/구매</a></li>   
+	                            </ul>
+	                        </li>  	
+                        </sec:authorize>
+                        <sec:authorize access="hasRole('ROLE_ADMIN')">
+                            <li><a href="#">관리자페이지</a>
+	                        	<ul class="dropdown">
+	                                <li><a href="../admin/member.do">회원관리</a></li>
+	                                <li><a href="./shopping-cart.html">게시판관리</a></li>
+	                            </ul>
+	                        </li>  	
+                        </sec:authorize>
+                        
                         <%-- </c:if>  --%>
                     </ul>
                 </nav>
