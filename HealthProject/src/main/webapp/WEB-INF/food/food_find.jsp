@@ -27,9 +27,24 @@ a.link:hover,img.img_click:hover{
             <input type=text ref="fd" size=20 class="input-sm" v-model="fd" @keyup.enter="find()">
             <input type=button value="검색" class="btn-sm btn-primary" @click="find()">
           </header>
-          <ul class="nospace clear">
-            <li v-for="vo in food_list"><a :href="'../food/food_list_detail.do?fno='+vo.fno">{{vo.name}}</a></li>
-          </ul>
+          <table class="table">
+		  <thead>
+		    <tr>
+		      <th>음식명</th>
+		      <th>단위</th>
+		      <th>칼로리</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr v-for="vo in food_list" :key="vo.fno">
+		      <td>
+		        <a :href="'../food/food_list_detail.do?fno=' + vo.fno">{{ vo.name }}</a>
+		      </td>
+		      <td>{{vo.unit}}</td>
+		      <td>{{vo.cal}}</td>
+		    </tr>
+		  </tbody>
+		 </table>
         </figure>
       </div>
       <nav class="pagination">

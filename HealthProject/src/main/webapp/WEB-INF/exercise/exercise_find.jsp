@@ -27,9 +27,24 @@ a.link:hover,img.img_click:hover{
             <input type=text ref="fd" size=20 class="input-sm" v-model="ed" @keyup.enter="find()">
             <input type=button value="검색" class="btn-sm btn-primary" @click="find()">
           </header>
-          <ul class="nospace clear">
-            <li v-for="vo in exercise_list"><a :href="'../exercise/exercise_list_detail.do?eno='+vo.eno">{{vo.name}}</a></li>
-          </ul>
+          <table class="table">
+		  <thead>
+		    <tr>
+		      <th>운동명</th>
+		      <th>시간</th>
+		      <th>칼로리</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr v-for="vo in exercise_list" :key="vo.eno">
+		      <td>
+		        <a :href="'../exercise/exercise_list_detail.do?eno=' + vo.eno">{{ vo.name }}</a>
+		      </td>
+		      <td>{{vo.time}}분</td>
+		      <td>{{vo.cal}}</td>
+		    </tr>
+		  </tbody>
+		</table>
         </figure>
       </div>
       <nav class="pagination">

@@ -20,9 +20,9 @@ public interface ExerCalMapper {
 			 +"WHERE eno=#{eno}")
 	  public ExerCalVO exerDetailData(int eno);
 	
-	@Select("SELECT eno,name,cal,effects,num "
-			  +"FROM (SELECT eno,name,cal,effects,rownum as num "
-			  +"FROM (SELECT eno,name,cal,effects "
+	@Select("SELECT eno,name,cal,time,effects,num "
+			  +"FROM (SELECT eno,name,cal,time,effects,rownum as num "
+			  +"FROM (SELECT eno,name,cal,time,effects "
 			  +"FROM exercise_cal "
 			  +"WHERE name LIKE '%'||#{name}||'%' "
 			  +"ORDER BY eno ASC)) "
