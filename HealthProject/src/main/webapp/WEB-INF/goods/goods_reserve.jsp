@@ -191,7 +191,7 @@ let rApp=Vue.createApp({
 			}).then(response=>{
 				if(response.data==='yes')
 				{
-					location.href="../mypage/mypage.do"	
+					location.href="../mypage_y/mypage.do"	
 				}
 				else
 				{
