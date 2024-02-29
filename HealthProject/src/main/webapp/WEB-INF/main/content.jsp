@@ -34,37 +34,37 @@ a.link:hover,img.img_click:hover{
     <!-- 헬스 / 요가 / 센터 예약 바로가기 -->
   	<br><br><br><br><br>
   	<div class="section-title text-center">
-    <h2><strong>상담 예약 바로가기</strong></h2>
+    <h2><strong>내 주변 운동시설 찾기</strong></h2>
     <h3>나에게 맞는 운동으로 건강해져요 우리💪</h3>
  `	</div>
     
     <div class="banner-section spad">
        <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <div class="single-banner">
                         <img src="../img/photo1.jpg"  alt="헬스장">
                         <div class="inner-text">
-                           <a href="#"><h4>GYM</h4></a>
+                           <a href="../gym/gym_find.do"><h4>GYM</h4></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <div class="single-banner">
                         <img src="../img/photo2.jpg" alt="요가/필라테스">
                         <div class="inner-text">
-                            <a href="../reserve/reserve_main.do"><h4>YOGA/Pilates</h4></a>
+                            <a href="../yp/yp_find.do"><h4>YOGA/Pilates</h4></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+               <!--  <div class="col-lg-4">
                     <div class="single-banner">
                         <img src="../img/photo3.jpg" alt="스포츠센터">
                         <div class="inner-text">
                             <a href="#"><h4>SportsCenter</h4></a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div> 
   </div>
