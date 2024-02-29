@@ -78,7 +78,7 @@ $(function(){
                                     <a href="#" class="forget-pass">비밀번호 찾기</a>
                                 </div>
                             </div>
-                            <button type="submit" class="site-btn login-btn">몰라</button>
+                            <button type="submit" class="site-btn login-btn">로그인</button>
             
                         <div class="switch-login">
                             <table class="table">
