@@ -176,7 +176,7 @@
                          
                         <li><a href="#">Community</a>
                         	<ul class="dropdown">
-                                <li><a href="#">공지사항</a></li>
+                                <!-- <li><a href="#">공지사항</a></li> -->
                                 <li><a href="../board/list.do">자유게시판</a></li>
                             </ul>
                         </li>
