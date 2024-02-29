@@ -19,7 +19,8 @@ a.link:hover,img.img_click:hover{
 	<div class="container" id="findApp">
 		<div class="banner-section spad">
 			<div class="container-fluid">
-				<h2 class="sectiontitle">헬스장 찾기</h2>
+				<h2 class="sectiontitle"><strong>내 주변 헬스장</h2>
+				<h5 class="sectiontitle">검색으로 편하게 찾아보세요:)</h5>
 				<header class="heading inline">
 					<input type=text ref="fd" size=20 class="input-sm" v-model="fd" @keyup.enter="find()">
 					<input type=button value="검색" class="btn-sm btn-primary" @click="find()">
@@ -30,7 +31,7 @@ a.link:hover,img.img_click:hover{
 							<div class="thumbnail">
 								<img :src="vo.poster" style="width: 100%" @click="detail(vo.no)">
 								<div class="caption">
-									<p style="font-size: 8px">{{vo.title}}</p>
+									<p style="font-size: 15px">{{vo.title}}</p>
                             	</div>
                          	</div>
                         </a>

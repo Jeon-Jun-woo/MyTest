@@ -186,12 +186,10 @@ a.link:hover,img.img_click:hover{
                         <div class="latest-text">
                             <div class="tag-list">
                                 <div class="tag-item">
-                                    <i class="fa fa-calendar-o"></i>
-                                    Aug 17,2022
+                                    
                                 </div>
                                 <div class="tag-item">
-                                    <i class="fa fa-comment-o"></i>
-                                    8
+                                  
                                 </div>
                             </div>
                             <a href="http://localhost:8080/web/somoim/detail.do?sno=79">
@@ -207,12 +205,10 @@ a.link:hover,img.img_click:hover{
                         <div class="latest-text">
                             <div class="tag-list">
                                 <div class="tag-item">
-                                    <i class="fa fa-calendar-o"></i>
-                                    Nov 27,2023
+                                   
                                 </div>
                                 <div class="tag-item">
-                                    <i class="fa fa-comment-o"></i>
-                                    5
+                                  
                                 </div>
                             </div>
                             <a href="http://localhost:8080/web/somoim/detail.do?sno=10">
@@ -228,12 +224,10 @@ a.link:hover,img.img_click:hover{
                         <div class="latest-text">
                             <div class="tag-list">
                                 <div class="tag-item">
-                                    <i class="fa fa-calendar-o"></i>
-                                    Feb 28,2024
+                                    
                                 </div>
                                 <div class="tag-item">
-                                    <i class="fa fa-comment-o"></i>
-                                    3
+                                    
                                 </div>
                             </div>
                             <a href="http://localhost:8080/web/somoim/detail.do?sno=1">

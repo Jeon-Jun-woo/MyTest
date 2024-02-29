@@ -31,7 +31,7 @@ function connection()
 		$('#name').focus();
 		return;
 	}
-	websocket=new WebSocket("ws://localhost:8080/web/site/chat/chat-ws")
+	websocket=new WebSocket("ws://13.124.21.202/web/site/chat/chat-ws")
 	//												================= chatServer랑 같아야함
 	websocket.onopen=onOpen;
 	websocket.onclose=onClose;
