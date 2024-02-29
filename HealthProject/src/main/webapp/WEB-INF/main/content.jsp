@@ -34,7 +34,7 @@ a.link:hover,img.img_click:hover{
     <!-- 헬스 / 요가 / 센터 예약 바로가기 -->
   	<br><br><br><br><br>
   	<div class="section-title text-center">
-    <h2><strong>내 주변 운동시설 찾기</strong></h2>
+    <h2><strong>상담 예약 바로가기</strong></h2>
     <h3>나에게 맞는 운동으로 건강해져요 우리💪</h3>
  `	</div>
     
