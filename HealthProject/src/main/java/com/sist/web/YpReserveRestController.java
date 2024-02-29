@@ -21,15 +21,15 @@ public class YpReserveRestController {
    private MailManager mm;//MailManager mm=new MailManager()
    
    @GetMapping(value="reserve/yp_list_vue.do",produces = "text/plain;charset=UTF-8")
-   public String food_list(String type) throws Exception
+   public String yp_list(String type) throws Exception
    {
 	   List<SportsReserveVO> list=yService.sportsReserveData(type);
 	   ObjectMapper mapper=new ObjectMapper();
 	   String json=mapper.writeValueAsString(list);
 	   return json;
    }
-   @PostMapping(value="reserve/reserve_ok.do",produces = "text/plain;charset=UTF-8")
-   public String reserve_ok(YpReserveVO vo,HttpSession session)
+   @PostMapping(value="reserve/yp_reserve_ok.do",produces = "text/plain;charset=UTF-8")
+   public String yp_reserve_ok(YpReserveVO vo,HttpSession session)
    {
 	   String result="no";
 	   try {
@@ -48,8 +48,9 @@ public class YpReserveRestController {
 	   
 	   return result;
    }
-   @GetMapping(value="reserve/mypage_list_vue.do",produces = "text/plain;charset=UTF-8")
-   public String mypage_list(HttpSession session) throws Exception
+   
+   @GetMapping(value="reserve/yp_mypage_list_vue.do",produces = "text/plain;charset=UTF-8")
+   public String yp_mypage_list(HttpSession session) throws Exception
    {
 	   String userId=(String)session.getAttribute("userId");
 	   List<YpReserveVO> list=yService.reserveMypageData(userId);
@@ -57,7 +58,7 @@ public class YpReserveRestController {
 	   String json=mapper.writeValueAsString(list);
 	   return json;
    }
-   @GetMapping(value="reserve/reserve_cancel_vue.do",produces = "text/plain;charset=UTF-8")
+   @GetMapping(value="reserve/yp_reserve_cancel_vue.do",produces = "text/plain;charset=UTF-8")
    public String reserve_cancel(int rno)
    {
 	   String result="";
@@ -71,7 +72,7 @@ public class YpReserveRestController {
 	   }
 	   return result;
    }
-   @GetMapping(value="reserve/reserve_admin_vue.do",produces = "text/plain;charset=UTF-8")
+   @GetMapping(value="reserve/yp_reserve_admin_vue.do",produces = "text/plain;charset=UTF-8")
    public String reserve_admin() throws Exception
    {
 	   List<YpReserveVO> list=yService.reserveAdminpageData();
@@ -79,7 +80,9 @@ public class YpReserveRestController {
 	   String json=mapper.writeValueAsString(list);
 	   return json;
    }
-   @PostMapping(value="reserve/reserve_ok_vue.do",produces = "text/plain;charset=UTF-8")
+   
+   
+   @PostMapping(value="reserve/yp_reserve_ok_vue.do",produces = "text/plain;charset=UTF-8")
    public String reserve_ok(int rno)
    {
 	   System.out.println("rno="+rno);
@@ -89,11 +92,13 @@ public class YpReserveRestController {
 		   result="yes";
 		   yService.reserveOk(rno);
 		   YpReserveVO vo=yService.reserveInfoData(rno);
-			/* mm.mailReserveSender(vo); */
+			
 	   }catch(Exception ex)
 	   {
 		   result=ex.getMessage();
 	   }
-	   return result;
+	   return result;  
    }
+   
 }
+		   

@@ -160,7 +160,7 @@ let rApp=Vue.createApp({
 	},
 	methods:{
 		   reserveOk(){
-			 axios.post('../reserve/reserve_ok_vue.do',null,{
+			 axios.post('../reserve/yp_reserve_ok_vue.do',null,{
 				 params:{
 					 rno:this.no,
 					 rDate:this.currentYear+"년도 "+this.currentMonth+"월 "+this.currentDay,
