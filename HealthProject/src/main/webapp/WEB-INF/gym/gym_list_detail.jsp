@@ -58,14 +58,14 @@ a.link:hover,img.img_click:hover{
 	            	</tr>
 	            	<tr>
 	              		<td colspan="3" class="text-right inline">
-	                		<button v-if="!isLiked" @click="like" class="ml-4 flex items-center justify-center heart-button">
+	                		<!-- <button v-if="!isLiked" @click="like" class="ml-4 flex items-center justify-center heart-button">
 				                <i class="fas fa-heart" style="color: gray; font-size: 24px;"></i>
 				                <span class="sr-only">찜</span>
 				            </button>
 				            <button v-else @click="unlike" class="ml-4 flex items-center justify-center heart-button">
 				                <i class="fas fa-heart" style="color: red; font-size: 24px;"></i>
 				                <span class="sr-only">찜</span>
-				            </button>
+				            </button> -->
 	                		<input type="button" class="btn-xs btn-warning" value="목록" @click="goback()">
 	              		</td>
 	            	</tr>
