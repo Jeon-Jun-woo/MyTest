@@ -10,11 +10,11 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-	<div class="list" id="adminApp">
+	<div class="list" id="adminApp" style="margin-left: -30px;">
 		<div class="row">
 			<div class="col-lg-6 col-sm-6">
 				<table class="member_manager" style="border: 1px;padding: 1px;width: 1000px;">
-					<h3>예약현황</h3>
+					<h3 style="text-align: left;font-weight: bold;">헬스장 예약 현황</h3>
 					<tr>
          				<th>번호</th>
          				<th></th>

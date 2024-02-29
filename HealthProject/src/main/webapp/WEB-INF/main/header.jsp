@@ -171,8 +171,15 @@
                     	   <li><a href="../goods/goods_list.do">영양제/보조제</a></li>
                          </ul>
                        </li>
-                        <li><a href="../somoim/list.do">Somoim</a>
-                            </li>
+                       
+                       <c:if test="${principal.username!=null }">
+                        <li><a href="../somoim/list.do">Somoim</a></li>
+                       </c:if>  
+                       
+                       <c:if test="${principal.username==null }">
+                        <li><a href="../member/login.do">Somoim</a></li>
+                       </c:if>
+                          
                          
                         <li><a href="#">Community</a>
                         	<ul class="dropdown">
@@ -192,9 +199,9 @@
 	                        	<ul class="dropdown">
 	                                <li><a href="../member/update.do">회원정보수정</a></li>
 	                                <li><a href="../newmypage_y/mypage.do">약국예약목록</a></li>
-	                                <li><a href="../admin/admin.do">헬스장예약목록</a></li>
+	                                <li><a href="../mypage/mypage.do">헬스장예약목록</a></li>
 	                                <li><a href="../mypage/jjim.do">찜목록</a></li>
-	                                <li><a href="#">장바구니/구매</a></li>   
+	                                <li><a href="#">장바구니/구매</a></li>
 	                            </ul>
 	                        </li>  	
                         </sec:authorize> 
@@ -203,8 +210,8 @@
                             <li><a href="#">관리자페이지</a>
 	                        	<ul class="dropdown">
 	                                <li><a href="../admin/member.do">회원관리</a></li>
-	                                <li><a href="../adminpage_y/admin.do">약국예약현황</a></li>
-	                                <li><a href="./shopping-cart.html">게시판관리</a></li>
+	                                <li><a href="../adminpage_y/admin.do">약국 예약 현황</a></li>
+	                                <li><a href="../admin/admin.do">헬스장 예약 현황</a></li>
 	                                
 	                            </ul>
 	                        </li>  	

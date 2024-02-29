@@ -24,7 +24,8 @@
                             <h4>Categories</h4>
                             <ul>
                                 <li><a href="../admin/member.do">회원관리</a></li>
-                                <li><a href="../admin/admin.do">예약목록</a></li>
+                                <li><a href="../adminpage_y/admin.do">약국 예약 현황</a></li>
+                                <li><a href="../admin/admin.do">헬스장 예약 현황</a></li>
                             </ul>
                         </div>
                       <script type="text/javascript">

@@ -21,9 +21,10 @@
                         <div class="blog-catagory">
                             <h4>Categories</h4>
                             <ul>
-                                <li><a href="#">회원관리</a></li>
-                                <li><a href="../mypage/jjim.do">찜목록</a></li>
-                                <li><a href="../mypage/mypage.do">예약목록</a></li>
+                                <li><a href="../member/update.do">회원정보수정</a></li>
+                                <li><a href="../mypage/jjim.do">소모임 찜목록</a></li>
+                                <li><a href="../mypage/mypage.do">헬스장 예약목록</a></li>
+                                <li><a href="../newmypage_y/mypage.do">약국 예약목록</a></li>
                             </ul>
                         </div>
                        <!--  <div class="recent-post">

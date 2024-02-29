@@ -12,7 +12,7 @@
 
 </head>
 <body>
-  <div class="breacrumb-section">
+  <!-- <div class="breacrumb-section" style="margin-left: -100px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -23,10 +23,10 @@
                 </div>
             </div>
         </div>
-    </div>
-  <div class="wrapper row3" id="updateApp">
+    </div> -->
+  <div class="wrapper row3" id="updateApp" style="margin-left: -100px;">
     <main class="container clear">
-      <h2 class="sectiontitle">회원정보수정</h2>
+      <h3 style="text-align:left;font-weight: bold;">회원정보수정</h3>
       <table class="table">
        <tr>
         <th width=15% class="text-center">ID</th>

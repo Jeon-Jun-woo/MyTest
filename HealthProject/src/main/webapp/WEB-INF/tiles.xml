@@ -33,8 +33,12 @@
  	<put-attribute name="detail_menu" value="/WEB-INF/somoim/detail_menu2.jsp"/>
   	<put-attribute name="detail" value="/WEB-INF/somoim/{1}.jsp"/>
   </definition>
- <definition name="admin/*" extends="somoim_detail">
+ <definition name="admin/member" extends="somoim_detail">
     <put-attribute name="detail_menu" value="/WEB-INF/admin/admin_menu.jsp"/>
+  	<put-attribute name="detail" value="/WEB-INF/admin/member.jsp"/>
+  </definition>
+  <definition name="admin/*" extends="somoim_detail">
+    <put-attribute name="detail_menu" value="/WEB-INF/admin/admin_menu_nochart.jsp"/>
   	<put-attribute name="detail" value="/WEB-INF/admin/{1}.jsp"/>
   </definition>
   <definition name="mypage/*" extends="somoim_detail">

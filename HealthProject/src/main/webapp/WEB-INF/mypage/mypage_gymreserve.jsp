@@ -13,27 +13,27 @@
 	<!-- ########################################################## -->
 	<div class="list" id="mypageApp">
 		<div class="row">
-			<div class="col-lg-6 col-sm-6">
+			<div class="col-lg-6 col-sm-6" style="margin-left: -100px;">
 				<table class="member_manager" style="border: 1px;padding: 1px;width: 1000px;">
-					<h3>예약 관리</h3>
+					<h3 style="text-align:left;font-weight: bold;">헬스장 예약 목록</h3>
 					&nbsp;
 					<tr>
-						<td style="margin: 0px auto;">번호</td>
-         				<th></th>
-         				<th>업체명</th>
-         				<th>예약일</th>
-         				<th>예약시간</th>
-         				<th></th>
+						<td class="text-center" style="border-bottom: 1px solid lightgray; padding: 8px; border-top: 1px solid lightgray; ">번호</td>
+         				<th class="text-center" style="border-bottom: 1px solid lightgray; padding: 8px; border-top: 1px solid lightgray; "></th>
+         				<th class="text-center" style="border-bottom: 1px solid lightgray; padding: 8px; border-top: 1px solid lightgray; ">업체명</th>
+         				<th class="text-center" style="border-bottom: 1px solid lightgray; padding: 8px; border-top: 1px solid lightgray; ">예약일</th>
+         				<th class="text-center" style="border-bottom: 1px solid lightgray; padding: 8px; border-top: 1px solid lightgray; ">예약시간</th>
+         				<th class="text-center" style="border-bottom: 1px solid lightgray; padding: 8px;  border-top: 1px solid lightgray;"></th>
 					</tr>
 					<tr v-for="vo in reserve_list">
-          				<td>{{vo.rno}}</td>
-          				<td>
-           					<img :src="vo.gvo.poster" style="width: 30px;height: 30px">
+          				<td class="text-center" style="border-bottom: 1px solid lightgray; padding: 8px; ">{{vo.rno}}</td>
+          				<td class="text-center" style="border-bottom: 1px solid lightgray; padding: 8px; ">
+           					<img :src="vo.gvo.poster" style="width: 120px;height: 120px">
           				</td>
-          				<td>{{vo.gvo.title}}</td>
-          				<td>{{vo.rdate}}</td>
-          				<td>{{vo.rtime}}</td>
-          				<td>
+          				<td class="text-center" style="border-bottom: 1px solid lightgray; padding: 8px; ">{{vo.gvo.title}}</td>
+          				<td class="text-center" style="border-bottom: 1px solid lightgray; padding: 8px; ">{{vo.rdate}}</td>
+          				<td class="text-center" style="border-bottom: 1px solid lightgray; padding: 8px; ">{{vo.rtime}}</td>
+          				<td class="text-center" style="border-bottom: 1px solid lightgray; padding: 8px; ">
             				<span :class="vo.reserve_ok==1?'btn btn-xs btn-danger':'btn btn-xs btn-default'" v-text="vo.reserve_ok==0?'예약대기':'예약완료'"></span>
             				&nbsp;<span class="btn btn-xs btn-primary" @click="reserveCancel(vo.rno)">취소</span>
           				</td>
@@ -41,7 +41,10 @@
 				</table>
 			</div>
 		</div>
+		<div style="height: 40px;"></div>
 	</div>
+	
+	
 	<!-- ########################################################## -->
 	<!-- <div class="container" id="mypageApp">
 		<div class="banner-section spad">

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +14,9 @@ a.link:hover,img.img_click:hover{
 </style>
 </head>
 <body>
+<sec:authorize access="isAuthenticated()">
+	<sec:authentication property="principal" var="principal"/> <!-- 세션 -->
+</sec:authorize>
   <!-- Hero Section Begin -->
     <section class="hero-section">
         <div class="hero-items owl-carousel">
@@ -192,9 +197,14 @@ a.link:hover,img.img_click:hover{
                                   
                                 </div>
                             </div>
-                            <a href="http://localhost:8080/web/somoim/detail.do?sno=79">
+                            <c:if test="${principal.username!=null }">
+                            <a href="http://localhost:8080/web/somoim/detail.do?sno=79"></a>
+                            </c:if>
+                            <c:if test="${principal.username==null }">
+                            <a href="../member/login.do"></a>
+                            </c:if>
                                 <h4>액티비티와 콩표면 즐거울수밖에💭</h4>
-                            </a>
+                            
                             <p>계절스포츠나 사계절활동을 같이하며 함께 즐거움을 찾아요💓</p>
                         </div>
                     </div>
@@ -211,9 +221,14 @@ a.link:hover,img.img_click:hover{
                                   
                                 </div>
                             </div>
-                            <a href="http://localhost:8080/web/somoim/detail.do?sno=10">
+                            <c:if test="${principal.username!=null }">
+                            <a href="http://localhost:8080/web/somoim/detail.do?sno=10"></a>
+                             </c:if>
+                            <c:if test="${principal.username==null }">
+                            <a href="../member/login.do"></a>
+                            </c:if>
                                 <h4>플래시 클라이밍💭</h4>
-                            </a>
+                            
                             <p>플래시 크루는 신생 크루로 현재 서울숲클라이밍 종로 외 4지점에서 서울숲 위주로 운동을 하고 있습니다.</p>
                         </div>
                     </div>
@@ -230,15 +245,20 @@ a.link:hover,img.img_click:hover{
                                     
                                 </div>
                             </div>
-                            <a href="http://localhost:8080/web/somoim/detail.do?sno=1">
+                            <c:if test="${principal.username!=null }">
+                            <a href="http://localhost:8080/web/somoim/detail.do?sno=1"></a>
+                            </c:if>
+                            <c:if test="${principal.username==null }">
+                            <a href="../member/login.do"></a>
+                            </c:if>
                                 <h4>솔스티스피티스튜디오💭</h4>
-                            </a>
+                            
                             <p>오프라인에서 같이 운동모임도 하고 온라인에서 헬스&요가 운동정보, 운동인증, 식단 등을 공유하기 위해 클럽을 OPEN했습니다 :) </p>
                         </div>
                     </div>
                 </div>
             </div>
-            
+            </div>
     </section>
     <!-- Latest Blog Section End -->
 </body>

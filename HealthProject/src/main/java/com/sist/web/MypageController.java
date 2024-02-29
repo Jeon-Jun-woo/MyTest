@@ -15,7 +15,7 @@ public class MypageController {
 	@GetMapping("member/update.do")
     public String member_update()
     {
-    	return "member/update";
+    	return "mypage/update";
     }
 	
 	@GetMapping("mypage/mypage_menu.do")

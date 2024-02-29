@@ -20,13 +20,13 @@ public class ReserveyController {
 	@GetMapping("newmypage_y/mypage.do")
 	public String mypage_main()
 	{
-		return "newmypage/mypage_main";
+		return "mypage/mypage_main";
 	}
 	
 	@GetMapping("adminpage_y/admin.do")
 	public String adminpage_main()
 	{
-		return "newadminpage/admin_main";
+		return "admin/admin_main";
 	}
 	
 	

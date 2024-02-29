@@ -20,22 +20,22 @@ a.alink:hover{
                 <div class="row">
                         <div class="somoimjjimtable" style="margin-left: -100px;">
                             <table class="member_manager" style="border-collapse: collapse; width: 960px;">
-							    <h3 style="text-align:left;font-weight: bold;">찜 관리</h3>
+							    <h3 style="text-align:left;font-weight: bold;">찜 목록</h3>
 							    <tr>
-							        <th class="text-center" style="border-bottom: 1px solid black; padding: 8px; ">번호</th>
-							        <th class="text-center" style="border-bottom: 1px solid black; padding: 8px;">카테고리</th>
-							        <th class="text-center" style="border-bottom: 1px solid black; padding: 8px;"></th>
-							        <th class="text-center" style="border-bottom: 1px solid black; padding: 8px;">모임 이름</th>
-							        <th class="text-center" style="border-bottom: 1px solid black; padding: 8px;">호스트</th>
-							        <th class="text-center" style="border-bottom: 1px solid black; padding: 8px;">가입멤버</th>
+							        <th class="text-center" style="border-bottom: 1px solid lightgray; padding: 8px; border-top: 1px solid lightgray; ">번호</th>
+							        <th class="text-center" style="border-bottom: 1px solid lightgray; padding: 8px; border-top: 1px solid lightgray;">카테고리</th>
+							        <th class="text-center" style="border-bottom: 1px solid lightgray; padding: 8px; border-top: 1px solid lightgray;"></th>
+							        <th class="text-center" style="border-bottom: 1px solid lightgray; padding: 8px; border-top: 1px solid lightgray;">모임 이름</th>
+							        <th class="text-center" style="border-bottom: 1px solid lightgray; padding: 8px; border-top: 1px solid lightgray;">호스트</th>
+							        <th class="text-center" style="border-bottom: 1px solid lightgray; padding: 8px; border-top: 1px solid lightgray;">가입멤버</th>
 							    </tr>
 							    <tr v-for="(sjvo,index) in somoimJjim_list">
-							        <td class="text-center" style="border-bottom: 1px solid black; padding: 8px;">{{ index + 1 }}</td>
-							        <td class="text-center" style="border-bottom: 1px solid black; padding: 8px;">{{sjvo.typee}}</td>
-							        <td class="text-center" style="border-bottom: 1px solid black; padding: 8px;"><a :href="'../somoim/before_detail.do?sno='+sjvo.sno"><img :src="sjvo.poster" style="height: 120px; width: 120px;"></a></td>
-							        <td class="text-center" style="border-bottom: 1px solid black; padding: 8px;"><a :href="'../somoim/before_detail.do?sno='+sjvo.sno">{{sjvo.title}}</a></td>
-							        <td class="text-center" style="border-bottom: 1px solid black; padding: 8px;">{{sjvo.hostname}}</td>
-							        <td class="text-center" style="border-bottom: 1px solid black; padding: 8px;">{{sjvo.inwon}}</td>
+							        <td class="text-center" style="border-bottom: 1px solid lightgray; padding: 8px;">{{ index + 1 }}</td>
+							        <td class="text-center" style="border-bottom: 1px solid lightgray; padding: 8px;">{{sjvo.typee}}</td>
+							        <td class="text-center" style="border-bottom: 1px solid lightgray; padding: 8px;"><a :href="'../somoim/before_detail.do?sno='+sjvo.sno"><img :src="sjvo.poster" style="height: 120px; width: 120px;"></a></td>
+							        <td class="text-center" style="border-bottom: 1px solid lightgray; padding: 8px;"><a :href="'../somoim/before_detail.do?sno='+sjvo.sno">{{sjvo.title}}</a></td>
+							        <td class="text-center" style="border-bottom: 1px solid lightgray; padding: 8px;">{{sjvo.hostname}}</td>
+							        <td class="text-center" style="border-bottom: 1px solid lightgray; padding: 8px;">{{sjvo.inwon}}</td>
 							    </tr>
 							</table>
                             

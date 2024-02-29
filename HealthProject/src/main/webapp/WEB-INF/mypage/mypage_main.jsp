@@ -22,8 +22,8 @@
  --%>
 <body>
   <div class="wrapper row3" id="mypageApp">
-    <main class="container clear"> 
-      <h2 class="sectiontitle">약국 예약 목록</h2>
+    <main class="container clear" style="margin-left: -120px;"> 
+      <h3 class="sectiontitle" style="text-align:left;font-weight: bold;">약국 예약 목록</h3>
       <table class="table">
         <tr>
           <th>번호</th>

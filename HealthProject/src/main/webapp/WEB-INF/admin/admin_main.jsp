@@ -10,9 +10,9 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-  <div class="wrapper row3" id="adminApp">
+  <div class="wrapper row3" id="adminApp" style="margin-left: -40px;">
     <main class="container clear"> 
-      <h2 class="sectiontitle">약국 예약 현황</h2>
+      <h3 class="sectiontitle" style="text-align: left;font-weight: bold;">약국 예약 현황</h3>
       <table class="table">
         <tr>
           <th>번호</th>
