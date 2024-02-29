@@ -42,7 +42,7 @@ a.link:hover,img.img_click:hover{
 			</div>
 		</div>
 		<div>
-			<h3>최근 방문 맛집</h3>
+			<h3>최근 방문 헬스장</h3>
 	    	<span v-for="vo in cookie_list">
 	    		<a :href="'../gym/gym_list_detail.do?no='+vo.no">
 	    			<img :src="vo.poster" :title="vo.title" style="width: 100px; height: 100px; margin-left: 5px">

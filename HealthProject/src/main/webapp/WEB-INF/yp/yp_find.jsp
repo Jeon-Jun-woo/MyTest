@@ -20,47 +20,56 @@ a.link:hover,img.img_click:hover{
 </style>
 </head>
 <body>
-   <div class="container" id="findApp">
-      <div class="banner-section spad">
-           <div class="container-fluid">
-              <h2 class="sectiontitle"><strong>내 주변 요가/필라테스</h2>
+	<div class="container" id="findApp">
+		<div class="banner-section spad">
+			<div class="container-fluid">
+				<h2 class="sectiontitle"><strong>내 주변 요가/필라테스</h2>
               	<h5 class="sectiontitle">검색으로 편하게 찾아보세요:)</h5>
-                <header class="heading inline">
-                  <input type=text ref="fd" size=20 class="input-sm" v-model="fd" @keyup.enter="find()">
-                  <input type=button value="검색" class="btn-sm btn-primary" @click="find()">
-                </header>
+				<header class="heading inline">
+					<input type=text ref="fd" size=20 class="input-sm" v-model="fd" @keyup.enter="find()">
+					<input type=button value="검색" class="btn-sm btn-primary" @click="find()">
+				</header>
                 <div class="row">
-                   <div class="col-md-3" v-for="(vo, index) in yp_list">
-                      <a href="#">
-                         <div class="thumbnail">
-                            <img :src="vo.poster" style="width: 100%" @click="detail(vo.no)">
-                            <div class="caption">
-                               <p style="font-size: 15px">{{vo.title}}</p>
-                            </div>
-                         </div>
-                      </a>
-                   </div>
-                </div>
-             </div>
+					<div class="col-md-3" v-for="(vo, index) in yp_list">
+						<a href="#">
+							<div class="thumbnail">
+								<img :src="vo.poster" style="width: 100%" @click="detail(vo.no)">
+								<div class="caption">
+									<p style="font-size: 15px">{{vo.title}}</p>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div style="height: 20px"></div>
+       			<div class="text-center">
+					<ul class="pagination text-center">
+						<li v-if="startPage > 1"><a class="link" @click="prev()">&laquo; Previous</a></li>
+						<li v-for="i in range(startPage, endPage)" :class="i === curpage ? 'active' : ''">
+							<a class="link" @click="pageChange(i)">{{ i }}</a>
+						</li>
+						<li v-if="endPage < totalpage"><a class="link" @click="next()">Next &raquo;</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="dialog" title="상세 보기" v-show="isShow">
+				<detail_dialog  v-bind:yp_detail="yp_detail"></detail_dialog>
+			</div>
+		</div>
+	</div>
           <!-- <ul class="nospace clear">
             <li v-for="(vo,index) in gym_list" :class="index%4==0?'one_quarter first':'one_quarter'"><img class="img_click" :src="vo.poster" :title="vo.title" @click="detail(vo.no)"></li>
           </ul> -->
 
 
-      <ul class="pagination text-center">
+      <%-- <ul class="pagination text-center">
  		 <li v-if="startPage > 1"><a class="link" @click="prev()">&laquo; Previous</a></li>
   		 <li v-for="i in range(startPage, endPage)" :class="i === curpage ? 'active' : ''">
     	  <a class="link" @click="pageChange(i)">{{ i }}</a>
    	  </li>
   <li v-if="endPage < totalpage"><a class="link" @click="next()">Next &raquo;</a></li>
-    </ul>
-      <div id="dialog" title="상세 보기" v-show="isShow">
-        <detail_dialog  v-bind:yp_detail="yp_detail"></detail_dialog>
-      </div>
-     </div>
-    <div class="clear"></div>
-  </main>
-</div>
+    </ul> --%>
+
 <%--
    class A
    {
