@@ -111,7 +111,7 @@
                                
                             </li>
                             </sec:authorize>
-                           <%--  <sec:authorize access="hasRole('ROLE_USER')">
+                           <%-- <sec:authorize access="hasRole('ROLE_USER')">
 							 <li class="cart-price text-center">
                             	<i class="fa fa-user"></i>
                             	<a href="../mypage/jjim.do"><h6>마이페이지</h6></a>
@@ -176,7 +176,7 @@
                          
                         <li><a href="#">Community</a>
                         	<ul class="dropdown">
-                                <!-- <li><a href="#">공지사항</a></li> -->
+                                <li><a href="#">공지사항</a></li>
                                 <li><a href="../board/list.do">자유게시판</a></li>
                             </ul>
                         </li>
@@ -192,6 +192,7 @@
 	                        	<ul class="dropdown">
 	                                <li><a href="../member/update.do">회원정보수정</a></li>
 	                                <li><a href="../newmypage_y/mypage.do">약국예약목록</a></li>
+	                                <li><a href="../admin/admin.do">헬스장예약목록</a></li>
 	                                <li><a href="../mypage/jjim.do">찜목록</a></li>
 	                                <li><a href="#">장바구니/구매</a></li>   
 	                            </ul>

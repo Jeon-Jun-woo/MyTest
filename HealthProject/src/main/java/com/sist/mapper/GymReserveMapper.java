@@ -43,7 +43,7 @@ public interface GymReserveMapper {
 		@Result(column = "title", property = "gvo.title"),
 		@Result(column = "poster", property = "gvo.poster")
 	})
-	@Select("SELECT rno, gr.no, title, poster, rDate, rTime, "
+	@Select("SELECT rno, gr.no, title, poster, rDate, rTime, userId,"
 			+ "reserve_ok, TO_CHAR(regdate, 'YYYY-MM-DD HH24:MI:SS') as dbday "
 			+ "FROM gymReserve gr, gym g "
 			+ "WHERE gr.no=g.no "
